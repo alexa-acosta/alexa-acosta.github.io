@@ -68,28 +68,22 @@
 
       <div class="project-grid bottom-row">
         
-        <a href="#" class="project-card small-card" data-project="forkcast">
+        <a href="#" class="project-card" data-project="forkcast">
           <div class="image-placeholder"></div>
-          <div class="card-text">
-            <h4>ForkCast</h4>
-            <p class="project-description">Body text for whatever you'd like to say about ForkCast.</p>
-          </div>
+          <h4>ForkCast</h4>
+          <p class="project-description">Body text for whatever you'd like to say about ForkCast.</p>
         </a>
 
-        <a href="#" class="project-card small-card" data-project="smartfit">
+        <a href="#" class="project-card" data-project="smartfit">
           <div class="image-placeholder"></div>
-          <div class="card-text">
-            <h4>SmartFit</h4>
-            <p class="project-description">Body text for whatever you'd like to say about SmartFit.</p>
-          </div>
+          <h4>SmartFit</h4>
+          <p class="project-description">Body text for whatever you'd like to say about SmartFit.</p>
         </a>
         
-        <a href="#" class="project-card small-card" data-project="gator-girls">
+        <a href="#" class="project-card" data-project="gator-girls">
           <div class="image-placeholder"></div>
-          <div class="card-text">
-            <h4>Gator Girls Design</h4>
-            <p class="project-description">Body text for whatever you'd like to say about Gator Girls Design.</p>
-          </div>
+          <h4>Gator Girls Design</h4>
+          <p class="project-description">Body text for whatever you'd like to say about Gator Girls Design.</p>
         </a>
       </div>
     </section>
@@ -106,46 +100,9 @@
 
   </main>
 
-  <footer class="footer-grid">
-    <div class="footer-social">
-      <a href="#top" class="logo-icon large"><i class="fa-solid fa-b"></i></a>
-      <div class="social-links">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-      </div>
-    </div>
-
-    <div class="footer-column">
-      <h4>Projects</h4>
-      <ul>
-        <li><a href="#projects">Blue Ridge Predictor</a></li>
-        <li><a href="#projects">Matchbook</a></li>
-        <li><a href="#projects">Bloomville</a></li>
-        <li><a href="#projects">ForkCast</a></li>
-        <li><a href="#projects">SmartFit</a></li>
-        <li><a href="#projects">Gator Girls Design</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-column">
-      <h4>Explore</h4>
-      <ul>
-        <li><a href="#top">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-column">
-      <h4>Contact</h4>
-      <ul>
-        <li>Email</li>
-        <li>Github</li>
-        <li>LinkedIn</li>
-        <li>Phone Number</li>
-      </ul>
+  <footer>
+    <div class="container simple-footer">
+        <p>Alexa Acosta | Last Updated: October 16th, 2025</p>
     </div>
   </footer>
 
@@ -166,7 +123,7 @@
   </div>
 
   <script>
-    // Simple JavaScript to handle the modal open/close functionality
+    // Simple JavaScript to handle the modal open/close functionality (Unchanged)
     const modal = document.getElementById('project-modal');
     const closeBtn = document.querySelector('.close-btn');
     const projectCards = document.querySelectorAll('.project-card');
@@ -174,7 +131,7 @@
     const modalText = document.getElementById('modal-text');
     const modalCta = document.querySelector('.modal-cta');
 
-    // Project data map (You can expand this with actual content and links)
+    // Project data map (Used to populate the modal)
     const projectData = {
       'blue-ridge': { 
         title: 'Blue Ridge Predictor', 
@@ -210,7 +167,7 @@
 
     projectCards.forEach(card => {
       card.addEventListener('click', function(e) {
-        e.preventDefault(); // Stop the link from navigating
+        e.preventDefault(); 
         
         const projectKey = this.getAttribute('data-project');
         const data = projectData[projectKey];
@@ -220,6 +177,8 @@
           modalText.textContent = data.description;
           modalCta.href = data.link;
           modal.style.display = 'block';
+          // Add a class to the body to prevent scrolling when the modal is open
+          document.body.classList.add('modal-open'); 
         }
       });
     });
@@ -227,12 +186,14 @@
     // Close the modal when the user clicks on (x)
     closeBtn.addEventListener('click', function() {
       modal.style.display = 'none';
+      document.body.classList.remove('modal-open');
     });
 
     // Close the modal when the user clicks anywhere outside of it
     window.addEventListener('click', function(event) {
       if (event.target === modal) {
         modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
       }
     });
   </script>

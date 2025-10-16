@@ -8,9 +8,16 @@
   --color-accent: #e5b89c;
 }
 
-/* Enable smooth scrolling for single-page navigation */
+/* FIX 1: Smooth Scroll 
+   This property makes the jump between sections transition smoothly.
+*/
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; 
+}
+
+/* Prevents background scrolling when modal is active */
+body.modal-open {
+    overflow: hidden; 
 }
 
 body {
@@ -177,18 +184,15 @@ nav {
   margin-bottom: 2rem;
 }
 
-/* TOP ROW: 3 equal columns (min 250px) */
-.top-row {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-/* BOTTOM ROW: 3 equal columns (now matching the top row format) */
+/* FIX 2: Both rows now use the same 3-column layout */
+.top-row,
 .bottom-row {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .project-card {
-  display: block;
+  display: flex; /* Use flex to control image and text layout */
+  flex-direction: column; /* Stack image and text vertically */
   background: var(--color-light);
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -196,6 +200,7 @@ nav {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   color: var(--color-text-heading);
+  text-decoration: none; /* Ensure link styling is clean */
 }
 
 .project-card:hover {
@@ -205,11 +210,10 @@ nav {
 
 .image-placeholder {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1 / 1; /* New square image format as per inspiration image */
   background-color: var(--color-grey-bg);
   border-radius: 6px;
   margin-bottom: 1rem;
-  /* Centralize text inside placeholder */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -228,55 +232,53 @@ nav {
   color: var(--color-text-body);
 }
 
-/* Small card format for the bottom row (Adjusted for 3 columns) */
-.small-card {
-  display: flex;
-  flex-direction: column; /* Changed from row for better fit in 3-col grid */
-  text-align: left;
-  padding: 1.5rem;
-  height: 100%;
+
+/* --- SIMPLE FOOTER STYLES --- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--color-light);
+  border-top: 1px solid #eeeeee;
+  margin-top: 3rem;
 }
 
-.small-card .image-placeholder {
-  /* Resetting the image placeholder to use the standard 16/9 aspect ratio */
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  margin-right: 0;
-  margin-bottom: 1rem;
+.simple-footer p {
+    font-size: 0.9rem;
+    color: var(--color-text-body);
+    margin: 0;
 }
 
-.small-card .card-text {
-    /* Ensures text fills space */
-    width: 100%;
-}
-
-.small-card h4 {
-  margin-top: 0;
-}
 
 /* --- MODAL (POP-UP) STYLES --- */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 200; /* Sit on top */
+  display: none; 
+  position: fixed; /* FIX 3: Ensures modal stays centered on the viewport */
+  z-index: 200;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+  overflow-y: auto; /* Allows scrolling inside modal if content is long */
+  background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
   backdrop-filter: blur(5px);
 }
 
 .modal-content {
   background-color: var(--color-light);
-  margin: 10% auto; /* 10% from the top and centered */
+  /* Center modal vertically and horizontally */
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  
   padding: 30px;
   border-radius: 12px;
   width: 90%; 
   max-width: 900px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
   position: relative;
+  max-height: 90vh; /* Limits modal height on tall screens */
+  overflow-y: auto;
 }
 
 .modal-flex {
@@ -345,8 +347,24 @@ nav {
 }
 
 @media (max-width: 768px) {
-  /* ... (Previous mobile styles remain) ... */
+  .logo-icon {
+    position: static;
+  }
   
+  nav {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  /* About Section Mobile */
   .about-flex {
     flex-direction: column;
     text-align: center;
@@ -356,20 +374,9 @@ nav {
       margin: 0 auto 2rem;
   }
 
-  /* Force bottom row to standard card style for mobile */
-  .small-card {
-    flex-direction: column;
-    text-align: left;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .footer-social {
-    grid-column: 1 / -1;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
+  /* Project Grid Mobile */
+  .top-row,
+  .bottom-row {
+    grid-template-columns: 1fr; /* Stack cards vertically on small screens */
   }
 }
