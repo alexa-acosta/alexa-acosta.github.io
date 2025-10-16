@@ -230,13 +230,14 @@ nav {
   color: var(--color-text-body);
 }
 
-/* --- TECH TAG STYLING --- */
+/* --- TECH TAG STYLING (FIXED) --- */
 .tech-tags {
     margin-bottom: 1rem;
     margin-top: 0.5rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    /* This gap ensures separation between tags */
+    gap: 0.5rem; 
 }
 
 .tech-tag {
@@ -248,6 +249,82 @@ nav {
     border-radius: 4px;
     font-weight: 500;
     white-space: nowrap;
+    /* Added minimal border for definition */
+    border: 1px solid #e0e0e0; 
+}
+
+
+/* --- EXPERIENCE SECTION STYLING --- */
+.experience-section {
+    padding: 4rem 1.5rem;
+}
+
+.experience-category {
+    margin-bottom: 3rem;
+    /* Left border for visual separation of categories */
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1.5rem;
+}
+
+.experience-category h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 1.5rem;
+    padding-left: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.experience-item {
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    /* Dotted line to separate individual roles */
+    border-bottom: 1px dashed #e0e0e0;
+}
+.experience-item:last-child {
+    border-bottom: none;
+}
+
+.title-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.experience-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin: 0;
+}
+
+.experience-item .date {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-body);
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.experience-item ul {
+    list-style: disc;
+    padding-left: 25px;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.experience-item li {
+    font-size: 1rem;
+    color: var(--color-text-heading);
+    margin-bottom: 0.4rem;
+}
+
+.role-detail {
+    font-style: italic;
+    color: var(--color-text-body);
+    margin: 0;
 }
 
 
@@ -395,5 +472,13 @@ footer {
   .top-row,
   .bottom-row {
     grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+  }
+  
+  .title-flex {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  .experience-item .date {
+      margin-top: 0.25rem;
   }
 }
