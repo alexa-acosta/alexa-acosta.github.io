@@ -176,17 +176,17 @@ nav {
   position: relative;
 }
 
-.profile-pic-placeholder {
+/* NEW/UPDATED: Profile picture styling to handle <img> tag */
+.profile-pic {
   width: 250px;
   height: 250px;
-  background-color: var(--color-accent);
+  /* Use object-fit and border-radius for image styling */
+  object-fit: cover;
   border-radius: 50%;
   border: 10px solid var(--color-accent);
   box-shadow: 0 0 0 10px var(--color-light);
-  background-image: url('placeholder-face.jpg');
-  background-size: cover;
-  background-position: center;
 }
+
 
 .about-text p {
   font-size: 1.1rem;
@@ -248,9 +248,10 @@ nav {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-.image-placeholder {
+/* Placeholder element for projects without images */
+.project-image-placeholder {
   width: 100%;
-  aspect-ratio: 1 / 1; 
+  aspect-ratio: 16 / 9;
   background-color: var(--color-grey-bg);
   border-radius: 6px;
   margin-bottom: 1rem;
@@ -261,24 +262,28 @@ nav {
   font-size: 0.8rem;
 }
 
+/* Styling for the actual images within the project cards */
+.project-card img.project-image {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
 .project-card h4 {
   font-size: 1.2rem;
   font-weight: 600;
   margin-top: 0.5rem;
 }
 
-.project-description {
-  font-size: 0.9rem;
-  color: var(--color-text-body);
-}
-
-/* --- TECH TAG STYLING (FIXED) --- */
+/* --- TECH TAG STYLING --- */
 .tech-tags {
     margin-bottom: 1rem;
     margin-top: 0.5rem;
     display: flex;
     flex-wrap: wrap;
-    /* This gap ensures separation between tags */
     gap: 0.5rem; 
 }
 
@@ -291,7 +296,6 @@ nav {
     border-radius: 4px;
     font-weight: 500;
     white-space: nowrap;
-    /* Added minimal border for definition */
     border: 1px solid #e0e0e0; 
 }
 
@@ -370,7 +374,7 @@ nav {
 }
 
 
-/* --- CONTACT SECTION STYLING (NEW) --- */
+/* --- CONTACT SECTION STYLING (UPDATED) --- */
 .contact-section {
     padding: 4rem 1.5rem 8rem;
     text-align: center;
@@ -383,6 +387,14 @@ nav {
     margin-top: 3rem;
 }
 
+/* UPDATED: Style for better spacing/centering on all screens */
+.center-contact-links {
+    max-width: 700px; 
+    margin: 3rem auto 0; 
+    gap: 2.5rem; /* Increased spacing between buttons on desktop */
+}
+
+
 .contact-button {
     display: flex;
     align-items: center;
@@ -394,10 +406,6 @@ nav {
     font-size: 1rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact-button i {
-    font-size: 1.2rem;
 }
 
 .contact-button:hover {
@@ -437,7 +445,7 @@ footer {
 /* --- MODAL (POP-UP) STYLES --- */
 .modal {
   display: none; 
-  position: fixed; /* Ensures modal stays centered on the viewport */
+  position: fixed; 
   z-index: 200;
   left: 0;
   top: 0;
@@ -462,7 +470,7 @@ footer {
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
   position: relative;
   max-height: 90vh; 
-  overflow-y: auto; /* Allows content *inside* the modal to scroll if the description is very long */
+  overflow-y: auto; 
 }
 
 .modal-flex {
@@ -554,7 +562,7 @@ footer {
     text-align: center;
   }
   
-  .profile-pic-placeholder {
+  .profile-pic { /* Use the new class name */
       margin: 0 auto 2rem;
   }
 
@@ -572,10 +580,10 @@ footer {
       margin-top: 0.25rem;
   }
 
-  /* Contact Links Mobile */
+  /* Contact Links Mobile (Stacked and Centered) */
   .contact-links {
       flex-direction: column;
-      gap: 1rem;
+      gap: 1rem; /* Adjusting gap for stacked links on mobile */
   }
   .contact-button {
       width: 100%;
