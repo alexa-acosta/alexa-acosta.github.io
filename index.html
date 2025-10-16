@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alexa Acosta | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJ/AHv08JIN32C/HnAD3Xl3kM4j8a0J+Q6Bw0h5O1E5NlGj5sW8D/Bv0u6t5t+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJ/AHv08JIN32C/HnAD3Xl3kM4j8a0J+Q6Bw0h5O1E5NlGj5sW8D/Bv0u6t5t+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <header>
     <nav class="container">
+      <!-- 'B' Logo (or an icon) -->
       <a href="#top" class="logo-icon"><i class="fa-solid fa-b"></i></a>
       <ul class="nav-links">
         <li><a href="#about">About Me</a></li>
@@ -21,6 +23,7 @@
   </header>
 
   <main>
+    <!-- Hero Section -->
     <section id="top" class="hero container">
       <div class="hero-content">
         <h1>Alexa Acosta</h1>
@@ -28,6 +31,7 @@
       </div>
     </section>
     
+    <!-- About Me Section -->
     <section id="about" class="about-section container">
         <h2 class="section-heading">ABOUT</h2>
         <div class="about-flex">
@@ -41,58 +45,81 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects" class="projects-section container">
       <h2>Projects</h2>
       <p class="university-affiliation">University of Florida</p>
       
+      <!-- Top Row of Projects (3 equal columns - Uniform Card Format) -->
       <div class="project-grid top-row">
         
+        <!-- Project 1 (P1): Blue Ridge Predictor -->
         <a href="#" class="project-card" data-project="blue-ridge">
           <div class="image-placeholder"></div>
-          <h4>Blue Ridge Predictor</h4>
-          <p class="project-description">Body text for whatever you'd like to say about Blue Ridge Predictor.</p>
+          <h4>Blue Ridge Predictor Module</h4>
+          <!-- Updated Tech Stack for Blue Ridge Predictor -->
+          <div class="tech-tags" data-tags="React,JavaScript,APIs,CSS"></div>
+          <p class="project-description">Developed and optimized the frontend user interface for a key project module, creating a responsive interface with dynamic visual charts that effectively communicated complex data and improved user engagement.</p>
         </a>
 
+        <!-- Project 2 (P2): Matchbook -->
         <a href="#" class="project-card" data-project="matchbook">
           <div class="image-placeholder"></div>
-          <h4>Matchbook</h4>
-          <p class="project-description">Body text for whatever you'd like to say about Matchbook.</p>
+          <h4>MatchBook</h4>
+          <!-- Updated Tech Stack for MatchBook -->
+          <div class="tech-tags" data-tags="React Native,Expo-Go,MongoDB,Figma,Node.js"></div>
+          <p class="project-description">Developed a dating-style mobile app to connect college students with compatible study partners using React Native/Expo-Go. Designed a user-friendly interface in Figma for profile creation and student matching.</p>
         </a>
 
+        <!-- Project 3 (P3): Bloomville / Mapped to EasyMeal -->
         <a href="#" class="project-card" data-project="bloomville">
           <div class="image-placeholder"></div>
-          <h4>Bloomville</h4>
-          <p class="project-description">Body text for whatever you'd like to say about Bloomville, the new project.</p>
+          <h4>EasyMeal: Recipe Generator App</h4>
+          <!-- Updated Tech Stack for EasyMeal -->
+          <div class="tech-tags" data-tags="React,Tailwind CSS,Firebase,Spoonacular API,Node.js"></div>
+          <p class="project-description">Engineered a recipe app generating personalized meals from user-provided ingredients, focused on reducing food waste and saving time for students. Integrated Firebase and the Spoonacular API.</p>
         </a>
       </div>
 
+      <!-- Bottom Row of Projects (3 equal columns - Uniform Card Format) -->
       <div class="project-grid bottom-row">
         
+        <!-- Project 4 (P4): ForkCast (Keeping as a placeholder for consistency) -->
         <a href="#" class="project-card" data-project="forkcast">
           <div class="image-placeholder"></div>
-          <h4>ForkCast</h4>
-          <p class="project-description">Body text for whatever you'd like to say about ForkCast.</p>
+          <h4>ForkCast (Design Prototype)</h4>
+          <!-- Placeholder Tech Stack for ForkCast -->
+          <div class="tech-tags" data-tags="Figma,Prototyping,Design Thinking"></div>
+          <p class="project-description">This is a design-focused project showcasing user research and high-fidelity prototyping skills. It demonstrates the ability to translate user needs into a viable, intuitive application flow.</p>
         </a>
 
+        <!-- Project 5 (P5): SmartFit -->
         <a href="#" class="project-card" data-project="smartfit">
           <div class="image-placeholder"></div>
-          <h4>SmartFit</h4>
-          <p class="project-description">Body text for whatever you'd like to say about SmartFit.</p>
+          <h4>SmartFit: Fashion App</h4>
+          <!-- Updated Tech Stack for SmartFit -->
+          <div class="tech-tags" data-tags="React,Tailwind CSS,PostgreSQL,Node.js,Agile,Jira"></div>
+          <p class="project-description">Developed a gamified wardrobe management platform with outfit logging, history tracking, and streak-based rewards, increasing user engagement. Built core features in React/Tailwind, collaborating in an Agile team.</p>
         </a>
         
+        <!-- Project 6 (P6): Gator Girls Design -->
         <a href="#" class="project-card" data-project="gator-girls">
           <div class="image-placeholder"></div>
-          <h4>Gator Girls Design</h4>
-          <p class="project-description">Body text for whatever you'd like to say about Gator Girls Design.</p>
+          <h4>Gator Girls Guide</h4>
+          <!-- Updated Tech Stack for Gator Girls Guide -->
+          <div class="tech-tags" data-tags="HTML,CSS,JavaScript,Hackathon"></div>
+          <p class="project-description">Engineered a responsive website for the WingHacks Hackathon, providing UF women with consolidated health, wellness, and news resources. Structured with HTML, styled with CSS, and added interactivity with JavaScript.</p>
         </a>
       </div>
     </section>
     
+    <!-- Experience Section Placeholder -->
     <section id="experience" class="placeholder-section container">
         <h2 class="section-heading" style="padding: 5rem 0 2rem;">EXPERIENCE</h2>
         <div style="height: 300px; background-color: var(--color-grey-bg); border-radius: 8px;"></div>
     </section>
     
+    <!-- Contact Section Placeholder -->
     <section id="contact" class="placeholder-section container">
         <h2 class="section-heading" style="padding: 5rem 0 2rem;">CONTACT</h2>
         <div style="height: 200px; background-color: var(--color-grey-bg); border-radius: 8px; margin-bottom: 5rem;"></div>
@@ -100,12 +127,14 @@
 
   </main>
 
+  <!-- Simplified Footer -->
   <footer>
     <div class="container simple-footer">
         <p>Alexa Acosta | Last Updated: October 16th, 2025</p>
     </div>
   </footer>
 
+  <!-- PROJECT MODAL POP-UP STRUCTURE -->
   <div id="project-modal" class="modal">
     <div class="modal-content">
       <span class="close-btn">&times;</span>
@@ -123,45 +152,65 @@
   </div>
 
   <script>
-    // Simple JavaScript to handle the modal open/close functionality (Unchanged)
+    // Simple JavaScript to handle the modal open/close functionality
     const modal = document.getElementById('project-modal');
     const closeBtn = document.querySelector('.close-btn');
     const projectCards = document.querySelectorAll('.project-card');
     const modalTitle = document.getElementById('modal-title');
     const modalText = document.getElementById('modal-text');
     const modalCta = document.querySelector('.modal-cta');
+    const techTagsContainers = document.querySelectorAll('.tech-tags');
+    
+    // Function to generate the HTML tags
+    function createTechTags(container) {
+        const tagsString = container.getAttribute('data-tags');
+        if (tagsString) {
+            const tagsArray = tagsString.split(',');
+            container.innerHTML = tagsArray.map(tag => `<span class="tech-tag">${tag.trim()}</span>`).join('');
+        }
+    }
 
-    // Project data map (Used to populate the modal)
+    // Initialize tags on load
+    techTagsContainers.forEach(createTechTags);
+
+
+    // Project data map (Used to populate the modal with full descriptions)
     const projectData = {
-      'blue-ridge': { 
-        title: 'Blue Ridge Predictor', 
-        description: 'This is the comprehensive description for Blue Ridge Predictor, focusing on its key challenge, solution, and impact in detail.', 
-        link: 'blue-ridge-case-study.html' 
-      },
-      'matchbook': { 
-        title: 'Matchbook', 
-        description: 'This is the comprehensive description for Matchbook, detailing the user research, design process, and final prototype.', 
-        link: 'matchbook-case-study.html' 
-      },
-      'bloomville': { 
-        title: 'Bloomville', 
-        description: 'This is the comprehensive description for Bloomville, outlining the user experience design and visual brand identity.', 
-        link: 'bloomville-case-study.html' 
-      },
-      'forkcast': { 
-        title: 'ForkCast', 
-        description: 'This is the comprehensive description for ForkCast, covering the mobile application design and accessibility focus.', 
-        link: 'forkcast-case-study.html' 
-      },
+      // SmartFit: Fashion App
       'smartfit': { 
-        title: 'SmartFit', 
-        description: 'This is the comprehensive description for SmartFit, detailing the responsive web design and interaction patterns.', 
+        title: 'SmartFit: Fashion App', 
+        description: 'Developed a gamified wardrobe management platform with outfit logging, history tracking, and streak-based rewards, increasing user engagement with personal style data. Built the outfit builder, CRUD wardrobe items, and category filters in React/Tailwind, collaborating in an Agile team using Jira, GitHub, and Docker for consistent development workflows.', 
         link: 'smartfit-case-study.html' 
       },
+      // EasyMeal: Recipe Generator App (Mapped to Bloomville key)
+      'bloomville': { 
+        title: 'EasyMeal: Recipe Generator App', 
+        description: 'Engineered a recipe app generating personalized meals from user-provided ingredients, reducing food waste and saving time for students. Integrated Firebase authentication/database and Spoonacular API with a responsive React/Tailwind interface, consolidating meal planning into a single, accessible platform.', 
+        link: 'easymeal-case-study.html' 
+      },
+      // Blue Ridge Predictor Module — Snap Metrics
+      'blue-ridge': { 
+        title: 'Blue Ridge Predictor Module', 
+        description: 'Developed and optimized the frontend user interface for the Blue Ridge project using React, JavaScript, and CSS, creating a responsive interface with dynamic visual charts that effectively communicated complex data and improved user engagement. Created and maintained APIs to efficiently fetch and manage data, enabling real-time updates and seamless backend-frontend communication.', 
+        link: 'blue-ridge-case-study.html' 
+      },
+      // Gator Girls Guide – WingHacks Hackathon Project
       'gator-girls': { 
-        title: 'Gator Girls Design', 
-        description: 'This is the comprehensive description for Gator Girls Design, explaining the mentorship platform UI/UX.', 
+        title: 'Gator Girls Guide', 
+        description: 'Engineered a responsive website providing UF women with health, wellness, and news resources by structuring with HTML, styling with CSS, and adding interactivity with JavaScript. Consolidated multiple UF resources into a single platform, streamlining access and increasing ease of use by an estimated 30%, as reflected in positive hackathon feedback.', 
         link: 'gator-girls-case-study.html' 
+      },
+      // MatchBook
+      'matchbook': { 
+        title: 'MatchBook', 
+        description: 'Developed a dating-style mobile app to connect college students with compatible study partners using React Native and Expo-Go for cross-platform deployment. Designed a user-friendly interface using Figma for profile creation, study preferences, and matching students based on similarities.', 
+        link: 'matchbook-case-study.html' 
+      },
+      // ForkCast (Placeholder for remaining key)
+      'forkcast': { 
+        title: 'ForkCast (Design Prototype)', 
+        description: 'This is a dedicated design prototype showcasing strong foundational skills in user research, wireframing, and high-fidelity mockups. It serves as an example of translating complex user requirements into a functional, intuitive product interface.', 
+        link: 'forkcast-case-study.html' 
       },
     };
 
@@ -177,7 +226,7 @@
           modalText.textContent = data.description;
           modalCta.href = data.link;
           modal.style.display = 'block';
-          // Add a class to the body to prevent scrolling when the modal is open
+          // Fix: Prevent main page scroll when modal is open
           document.body.classList.add('modal-open'); 
         }
       });

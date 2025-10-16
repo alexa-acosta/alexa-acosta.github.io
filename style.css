@@ -8,16 +8,15 @@
   --color-accent: #e5b89c;
 }
 
-/* FIX 1: Smooth Scroll 
-   This property makes the jump between sections transition smoothly.
-*/
+/* FIX: Smooth Scroll */
 html {
   scroll-behavior: smooth; 
 }
 
-/* Prevents background scrolling when modal is active */
+/* FIX: Prevents scrollbar from appearing when modal is active, ensuring the page content doesn't shift */
 body.modal-open {
     overflow: hidden; 
+    padding-right: 15px; /* Compensate for scrollbar width if needed for alignment */
 }
 
 body {
@@ -160,7 +159,7 @@ nav {
   font-weight: 600;
 }
 
-/* --- PROJECTS SECTION STYLES --- */
+/* --- PROJECTS SECTION STYLES (Uniform Card Look) --- */
 .projects-section {
   padding: 4rem 1.5rem;
 }
@@ -184,15 +183,14 @@ nav {
   margin-bottom: 2rem;
 }
 
-/* FIX 2: Both rows now use the same 3-column layout */
 .top-row,
 .bottom-row {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .project-card {
-  display: flex; /* Use flex to control image and text layout */
-  flex-direction: column; /* Stack image and text vertically */
+  display: flex; 
+  flex-direction: column; 
   background: var(--color-light);
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -200,7 +198,7 @@ nav {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   color: var(--color-text-heading);
-  text-decoration: none; /* Ensure link styling is clean */
+  text-decoration: none;
 }
 
 .project-card:hover {
@@ -210,7 +208,7 @@ nav {
 
 .image-placeholder {
   width: 100%;
-  aspect-ratio: 1 / 1; /* New square image format as per inspiration image */
+  aspect-ratio: 1 / 1; 
   background-color: var(--color-grey-bg);
   border-radius: 6px;
   margin-bottom: 1rem;
@@ -232,13 +230,33 @@ nav {
   color: var(--color-text-body);
 }
 
+/* --- TECH TAG STYLING --- */
+.tech-tags {
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    color: var(--color-dark);
+    background-color: var(--color-grey-bg);
+    border-radius: 4px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
 
 /* --- SIMPLE FOOTER STYLES --- */
 footer {
   text-align: center;
   padding: 2rem;
   background: var(--color-light);
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid #eeeeee; /* The separator line */
   margin-top: 3rem;
 }
 
@@ -252,14 +270,13 @@ footer {
 /* --- MODAL (POP-UP) STYLES --- */
 .modal {
   display: none; 
-  position: fixed; /* FIX 3: Ensures modal stays centered on the viewport */
+  position: fixed; /* Ensures modal stays centered on the viewport */
   z-index: 200;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow-y: auto; /* Allows scrolling inside modal if content is long */
-  background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
+  background-color: rgba(0, 0, 0, 0.7); 
   backdrop-filter: blur(5px);
 }
 
@@ -277,8 +294,8 @@ footer {
   max-width: 900px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
   position: relative;
-  max-height: 90vh; /* Limits modal height on tall screens */
-  overflow-y: auto;
+  max-height: 90vh; 
+  overflow-y: auto; /* Allows content *inside* the modal to scroll if the description is very long */
 }
 
 .modal-flex {
