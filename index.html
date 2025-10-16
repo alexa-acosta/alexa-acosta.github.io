@@ -3,46 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alexa Acosta | UI/UX Designer</title>
+  <title>Alexa Acosta | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJ/AHv08JIN32C/HnAD3Xl3kM4j8a0J+Q6Bw0h5O1E5NlGj5sW8D/Bv0u6t5t+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <header>
-    <nav>
-      <h1 class="logo">Alexa Acosta</h1>
+    <nav class="container">
+      <a href="#" class="logo-icon"><i class="fa-solid fa-b"></i></a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <h2>Hi, I’m Alexa 👋</h2>
-    <p>I’m a UI/UX designer passionate about creating human-centered, accessible digital experiences.</p>
-    <a href="projects.html" class="cta">View My Work</a>
-  </section>
-
-  <section class="featured-projects">
-    <h3>Featured Projects</h3>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="images/project1.png" alt="Project 1 preview" />
-        <h4>Project One</h4>
-        <p>Mobile app redesign focused on accessibility and clarity.</p>
+  <main>
+    <section class="hero container">
+      <div class="hero-content">
+        <h1>Alexa Acosta</h1>
+        <p class="subtitle">Portfolio</p>
       </div>
-      <div class="project-card">
-        <img src="images/project2.png" alt="Project 2 preview" />
-        <h4>Project Two</h4>
-        <p>Landing page concept with interactive prototypes in Figma.</p>
+    </section>
+
+    <section id="projects" class="projects-section container">
+      <h2>Projects</h2>
+      <p class="university-affiliation">University of Florida</p>
+      
+      <div class="project-grid top-row">
+        <div class="project-card">
+          <div class="image-placeholder"></div>
+          <h4>Matchbook</h4>
+          <p class="project-description">Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="image-placeholder"></div>
+          <h4>SmartFit</h4>
+          <p class="project-description">Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="image-placeholder"></div>
+          <h4>ForkCast</h4>
+          <p class="project-description">Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.</p>
+        </div>
+      </div>
+
+      <div class="project-grid bottom-row">
+        <div class="project-card small-card">
+          <div class="image-placeholder"></div>
+          <div class="card-text">
+            <h4>Blue Ridge Predictor</h4>
+            <p class="project-description">Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.</p>
+          </div>
+        </div>
+
+        <div class="project-card small-card">
+          <div class="image-placeholder"></div>
+          <div class="card-text">
+            <h4>Gator Girls Guide</h4>
+            <p class="project-description">Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-grid">
+    <div class="footer-social">
+      <a href="#" class="logo-icon large"><i class="fa-solid fa-b"></i></a>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
-  </section>
 
-  <footer>
-    <p>© 2025 Alexa Acosta | <a href="mailto:youremail@example.com">Email me</a></p>
+    <div class="footer-column">
+      <h4>Projects</h4>
+      <ul>
+        <li><a href="#">ForkCast</a></li>
+        <li><a href="#">SmartFit</a></li>
+        <li><a href="#">Blue Ridge Predictor</a></li>
+        <li><a href="#">Gator Girls Guide</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Me</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Experience</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Contact</h4>
+      <ul>
+        <li>Email</li>
+        <li>Github</li>
+        <li>LinkedIn</li>
+        <li>Phone Number</li>
+      </ul>
+    </div>
   </footer>
 </body>
 </html>
