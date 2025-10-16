@@ -1,11 +1,16 @@
 /* Base Styles & Typography */
 :root {
-  --color-dark: #1f1f1f; /* Near black */
-  --color-light: #ffffff; /* White */
-  --color-grey-bg: #f5f5f7; /* Light background grey */
-  --color-text-body: #6b6b6b; /* Soft body text grey */
-  --color-text-heading: #333333; /* Darker heading text */
-  --color-accent-purple: #9b59b6; /* Placeholder for a potential accent */
+  --color-dark: #1f1f1f;
+  --color-light: #ffffff;
+  --color-grey-bg: #f5f5f7;
+  --color-text-body: #6b6b6b;
+  --color-text-heading: #333333;
+  --color-accent: #e5b89c;
+}
+
+/* Enable smooth scrolling for single-page navigation */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -41,12 +46,15 @@ a:hover {
 /* Header/Navigation */
 header {
   background: var(--color-light);
-  border-bottom: 1px solid #eeeeee; /* Light separator line */
+  border-bottom: 1px solid #eeeeee;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 nav {
   display: flex;
-  justify-content: flex-end; /* Links on the right */
+  justify-content: flex-end;
   align-items: center;
   padding: 1rem 0;
 }
@@ -54,7 +62,7 @@ nav {
 .logo-icon {
   font-size: 1.5rem;
   font-weight: bold;
-  position: absolute; /* Position the logo on the left */
+  position: absolute;
   left: 1.5rem;
   top: 1rem;
 }
@@ -78,13 +86,8 @@ nav {
 
 /* Hero Section */
 .hero {
-  padding: 8rem 1.5rem 2rem; /* Larger top padding to match image */
+  padding: 8rem 1.5rem 2rem;
   text-align: center;
-}
-
-.hero-content {
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 .hero h1 {
@@ -100,7 +103,57 @@ nav {
   color: var(--color-text-body);
 }
 
-/* Projects Section */
+/* --- ABOUT ME SECTION STYLES --- */
+.about-section {
+  padding: 6rem 1.5rem;
+  background: var(--color-light);
+}
+
+.section-heading {
+  color: var(--color-dark);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  letter-spacing: 0.1em;
+}
+
+.about-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
+.image-wrapper {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.profile-pic-placeholder {
+  width: 250px;
+  height: 250px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  border: 10px solid var(--color-accent);
+  box-shadow: 0 0 0 10px var(--color-light);
+  background-image: url('placeholder-face.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-text-heading);
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+.about-text .highlight {
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
+/* --- PROJECTS SECTION STYLES --- */
 .projects-section {
   padding: 4rem 1.5rem;
 }
@@ -124,23 +177,25 @@ nav {
   margin-bottom: 2rem;
 }
 
-/* Top Row - 3 equal columns */
+/* TOP ROW: 3 equal columns (min 250px) */
 .top-row {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-/* Bottom Row - 2 equal columns for the smaller card style */
+/* BOTTOM ROW: 3 equal columns (now matching the top row format) */
 .bottom-row {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .project-card {
+  display: block;
   background: var(--color-light);
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: var(--color-text-heading);
 }
 
 .project-card:hover {
@@ -150,15 +205,22 @@ nav {
 
 .image-placeholder {
   width: 100%;
-  aspect-ratio: 16 / 9; /* For the top row's large image area */
+  aspect-ratio: 16 / 9;
   background-color: var(--color-grey-bg);
   border-radius: 6px;
   margin-bottom: 1rem;
+  /* Centralize text inside placeholder */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text-body);
+  font-size: 0.8rem;
 }
 
 .project-card h4 {
   font-size: 1.2rem;
   font-weight: 600;
+  margin-top: 0.5rem;
 }
 
 .project-description {
@@ -166,110 +228,148 @@ nav {
   color: var(--color-text-body);
 }
 
-/* Styles for the smaller project cards (bottom row) */
+/* Small card format for the bottom row (Adjusted for 3 columns) */
 .small-card {
   display: flex;
+  flex-direction: column; /* Changed from row for better fit in 3-col grid */
   text-align: left;
   padding: 1.5rem;
+  height: 100%;
 }
 
 .small-card .image-placeholder {
-  width: 100px;
-  min-width: 100px; /* Keep it fixed width */
-  aspect-ratio: 1 / 1; /* Square image for these cards */
-  margin-right: 1.5rem;
-  margin-bottom: 0;
+  /* Resetting the image placeholder to use the standard 16/9 aspect ratio */
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-right: 0;
+  margin-bottom: 1rem;
+}
+
+.small-card .card-text {
+    /* Ensures text fills space */
+    width: 100%;
 }
 
 .small-card h4 {
   margin-top: 0;
 }
 
-/* Footer */
-footer {
-  background: var(--color-light);
-  border-top: 1px solid #eeeeee;
-  padding: 3rem 1.5rem;
+/* --- MODAL (POP-UP) STYLES --- */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 200; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+  backdrop-filter: blur(5px);
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.5fr repeat(3, 1fr); /* Social column wider */
+.modal-content {
+  background-color: var(--color-light);
+  margin: 10% auto; /* 10% from the top and centered */
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%; 
+  max-width: 900px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal-flex {
+  display: flex;
   gap: 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  align-items: flex-start;
 }
 
-.footer-social .logo-icon.large {
-  font-size: 2rem;
-  position: static;
-  margin-bottom: 1rem;
+.modal-description {
+  flex: 1;
 }
 
-.social-links a {
-  font-size: 1.25rem;
-  margin-right: 1rem;
-  color: var(--color-text-body);
-}
-
-.footer-column h4 {
+.modal-image-placeholder {
+  flex: 1;
+  min-height: 400px;
+  background-color: var(--color-grey-bg);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-column li {
-  font-size: 0.9rem;
-  color: var(--color-text-body);
-  margin-bottom: 0.5rem;
-}
-
-.footer-column li a {
   color: var(--color-text-body);
 }
+
+.modal-cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-dark);
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+}
+.modal-cta:hover {
+    background: var(--color-text-heading);
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: var(--color-dark);
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
-  .logo-icon {
-    position: static;
+@media (max-width: 900px) {
+  .modal-flex {
+    flex-direction: column;
   }
   
-  nav {
-    justify-content: space-between;
-    align-items: center;
+  .modal-image-placeholder {
+    min-height: 250px;
   }
+}
 
-  .nav-links {
-    gap: 1rem;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
-  }
-
-  .footer-social {
-    grid-column: 1 / -1; /* Full width for social on mobile */
-    border-bottom: 1px solid #eee;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .small-card {
+@media (max-width: 768px) {
+  /* ... (Previous mobile styles remain) ... */
+  
+  .about-flex {
     flex-direction: column;
     text-align: center;
   }
+  
+  .profile-pic-placeholder {
+      margin: 0 auto 2rem;
+  }
 
-  .small-card .image-placeholder {
-    margin: 0 auto 1rem;
+  /* Force bottom row to standard card style for mobile */
+  .small-card {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-social {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
   }
 }

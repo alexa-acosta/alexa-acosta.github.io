@@ -10,10 +10,10 @@
 <body>
   <header>
     <nav class="container">
-      <a href="#" class="logo-icon"><i class="fa-solid fa-b"></i></a>
+      <a href="#top" class="logo-icon"><i class="fa-solid fa-b"></i></a>
       <ul class="nav-links">
-        <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -21,11 +21,24 @@
   </header>
 
   <main>
-    <section class="hero container">
+    <section id="top" class="hero container">
       <div class="hero-content">
         <h1>Alexa Acosta</h1>
         <p class="subtitle">Portfolio</p>
       </div>
+    </section>
+    
+    <section id="about" class="about-section container">
+        <h2 class="section-heading">ABOUT</h2>
+        <div class="about-flex">
+          <div class="image-wrapper">
+            <div class="profile-pic-placeholder"></div>
+          </div>
+          <div class="about-text">
+            <p>My name is <span class="highlight">Alexa</span>- I'm an ambitious, goal-oriented, <span class="highlight">2nd-year undergraduate student</span> at the University of Florida.</p>
+            <p>I strive to use my coding knowledge to make a <span class="highlight">social impact</span>, with a specific interest in protecting design and <span class="highlight">digital infrastructure</span>. I gravitate towards activities involving <span class="highlight">STEM education & mentorship</span>, specifically for women & the youth. I'm aligning my career with <span class="highlight">artificial intelligence in the cybersecurity domain</span> with an AI Certification and in <span class="highlight">UI/UX design</span> with my Digital Arts & Sciences Minor.</p>
+          </div>
+        </div>
     </section>
 
     <section id="projects" class="projects-section container">
@@ -33,48 +46,69 @@
       <p class="university-affiliation">University of Florida</p>
       
       <div class="project-grid top-row">
-        <div class="project-card">
+        
+        <a href="#" class="project-card" data-project="blue-ridge">
+          <div class="image-placeholder"></div>
+          <h4>Blue Ridge Predictor</h4>
+          <p class="project-description">Body text for whatever you'd like to say about Blue Ridge Predictor.</p>
+        </a>
+
+        <a href="#" class="project-card" data-project="matchbook">
           <div class="image-placeholder"></div>
           <h4>Matchbook</h4>
-          <p class="project-description">Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.</p>
-        </div>
+          <p class="project-description">Body text for whatever you'd like to say about Matchbook.</p>
+        </a>
 
-        <div class="project-card">
+        <a href="#" class="project-card" data-project="bloomville">
           <div class="image-placeholder"></div>
-          <h4>SmartFit</h4>
-          <p class="project-description">Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.</p>
-        </div>
-
-        <div class="project-card">
-          <div class="image-placeholder"></div>
-          <h4>ForkCast</h4>
-          <p class="project-description">Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.</p>
-        </div>
+          <h4>Bloomville</h4>
+          <p class="project-description">Body text for whatever you'd like to say about Bloomville, the new project.</p>
+        </a>
       </div>
 
       <div class="project-grid bottom-row">
-        <div class="project-card small-card">
+        
+        <a href="#" class="project-card small-card" data-project="forkcast">
           <div class="image-placeholder"></div>
           <div class="card-text">
-            <h4>Blue Ridge Predictor</h4>
-            <p class="project-description">Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.</p>
+            <h4>ForkCast</h4>
+            <p class="project-description">Body text for whatever you'd like to say about ForkCast.</p>
           </div>
-        </div>
+        </a>
 
-        <div class="project-card small-card">
+        <a href="#" class="project-card small-card" data-project="smartfit">
           <div class="image-placeholder"></div>
           <div class="card-text">
-            <h4>Gator Girls Guide</h4>
-            <p class="project-description">Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story.</p>
+            <h4>SmartFit</h4>
+            <p class="project-description">Body text for whatever you'd like to say about SmartFit.</p>
           </div>
-        </div>
+        </a>
+        
+        <a href="#" class="project-card small-card" data-project="gator-girls">
+          <div class="image-placeholder"></div>
+          <div class="card-text">
+            <h4>Gator Girls Design</h4>
+            <p class="project-description">Body text for whatever you'd like to say about Gator Girls Design.</p>
+          </div>
+        </a>
       </div>
     </section>
+    
+    <section id="experience" class="placeholder-section container">
+        <h2 class="section-heading" style="padding: 5rem 0 2rem;">EXPERIENCE</h2>
+        <div style="height: 300px; background-color: var(--color-grey-bg); border-radius: 8px;"></div>
+    </section>
+    
+    <section id="contact" class="placeholder-section container">
+        <h2 class="section-heading" style="padding: 5rem 0 2rem;">CONTACT</h2>
+        <div style="height: 200px; background-color: var(--color-grey-bg); border-radius: 8px; margin-bottom: 5rem;"></div>
+    </section>
+
   </main>
 
   <footer class="footer-grid">
     <div class="footer-social">
-      <a href="#" class="logo-icon large"><i class="fa-solid fa-b"></i></a>
+      <a href="#top" class="logo-icon large"><i class="fa-solid fa-b"></i></a>
       <div class="social-links">
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -84,21 +118,23 @@
     <div class="footer-column">
       <h4>Projects</h4>
       <ul>
-        <li><a href="#">ForkCast</a></li>
-        <li><a href="#">SmartFit</a></li>
-        <li><a href="#">Blue Ridge Predictor</a></li>
-        <li><a href="#">Gator Girls Guide</a></li>
+        <li><a href="#projects">Blue Ridge Predictor</a></li>
+        <li><a href="#projects">Matchbook</a></li>
+        <li><a href="#projects">Bloomville</a></li>
+        <li><a href="#projects">ForkCast</a></li>
+        <li><a href="#projects">SmartFit</a></li>
+        <li><a href="#projects">Gator Girls Design</a></li>
       </ul>
     </div>
 
     <div class="footer-column">
       <h4>Explore</h4>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Me</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Experience</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
 
@@ -112,5 +148,93 @@
       </ul>
     </div>
   </footer>
+
+  <div id="project-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div class="modal-flex">
+        <div class="modal-description">
+          <h3 id="modal-title">Project Title</h3>
+          <p id="modal-text">This is the full project description that will appear in the pop-up.</p>
+          <a href="#" class="modal-cta">View Full Case Study &rarr;</a>
+        </div>
+        <div class="modal-image-placeholder">
+          <p>Image/Prototype Preview</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple JavaScript to handle the modal open/close functionality
+    const modal = document.getElementById('project-modal');
+    const closeBtn = document.querySelector('.close-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    const modalTitle = document.getElementById('modal-title');
+    const modalText = document.getElementById('modal-text');
+    const modalCta = document.querySelector('.modal-cta');
+
+    // Project data map (You can expand this with actual content and links)
+    const projectData = {
+      'blue-ridge': { 
+        title: 'Blue Ridge Predictor', 
+        description: 'This is the comprehensive description for Blue Ridge Predictor, focusing on its key challenge, solution, and impact in detail.', 
+        link: 'blue-ridge-case-study.html' 
+      },
+      'matchbook': { 
+        title: 'Matchbook', 
+        description: 'This is the comprehensive description for Matchbook, detailing the user research, design process, and final prototype.', 
+        link: 'matchbook-case-study.html' 
+      },
+      'bloomville': { 
+        title: 'Bloomville', 
+        description: 'This is the comprehensive description for Bloomville, outlining the user experience design and visual brand identity.', 
+        link: 'bloomville-case-study.html' 
+      },
+      'forkcast': { 
+        title: 'ForkCast', 
+        description: 'This is the comprehensive description for ForkCast, covering the mobile application design and accessibility focus.', 
+        link: 'forkcast-case-study.html' 
+      },
+      'smartfit': { 
+        title: 'SmartFit', 
+        description: 'This is the comprehensive description for SmartFit, detailing the responsive web design and interaction patterns.', 
+        link: 'smartfit-case-study.html' 
+      },
+      'gator-girls': { 
+        title: 'Gator Girls Design', 
+        description: 'This is the comprehensive description for Gator Girls Design, explaining the mentorship platform UI/UX.', 
+        link: 'gator-girls-case-study.html' 
+      },
+    };
+
+    projectCards.forEach(card => {
+      card.addEventListener('click', function(e) {
+        e.preventDefault(); // Stop the link from navigating
+        
+        const projectKey = this.getAttribute('data-project');
+        const data = projectData[projectKey];
+
+        if (data) {
+          modalTitle.textContent = data.title;
+          modalText.textContent = data.description;
+          modalCta.href = data.link;
+          modal.style.display = 'block';
+        }
+      });
+    });
+
+    // Close the modal when the user clicks on (x)
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+
+    // Close the modal when the user clicks anywhere outside of it
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
