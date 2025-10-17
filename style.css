@@ -122,7 +122,7 @@ nav {
   color: var(--color-soft-pink); /* Icons hover uses soft pink */
 }
 
-/* --- Hero Section --- */
+/* --- Hero Section (FULL-WIDTH GRADIENT) --- */
 .hero {
   /* FIX: Adjusted padding for desired vertical size and content spacing */
   padding: 8rem 1.5rem 6rem; /* Increased bottom padding to stretch it slightly more */
@@ -203,29 +203,20 @@ nav {
 }
 
 
-/* --- ABOUT ME SECTION STYLES --- */
+/* --- ABOUT ME SECTION STYLES (FULL-WIDTH GRADIENT) --- */
 .about-section {
   /* FIX: Only vertical padding for full-width background stretch */
   padding: 6rem 0;
-  background: var(--color-light-peach);
+  /* UPDATED: Use a linear gradient for the full-width background, similar to the hero */
+  background: linear-gradient(135deg, var(--color-soft-pink) 0%, var(--color-light-peach) 100%);
+  opacity: 0.9; /* Soften the background slightly */
   position: relative;
   overflow: hidden;
 }
 
-/* Background shape for About Section */
+/* UPDATED: Remove the pseudo-element for About section */
 .about-section::before {
-  content: '';
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background-color: var(--color-soft-pink);
-  border-radius: 50%;
-  top: 50%;
-  left: -150px;
-  transform: translateY(-50%);
-  opacity: 0.5;
-  filter: blur(100px);
-  z-index: 0;
+  content: none; 
 }
 
 .section-heading {
@@ -283,29 +274,20 @@ nav {
   font-weight: 600;
 }
 
-/* --- PROJECTS SECTION STYLING (Increased Image Height) --- */
+/* --- PROJECTS SECTION STYLING (FULL-WIDTH GRADIENT) --- */
 .projects-section {
   /* FIX: Only vertical padding for full-width background stretch */
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
-  /* FIX: Background is now white (formerly pale cream) */
-  background: var(--color-light);
+  /* UPDATED: Use a linear gradient for the full-width background, similar to the hero */
+  background: linear-gradient(135deg, var(--color-soft-pink) 0%, var(--color-light-peach) 100%);
+  opacity: 0.9; /* Soften the background slightly */
 }
 
-/* Background shape for Projects Section */
+/* UPDATED: Remove the pseudo-element for Projects section */
 .projects-section::before {
-  content: '';
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background-color: var(--color-light-peach);
-  border-radius: 50%;
-  bottom: -100px;
-  right: -100px;
-  opacity: 0.5;
-  filter: blur(100px);
-  z-index: 0;
+  content: none;
 }
 
 .projects-section .container {
@@ -506,12 +488,14 @@ nav {
 }
 
 
-/* --- CONTACT SECTION STYLING (FULL WIDTH & TOUCHES FOOTER) --- */
+/* --- CONTACT SECTION STYLING (FULL-WIDTH GRADIENT) --- */
 .contact-section {
   /* FIX: Only vertical padding for full-width background stretch */
   padding: 4rem 0;
   text-align: center;
-  background: var(--color-light-peach);
+  /* UPDATED: Use a linear gradient for the full-width background, similar to the hero */
+  background: linear-gradient(135deg, var(--color-soft-pink) 0%, var(--color-light-peach) 100%);
+  opacity: 0.9; /* Soften the background slightly */
   position: relative;
   overflow: hidden;
   /* Removed negative margin-bottom to fix footer collision.
@@ -519,19 +503,9 @@ nav {
   margin-bottom: 0;
 }
 
-/* Background shape for Contact Section */
+/* UPDATED: Remove the pseudo-element for Contact section */
 .contact-section::before {
-  content: '';
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background-color: var(--color-soft-pink);
-  border-radius: 50%;
-  top: -80px;
-  left: -50px;
-  opacity: 0.5;
-  filter: blur(100px);
-  z-index: 0;
+  content: none;
 }
 
 .contact-section .container {
