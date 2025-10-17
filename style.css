@@ -2,12 +2,17 @@
 :root {
   --color-dark: #1f1f1f;
   --color-light: #ffffff;
-  --color-grey-bg: #f5f5f7;
   --color-text-body: #6b6b6b;
   --color-text-heading: #333333;
-  /* UPDATED ACCENT COLOR: Light orange hue, matching the About Me border */
+  
+  /* UPDATED PALETTE */
+  --color-primary-bg: #FFDBE9; /* Light Pink for body background */
+  --color-secondary-bg: #CDBEC5; /* Light Green for subtle accents/tags */
+  --color-card-bg: #ffffff; /* White for cards and modals (clean separation) */
+  
+  /* Original Accent for contrast with new palette - light orange */
   --color-accent: #E5A885; 
-  --color-dark-accent: #A67357; /* Darker shade of the new accent color for hover/details */
+  --color-dark-accent: #A67357; 
 
   --color-linkedin: #0a66c2; 
   --color-github: #24292e;
@@ -28,7 +33,8 @@ body.modal-open {
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0;
-  background: var(--color-light);
+  /* NEW: Body background is light pink */
+  background: var(--color-primary-bg); 
   color: var(--color-text-heading);
   line-height: 1.6;
 }
@@ -55,27 +61,24 @@ a:hover {
   padding: 0 1.5rem;
 }
 
-/* --- Header/Navigation (NEW STYLING) --- */
+/* --- Header/Navigation --- */
 header {
-  background: var(--color-light);
+  /* NEW: Header background is white for contrast */
+  background: var(--color-card-bg); 
   border-bottom: 1px solid #eeeeee;
   position: sticky;
   top: 0;
   z-index: 100;
-  /* INCREASED HEADER HEIGHT */
   padding: 0.5rem 0; 
 }
 
 nav {
   display: flex;
-  justify-content: center; /* Center the links */
+  justify-content: center; 
   align-items: center;
-  /* INCREASED PADDING FOR THICKER HEADER FEEL */
   padding: 1.5rem 0; 
-  position: relative; /* Needed for absolute positioning of social links */
+  position: relative; 
 }
-
-/* REMOVED: .logo-icon styles */
 
 /* Nav Links - Centered */
 .nav-links {
@@ -87,12 +90,12 @@ nav {
 }
 
 .nav-links a {
-  font-size: 1rem; /* Slightly larger text */
+  font-size: 1rem; 
   font-weight: 500;
   color: var(--color-text-heading);
 }
 
-/* NEW: Header Social Links */
+/* Header Social Links */
 .header-social-links {
     position: absolute;
     right: 1.5rem;
@@ -102,12 +105,12 @@ nav {
 
 .header-social-links a {
     font-size: 1.25rem;
-    color: var(--color-dark); /* Icons start dark */
+    color: var(--color-dark); 
     transition: color 0.2s ease;
 }
 
 .header-social-links a:hover {
-    color: var(--color-accent); /* Hover with accent color */
+    color: var(--color-accent); 
 }
 
 
@@ -172,7 +175,8 @@ nav {
 /* --- ABOUT ME SECTION STYLES --- */
 .about-section {
   padding: 6rem 1.5rem;
-  background: var(--color-light);
+  /* NEW: About section background is white */
+  background: var(--color-card-bg); 
 }
 
 .section-heading {
@@ -200,8 +204,10 @@ nav {
   height: 250px;
   object-fit: cover;
   border-radius: 50%;
-  border: 10px solid var(--color-accent); /* Uses the new accent color */
-  box-shadow: 0 0 0 10px var(--color-light);
+  /* Border color from original accent variable */
+  border: 10px solid var(--color-accent); 
+  /* White ring around the border for depth */
+  box-shadow: 0 0 0 10px var(--color-card-bg); 
 }
 
 
@@ -218,7 +224,7 @@ nav {
   font-weight: 600;
 }
 
-/* --- PROJECTS SECTION STYLING (Project Image Size Increased) --- */
+/* --- PROJECTS SECTION STYLING (Increased Image Height) --- */
 .projects-section {
   padding: 4rem 1.5rem;
 }
@@ -250,10 +256,10 @@ nav {
 .project-card {
   display: flex; 
   flex-direction: column; 
-  background: var(--color-light);
+  /* NEW: Cards background is white */
+  background: var(--color-card-bg); 
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  /* INCREASED PADDING FOR BIGGER CARD FEEL */
   padding: 2rem; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -269,25 +275,27 @@ nav {
 /* Placeholder element for projects without images */
 .project-image-placeholder {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  background-color: var(--color-grey-bg);
+  /* CRITICAL: Taller aspect ratio (4/3) */
+  aspect-ratio: 4 / 3; 
+  background-color: var(--color-secondary-bg); /* Using light green for placeholder */
   border-radius: 6px;
-  margin-bottom: 1.5rem; /* Increased margin below image */
+  margin-bottom: 1.5rem; 
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--color-text-body);
+  color: var(--color-dark); /* Darker text for readability */
   font-size: 0.9rem;
 }
 
 /* Styling for the actual images within the project cards */
 .project-card img.project-image {
-    aspect-ratio: 16 / 9;
+    /* CRITICAL: Taller aspect ratio (4/3) */
+    aspect-ratio: 4 / 3; 
     height: auto;
     width: 100%;
     object-fit: cover;
     border-radius: 6px;
-    margin-bottom: 1.5rem; /* Increased margin below image */
+    margin-bottom: 1.5rem; 
 }
 
 .project-card h4 {
@@ -302,7 +310,7 @@ nav {
     margin-top: 0.5rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem; /* Standard spacing for project covers */
+    gap: 0.5rem; 
 }
 
 .tech-tag {
@@ -310,31 +318,33 @@ nav {
     padding: 0.25rem 0.75rem;
     font-size: 0.75rem;
     color: var(--color-dark);
-    background-color: var(--color-grey-bg);
+    /* NEW: Light green for tech tag background */
+    background-color: var(--color-secondary-bg); 
     border-radius: 4px;
     font-weight: 500;
     white-space: nowrap;
-    border: 1px solid #e0e0e0; 
+    border: 1px solid var(--color-secondary-bg); /* Border matches background */
 }
 
 /* Modal specific tech tags container (Adjusted for better spacing) */
 .tech-tags-modal {
     margin-top: 1.5rem;
-    display: flex; /* Ensure flex behavior */
+    display: flex; 
     flex-wrap: wrap;
-    gap: 0.5rem; /* ADDED: Same spacing as project covers */
+    gap: 0.5rem; 
 }
 
 
 /* --- EXPERIENCE SECTION STYLING --- */
 .experience-section {
     padding: 4rem 1.5rem;
+    /* NEW: Experience section background is white */
+    background: var(--color-card-bg); 
 }
 
 .experience-category {
     margin-bottom: 3rem;
-    /* Left border for visual separation of categories */
-    border-left: 3px solid var(--color-accent); /* Uses the new accent color */
+    border-left: 3px solid var(--color-accent); /* Uses the updated accent color */
     padding-left: 1.5rem;
 }
 
@@ -351,7 +361,6 @@ nav {
 .experience-item {
     margin-bottom: 2rem;
     padding: 0.5rem;
-    /* Dotted line to separate individual roles */
     border-bottom: 1px dashed #e0e0e0;
 }
 .experience-item:last-child {
@@ -404,6 +413,8 @@ nav {
 .contact-section {
     padding: 4rem 1.5rem 8rem;
     text-align: center;
+    /* NEW: Contact section background is light pink */
+    background: var(--color-primary-bg); 
 }
 
 .contact-links {
@@ -442,7 +453,7 @@ nav {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     /* Darker accent on hover for depth */
     background-color: var(--color-dark-accent); 
-    color: var(--color-light); /* Light text for better contrast on darker hover */
+    color: var(--color-light); 
 }
 
 
@@ -450,7 +461,8 @@ nav {
 footer {
   text-align: center;
   padding: 2rem;
-  background: var(--color-light);
+  /* NEW: Footer background is white */
+  background: var(--color-card-bg); 
   border-top: 1px solid #eeeeee; 
   margin-top: 3rem;
 }
@@ -476,7 +488,8 @@ footer {
 }
 
 .modal-content {
-  background-color: var(--color-light);
+  /* NEW: Modal background is white */
+  background-color: var(--color-card-bg); 
   position: absolute; 
   top: 50%;
   left: 50%;
@@ -504,14 +517,15 @@ footer {
 
 .modal-image-placeholder {
   flex: 1;
-  aspect-ratio: 16 / 9; 
-  background-color: var(--color-grey-bg);
+  /* CRITICAL: Taller aspect ratio for modal image */
+  aspect-ratio: 4 / 3; 
+  background-color: var(--color-secondary-bg); /* Using light green for modal placeholder */
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  color: var(--color-text-body);
+  color: var(--color-dark); /* Darker text for readability */
 }
 
 
@@ -546,13 +560,13 @@ footer {
   
   .nav-links {
     margin-bottom: 1rem;
-    order: 2; /* Move links below social icons (visually) */
+    order: 2; 
     gap: 1.5rem;
   }
   
   .header-social-links {
     position: static;
-    order: 1; /* Move social icons to the top */
+    order: 1; 
     margin-bottom: 1rem;
   }
   
@@ -573,7 +587,7 @@ footer {
   /* Project Grid Mobile */
   .top-row,
   .bottom-row {
-    grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+    grid-template-columns: 1fr; 
   }
   
   /* Modal Mobile */
@@ -582,7 +596,7 @@ footer {
   }
   
   .modal-image-placeholder {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
   }
   
   /* Experience Mobile */
