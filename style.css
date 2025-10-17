@@ -4,43 +4,47 @@
   --color-light: #ffffff;
   --color-text-body: #6b6b6b;
   --color-text-heading: #333333;
-  
-  /* UPDATED PALETTE */
-  --color-primary-bg: #FFDBE9; /* Light Pink for body background */
-  --color-secondary-bg: #CDBEC5; /* Light Green for subtle accents/tags */
-  --color-card-bg: #ffffff; /* White for cards and modals (clean separation) */
-  
-  /* Original Accent for contrast with new palette - light orange */
-  --color-accent: #E5A885; 
-  --color-dark-accent: #A67357; 
 
-  --color-linkedin: #0a66c2; 
+  /* UPDATED PALETTE (FROM IMAGE 4) */
+  --color-pale-cream: #F8F3EA; /* Lightest background */
+  --color-light-peach: #FFDBD1; /* Second lightest, for accents/sections */
+  --color-dark-berry: #570228; /* Darkest, for text/accents */
+  --color-soft-pink: #FA9EBC; /* Mid-tone, for highlights/accents */
+
+  /* Renaming existing for clarity with new palette */
+  --color-accent-main: var(--color-dark-berry); /* Used for strong accents */
+  --color-accent-light: var(--color-soft-pink); /* Used for lighter accents */
+
+  --color-linkedin: #0a66c2;
   --color-github: #24292e;
   --color-email: #d93025;
 }
 
 /* FIX: Smooth Scroll */
 html {
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
 }
 
 /* FIX: Prevents scrollbar from appearing when modal is active, ensuring the page content doesn't shift */
 body.modal-open {
-    overflow: hidden; 
-    padding-right: 15px; 
+  overflow: hidden;
+  padding-right: 15px;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0;
-  /* NEW: Body background is light pink */
-  background: var(--color-primary-bg); 
+  /* NEW: Body background is now pale cream from the palette */
+  background: var(--color-pale-cream);
   color: var(--color-text-heading);
   line-height: 1.6;
 }
 
-h1, h2, h3, h4 {
-  color: var(--color-dark);
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-dark-berry); /* Headings use the darkest color */
   margin: 0 0 0.5em 0;
 }
 
@@ -51,7 +55,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-text-body);
+  color: var(--color-dark-berry); /* Hover uses darkest color */
 }
 
 /* Utility Class for Layout */
@@ -59,25 +63,26 @@ a:hover {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1.5rem;
+  position: relative; /* Needed for absolute positioning of background shapes */
 }
 
 /* --- Header/Navigation --- */
 header {
-  /* NEW: Header background is white for contrast */
-  background: var(--color-card-bg); 
-  border-bottom: 1px solid #eeeeee;
+  /* NEW: Header background is pale cream */
+  background: var(--color-pale-cream);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Softer border */
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 0.5rem 0; 
+  padding: 0.5rem 0;
 }
 
 nav {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  padding: 1.5rem 0; 
-  position: relative; 
+  padding: 1.5rem 0;
+  position: relative;
 }
 
 /* Nav Links - Centered */
@@ -90,34 +95,71 @@ nav {
 }
 
 .nav-links a {
-  font-size: 1rem; 
+  font-size: 1rem;
   font-weight: 500;
-  color: var(--color-text-heading);
+  color: var(--color-dark-berry); /* Nav links use darkest color */
+}
+
+.nav-links a:hover {
+  color: var(--color-soft-pink); /* Nav links hover uses soft pink */
 }
 
 /* Header Social Links */
 .header-social-links {
-    position: absolute;
-    right: 1.5rem;
-    display: flex;
-    gap: 1rem;
+  position: absolute;
+  right: 1.5rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .header-social-links a {
-    font-size: 1.25rem;
-    color: var(--color-dark); 
-    transition: color 0.2s ease;
+  font-size: 1.25rem;
+  color: var(--color-dark-berry); /* Icons use darkest color */
+  transition: color 0.2s ease;
 }
 
 .header-social-links a:hover {
-    color: var(--color-accent); 
+  color: var(--color-soft-pink); /* Icons hover uses soft pink */
 }
-
 
 /* --- Hero Section --- */
 .hero {
   padding: 8rem 1.5rem 2rem;
   text-align: center;
+  overflow: hidden; /* Hide overflowing pseudo-elements */
+  position: relative; /* For absolute positioning of shapes */
+}
+
+/* Background shapes for Hero Section */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+  filter: blur(80px); /* Soft glow effect */
+  z-index: 0;
+}
+
+.hero::before {
+  width: 300px;
+  height: 300px;
+  background-color: var(--color-soft-pink);
+  top: -50px;
+  left: -80px;
+}
+
+.hero::after {
+  width: 250px;
+  height: 250px;
+  background-color: var(--color-light-peach);
+  bottom: 0px;
+  right: -50px;
+}
+
+.hero-content {
+  position: relative; /* Ensure content is above pseudo-elements */
+  z-index: 1;
 }
 
 .hero h1 {
@@ -125,72 +167,95 @@ nav {
   font-weight: 800;
   letter-spacing: -0.05em;
   margin-bottom: 0.1em;
+  color: var(--color-dark-berry); /* Hero heading uses darkest color */
 }
 
 .hero .subtitle {
   font-size: 1.2rem;
   font-weight: 500;
-  color: var(--color-text-body);
+  color: var(--color-dark-berry); /* Subtitle uses darkest color */
   margin-bottom: 1.5rem;
 }
 
 /* Hero Description Styling */
 .hero-description {
-    max-width: 600px;
-    margin: 0 auto 2rem auto; 
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
 }
 
 .hero-description p {
-    color: var(--color-text-heading);
-    font-size: 1rem;
-    line-height: 1.5;
+  color: var(--color-dark-berry); /* Description uses darkest color */
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 /* Resume Button Styling */
 .resume-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.8rem 2rem;
-    background-color: var(--color-dark);
-    color: var(--color-light);
-    border-radius: 6px;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 0.05em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 2rem;
+  background-color: var(--color-dark-berry); /* Button uses darkest color */
+  color: var(--color-light);
+  border-radius: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
 }
 
 .resume-button:hover {
-    background-color: var(--color-text-heading);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    color: var(--color-light); 
+  background-color: var(--color-soft-pink); /* Hover uses soft pink */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  color: var(--color-dark-berry); /* Text color changes to dark berry on hover */
 }
 
 
 /* --- ABOUT ME SECTION STYLES --- */
 .about-section {
   padding: 6rem 1.5rem;
-  /* NEW: About section background is white */
-  background: var(--color-card-bg); 
+  /* NEW: About section background is light peach */
+  background: var(--color-light-peach);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background shape for About Section */
+.about-section::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background-color: var(--color-soft-pink);
+  border-radius: 50%;
+  top: 50%;
+  left: -150px;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  filter: blur(100px);
+  z-index: 0;
 }
 
 .section-heading {
-  color: var(--color-dark);
+  color: var(--color-dark-berry); /* Heading uses darkest color */
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 3rem;
   letter-spacing: 0.1em;
+  position: relative;
+  z-index: 1;
 }
 
 .about-flex {
   display: flex;
   align-items: flex-start;
   gap: 4rem;
+  position: relative;
+  z-index: 1;
 }
 
 .image-wrapper {
@@ -204,48 +269,73 @@ nav {
   height: 250px;
   object-fit: cover;
   border-radius: 50%;
-  /* Border color from original accent variable */
-  border: 10px solid var(--color-accent); 
-  /* White ring around the border for depth */
-  box-shadow: 0 0 0 10px var(--color-card-bg); 
+  /* Border color from soft pink variable */
+  border: 10px solid var(--color-soft-pink);
+  /* White ring around the border for depth, using pale cream */
+  box-shadow: 0 0 0 10px var(--color-pale-cream);
 }
 
 
 .about-text p {
   font-size: 1.1rem;
   font-weight: 400;
-  color: var(--color-text-heading);
+  color: var(--color-dark-berry); /* About text uses darkest color */
   margin-bottom: 1.5rem;
   max-width: 600px;
 }
 
 .about-text .highlight {
-  color: var(--color-dark);
+  color: var(--color-dark-berry);
   font-weight: 600;
 }
 
 /* --- PROJECTS SECTION STYLING (Increased Image Height) --- */
 .projects-section {
   padding: 4rem 1.5rem;
+  position: relative;
+  overflow: hidden;
 }
+
+/* Background shape for Projects Section */
+.projects-section::before {
+  content: '';
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background-color: var(--color-light-peach);
+  border-radius: 50%;
+  bottom: -100px;
+  right: -100px;
+  opacity: 0.5;
+  filter: blur(100px);
+  z-index: 0;
+}
+
 
 .projects-section h2 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  color: var(--color-dark-berry); /* Project heading uses darkest color */
+  position: relative;
+  z-index: 1;
 }
 
 .university-affiliation {
   font-size: 1rem;
   font-weight: 400;
-  color: var(--color-text-body);
+  color: var(--color-dark-berry); /* Affiliation uses darkest color */
   margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
 }
 
 .project-grid {
   display: grid;
   gap: 2rem;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .top-row,
@@ -254,16 +344,16 @@ nav {
 }
 
 .project-card {
-  display: flex; 
-  flex-direction: column; 
-  /* NEW: Cards background is white */
-  background: var(--color-card-bg); 
-  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  /* NEW: Cards background is pale cream */
+  background: var(--color-pale-cream);
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Softer border */
   border-radius: 8px;
-  padding: 2rem; 
+  padding: 2rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  color: var(--color-text-heading);
+  color: var(--color-dark-berry); /* Project card text uses darkest color */
   text-decoration: none;
 }
 
@@ -276,184 +366,206 @@ nav {
 .project-image-placeholder {
   width: 100%;
   /* CRITICAL: Taller aspect ratio (4/3) */
-  aspect-ratio: 4 / 3; 
-  background-color: var(--color-secondary-bg); /* Using light green for placeholder */
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-soft-pink); /* Using soft pink for placeholder */
   border-radius: 6px;
-  margin-bottom: 1.5rem; 
+  margin-bottom: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--color-dark); /* Darker text for readability */
+  color: var(--color-dark-berry); /* Darker text for readability */
   font-size: 0.9rem;
 }
 
 /* Styling for the actual images within the project cards */
 .project-card img.project-image {
-    /* CRITICAL: Taller aspect ratio (4/3) */
-    aspect-ratio: 4 / 3; 
-    height: auto;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 1.5rem; 
+  /* CRITICAL: Taller aspect ratio (4/3) */
+  aspect-ratio: 4 / 3;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
 }
 
 .project-card h4 {
   font-size: 1.2rem;
   font-weight: 600;
   margin-top: 0.5rem;
+  color: var(--color-dark-berry); /* Card heading uses darkest color */
 }
 
 /* --- TECH TAG STYLING --- */
 .tech-tags {
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem; 
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .tech-tag {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    font-size: 0.75rem;
-    color: var(--color-dark);
-    /* NEW: Light green for tech tag background */
-    background-color: var(--color-secondary-bg); 
-    border-radius: 4px;
-    font-weight: 500;
-    white-space: nowrap;
-    border: 1px solid var(--color-secondary-bg); /* Border matches background */
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  color: var(--color-dark-berry); /* Tech tag text uses darkest color */
+  /* NEW: Light peach for tech tag background */
+  background-color: var(--color-light-peach);
+  border-radius: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid var(--color-light-peach); /* Border matches background */
 }
 
 /* Modal specific tech tags container (Adjusted for better spacing) */
 .tech-tags-modal {
-    margin-top: 1.5rem;
-    display: flex; 
-    flex-wrap: wrap;
-    gap: 0.5rem; 
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 
 /* --- EXPERIENCE SECTION STYLING --- */
 .experience-section {
-    padding: 4rem 1.5rem;
-    /* NEW: Experience section background is white */
-    background: var(--color-card-bg); 
+  padding: 4rem 1.5rem;
+  /* NEW: Experience section background is pale cream */
+  background: var(--color-pale-cream);
 }
 
 .experience-category {
-    margin-bottom: 3rem;
-    border-left: 3px solid var(--color-accent); /* Uses the updated accent color */
-    padding-left: 1.5rem;
+  margin-bottom: 3rem;
+  border-left: 3px solid var(--color-soft-pink); /* Uses the soft pink accent color */
+  padding-left: 1.5rem;
 }
 
 .experience-category h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-dark);
-    margin-bottom: 1.5rem;
-    padding-left: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-dark-berry); /* Heading uses darkest color */
+  margin-bottom: 1.5rem;
+  padding-left: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .experience-item {
-    margin-bottom: 2rem;
-    padding: 0.5rem;
-    border-bottom: 1px dashed #e0e0e0;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1); /* Softer dashed border */
 }
+
 .experience-item:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .title-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
 }
 
 .experience-item h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--color-dark);
-    margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-dark-berry); /* Item heading uses darkest color */
+  margin: 0;
 }
 
 .experience-item .date {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--color-text-body);
-    flex-shrink: 0;
-    text-align: right;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-dark-berry); /* Date uses darkest color */
+  flex-shrink: 0;
+  text-align: right;
 }
 
 .experience-item ul {
-    list-style: disc;
-    padding-left: 25px;
-    margin-top: 0.5rem;
-    margin-bottom: 0;
+  list-style: disc;
+  padding-left: 25px;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
 }
 
 .experience-item li {
-    font-size: 1rem;
-    color: var(--color-text-heading);
-    margin-bottom: 0.4rem;
+  font-size: 1rem;
+  color: var(--color-dark-berry); /* List item uses darkest color */
+  margin-bottom: 0.4rem;
 }
 
 .role-detail {
-    font-style: italic;
-    color: var(--color-text-body);
-    margin: 0;
+  font-style: italic;
+  color: var(--color-dark-berry); /* Role detail uses darkest color */
+  margin: 0;
 }
 
 
 /* --- CONTACT SECTION STYLING (UNIFORM COLOR) --- */
 .contact-section {
-    padding: 4rem 1.5rem 8rem;
-    text-align: center;
-    /* NEW: Contact section background is light pink */
-    background: var(--color-primary-bg); 
+  padding: 4rem 1.5rem 8rem;
+  text-align: center;
+  /* NEW: Contact section background is light peach */
+  background: var(--color-light-peach);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Background shape for Contact Section */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-color: var(--color-soft-pink);
+  border-radius: 50%;
+  top: -80px;
+  left: -50px;
+  opacity: 0.5;
+  filter: blur(100px);
+  z-index: 0;
+}
+
+
 .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
 }
 
 .center-contact-links {
-    max-width: 700px; 
-    margin: 3rem auto 0; 
-    gap: 2.5rem; 
+  max-width: 700px;
+  margin: 3rem auto 0;
+  gap: 2.5rem;
 }
 
 
 .contact-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    
-    /* Uniform Color (Matches New Accent) */
-    background-color: var(--color-accent);
-    color: var(--color-dark); 
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
 
-    font-weight: 600;
-    font-size: 1rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Uniform Color (Matches Soft Pink) */
+  background-color: var(--color-soft-pink);
+  color: var(--color-dark-berry); /* Text color uses darkest berry */
+
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contact-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    /* Darker accent on hover for depth */
-    background-color: var(--color-dark-accent); 
-    color: var(--color-light); 
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  /* Darker accent on hover for depth (dark berry) */
+  background-color: var(--color-dark-berry);
+  color: var(--color-light); /* Text color changes to light on hover */
 }
 
 
@@ -461,48 +573,48 @@ nav {
 footer {
   text-align: center;
   padding: 2rem;
-  /* NEW: Footer background is white */
-  background: var(--color-card-bg); 
-  border-top: 1px solid #eeeeee; 
+  /* NEW: Footer background is pale cream */
+  background: var(--color-pale-cream);
+  border-top: 1px solid rgba(0, 0, 0, 0.05); /* Softer border */
   margin-top: 3rem;
 }
 
 .simple-footer p {
-    font-size: 0.9rem;
-    color: var(--color-text-body);
-    margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-dark-berry); /* Footer text uses darkest color */
+  margin: 0;
 }
 
 
 /* --- MODAL (POP-UP) STYLES --- */
 .modal {
-  display: none; 
-  position: fixed; 
+  display: none;
+  position: fixed;
   z-index: 200;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); 
+  background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
 }
 
 .modal-content {
-  /* NEW: Modal background is white */
-  background-color: var(--color-card-bg); 
-  position: absolute; 
+  /* NEW: Modal background is pale cream */
+  background-color: var(--color-pale-cream);
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); 
-  
+  transform: translate(-50%, -50%);
+
   padding: 30px;
   border-radius: 12px;
-  width: 90%; 
+  width: 90%;
   max-width: 900px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
   position: relative;
-  max-height: 90vh; 
-  overflow-y: auto; 
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-flex {
@@ -518,14 +630,14 @@ footer {
 .modal-image-placeholder {
   flex: 1;
   /* CRITICAL: Taller aspect ratio for modal image */
-  aspect-ratio: 4 / 3; 
-  background-color: var(--color-secondary-bg); /* Using light green for modal placeholder */
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-light-peach); /* Using light peach for modal placeholder */
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  color: var(--color-dark); /* Darker text for readability */
+  color: var(--color-dark-berry); /* Darker text for readability */
 }
 
 
@@ -542,7 +654,7 @@ footer {
 
 .close-btn:hover,
 .close-btn:focus {
-  color: var(--color-dark);
+  color: var(--color-dark-berry); /* Hover uses darkest color */
   text-decoration: none;
   cursor: pointer;
 }
@@ -550,26 +662,26 @@ footer {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  
+
   /* Navigation Mobile */
   nav {
     flex-direction: column;
     padding: 1rem 0;
     align-items: center;
   }
-  
+
   .nav-links {
     margin-bottom: 1rem;
-    order: 2; 
+    order: 2;
     gap: 1.5rem;
   }
-  
+
   .header-social-links {
     position: static;
-    order: 1; 
+    order: 1;
     margin-bottom: 1rem;
   }
-  
+
   .hero h1 {
     font-size: 2.5rem;
   }
@@ -579,44 +691,46 @@ footer {
     flex-direction: column;
     text-align: center;
   }
-  
-  .profile-pic { 
-      margin: 0 auto 2rem;
+
+  .profile-pic {
+    margin: 0 auto 2rem;
   }
 
   /* Project Grid Mobile */
   .top-row,
   .bottom-row {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
   }
-  
+
   /* Modal Mobile */
   .modal-flex {
     flex-direction: column;
   }
-  
+
   .modal-image-placeholder {
     aspect-ratio: 4 / 3;
   }
-  
+
   /* Experience Mobile */
   .title-flex {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
+
   .experience-item .date {
-      margin-top: 0.25rem;
+    margin-top: 0.25rem;
   }
 
   /* Contact Links Mobile (Stacked and Centered) */
   .contact-links {
-      flex-direction: column;
-      gap: 1rem; 
+    flex-direction: column;
+    gap: 1rem;
   }
+
   .contact-button {
-      width: 100%;
-      max-width: 300px; 
-      margin: 0 auto;
-      justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    justify-content: center;
   }
 }
