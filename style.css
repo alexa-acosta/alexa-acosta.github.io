@@ -62,7 +62,7 @@ a:hover {
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.5rem; /* This keeps your content padded/centered */
   position: relative; /* Needed for absolute positioning of background shapes */
 }
 
@@ -217,7 +217,7 @@ nav {
 
 /* --- ABOUT ME SECTION STYLES --- */
 .about-section {
-  padding: 6rem 0; /* Remove horizontal padding here to stretch background */
+  padding: 6rem 0; /* REMOVED horizontal padding to stretch background 100% */
   /* NEW: About section background is light peach */
   background: var(--color-light-peach);
   position: relative;
@@ -251,10 +251,7 @@ nav {
   text-align: center; /* Center section headings */
 }
 
-/* New wrapper to keep content centered within stretched section */
-.about-section .container {
-  padding: 0 1.5rem; /* Apply container padding to content inside */
-}
+/* Note: The content inside the .about-section is centered by the .container class in your HTML, which retains its padding. */
 
 .about-flex {
   display: flex;
@@ -275,9 +272,9 @@ nav {
   height: 250px;
   object-fit: cover;
   border-radius: 50%;
-  /* Removed pink border, keeping only pale cream */
+  /* FIX: Border is now ONLY the pale cream color */
   border: 10px solid var(--color-pale-cream);
-  /* White ring around the border for depth, using pale cream */
+  /* The box-shadow acts as the second, outer cream ring */
   box-shadow: 0 0 0 10px var(--color-pale-cream);
 }
 
@@ -355,12 +352,13 @@ nav {
 .project-card {
   display: flex;
   flex-direction: column;
-  /* NEW: Cards background is pale cream */
-  background: var(--color-pale-cream);
-  border: 1px solid rgba(0, 0, 0, 0.05); /* Softer border */
+  /* FIX: Project cards are now white */
+  background: var(--color-light); 
+  /* Adjusted border and shadow for white cards */
+  border: 1px solid rgba(87, 2, 40, 0.05); /* Softer border */
   border-radius: 8px;
   padding: 2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Increased shadow for more pop */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Increased shadow for more pop */
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   color: var(--color-dark-berry); /* Project card text uses darkest color */
   text-decoration: none;
@@ -368,15 +366,15 @@ nav {
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
-  border-color: var(--color-soft-pink); /* Add a subtle border highlight on hover */
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18); /* Even more pronounced shadow on hover */
+  border-color: var(--color-soft-pink); /* Border highlight on hover */
 }
 
 /* Placeholder element for projects without images */
 .project-image-placeholder {
   width: 100%;
-  /* CRITICAL: Taller aspect ratio (4/3) */
-  aspect-ratio: 4 / 3;
+  /* FIX: Taller aspect ratio (3/2) */
+  aspect-ratio: 3 / 2;
   background-color: var(--color-soft-pink); /* Using soft pink for placeholder */
   border-radius: 6px;
   margin-bottom: 1.5rem;
@@ -389,8 +387,8 @@ nav {
 
 /* Styling for the actual images within the project cards */
 .project-card img.project-image {
-  /* CRITICAL: Taller aspect ratio (4/3) */
-  aspect-ratio: 4 / 3;
+  /* FIX: Taller aspect ratio (3/2) */
+  aspect-ratio: 3 / 2;
   height: auto;
   width: 100%;
   object-fit: cover;
@@ -511,15 +509,16 @@ nav {
 }
 
 
-/* --- CONTACT SECTION STYLING (UNIFORM COLOR) --- */
+/* --- CONTACT SECTION STYLING (FULL WIDTH & TOUCHES FOOTER) --- */
 .contact-section {
-  padding: 4rem 0; /* Removed horizontal padding to stretch background */
+  padding: 4rem 0; /* REMOVED horizontal padding to stretch background 100% */
   text-align: center;
   /* NEW: Contact section background is light peach */
   background: var(--color-light-peach);
   position: relative;
   overflow: hidden;
-  margin-bottom: -3rem; /* Negative margin to make it touch the footer's top border */
+  /* FIX: Negative margin to pull the contact section up to meet the footer */
+  margin-bottom: -3rem; 
 }
 
 /* Background shape for Contact Section */
@@ -537,10 +536,7 @@ nav {
   z-index: 0;
 }
 
-/* New wrapper to keep content centered within stretched section */
-.contact-section .container {
-    padding: 0 1.5rem; /* Apply container padding to content inside */
-}
+/* The content inside the .contact-section is centered by the .container class, which retains its padding. */
 
 .contact-links {
   display: flex;
@@ -591,7 +587,8 @@ footer {
   /* NEW: Footer background is pale cream */
   background: var(--color-pale-cream);
   border-top: 1px solid rgba(0, 0, 0, 0.05); /* Softer border */
-  margin-top: 3rem;
+  /* FIX: Ensure there's no gap above the footer */
+  margin-top: 0; 
 }
 
 .simple-footer p {
