@@ -6,7 +6,7 @@
   --color-text-heading: #333333;
 
   /* UPDATED PALETTE (FROM IMAGE 4) */
-  --color-pale-cream: #F8F3EA; /* Lightest background */
+  --color-pale-cream: var(--color-light); /* FIX: Changed to white */
   --color-light-peach: #FFDBD1; /* Second lightest, for accents/sections */
   --color-dark-berry: #570228; /* Darkest, for text/accents */
   --color-soft-pink: #FA9EBC; /* Mid-tone, for highlights/accents */
@@ -34,8 +34,8 @@ body.modal-open {
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0;
-  /* NEW: Body background is now pale cream from the palette */
-  background: var(--color-pale-cream);
+  /* NEW: Body background is now white (formerly pale cream) */
+  background: var(--color-light);
   color: var(--color-text-heading);
   line-height: 1.6;
 }
@@ -68,8 +68,8 @@ a:hover {
 
 /* --- Header/Navigation --- */
 header {
-  /* NEW: Header background is pale cream */
-  background: var(--color-pale-cream);
+  /* NEW: Header background is white (formerly pale cream) */
+  background: var(--color-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Softer border */
   position: sticky;
   top: 0;
@@ -217,8 +217,8 @@ nav {
 
 /* --- ABOUT ME SECTION STYLES --- */
 .about-section {
-  padding: 6rem 0; /* REMOVED horizontal padding to stretch background 100% */
-  /* NEW: About section background is light peach */
+  /* FIX: Only vertical padding for full-width background stretch */
+  padding: 6rem 0;
   background: var(--color-light-peach);
   position: relative;
   overflow: hidden;
@@ -241,17 +241,20 @@ nav {
 }
 
 .section-heading {
-  color: var(--color-dark-berry); /* Heading uses darkest color */
+  color: var(--color-dark-berry);
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 3rem;
   letter-spacing: 0.1em;
   position: relative;
   z-index: 1;
-  text-align: center; /* Center section headings */
+  text-align: center;
 }
 
-/* Note: The content inside the .about-section is centered by the .container class in your HTML, which retains its padding. */
+/* Content within stretched sections gets its horizontal padding from .container */
+.about-section .container {
+  padding: 0 1.5rem; /* Ensure inner content has padding */
+}
 
 .about-flex {
   display: flex;
@@ -272,17 +275,17 @@ nav {
   height: 250px;
   object-fit: cover;
   border-radius: 50%;
-  /* FIX: Border is now ONLY the pale cream color */
-  border: 10px solid var(--color-pale-cream);
-  /* The box-shadow acts as the second, outer cream ring */
-  box-shadow: 0 0 0 10px var(--color-pale-cream);
+  /* FIX: Border is now ONLY white (formerly pale cream) */
+  border: 10px solid var(--color-light);
+  /* The box-shadow acts as the second, outer white ring */
+  box-shadow: 0 0 0 10px var(--color-light);
 }
 
 
 .about-text p {
   font-size: 1.1rem;
   font-weight: 400;
-  color: var(--color-dark-berry); /* About text uses darkest color */
+  color: var(--color-dark-berry);
   margin-bottom: 1.5rem;
   max-width: 600px;
 }
@@ -294,10 +297,12 @@ nav {
 
 /* --- PROJECTS SECTION STYLING (Increased Image Height) --- */
 .projects-section {
-  padding: 4rem 1.5rem;
+  /* FIX: Only vertical padding for full-width background stretch */
+  padding: 4rem 0;
   position: relative;
   overflow: hidden;
-  background: var(--color-pale-cream); /* Ensure consistent background */
+  /* FIX: Background is now white (formerly pale cream) */
+  background: var(--color-light);
 }
 
 /* Background shape for Projects Section */
@@ -315,25 +320,29 @@ nav {
   z-index: 0;
 }
 
+.projects-section .container {
+    padding: 0 1.5rem; /* Ensure inner content has padding */
+}
+
 
 .projects-section h2 {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: var(--color-dark-berry); /* Project heading uses darkest color */
+  color: var(--color-dark-berry);
   position: relative;
   z-index: 1;
-  text-align: center; /* Center section headings */
+  text-align: center;
 }
 
 .university-affiliation {
   font-size: 1rem;
   font-weight: 400;
-  color: var(--color-dark-berry); /* Affiliation uses darkest color */
+  color: var(--color-dark-berry);
   margin-bottom: 3rem;
   position: relative;
   z-index: 1;
-  text-align: center; /* Center university affiliation */
+  text-align: center;
 }
 
 .project-grid {
@@ -352,15 +361,15 @@ nav {
 .project-card {
   display: flex;
   flex-direction: column;
-  /* FIX: Project cards are now white */
-  background: var(--color-light); 
+  /* FIX: Cards background is now pure white */
+  background: var(--color-light);
   /* Adjusted border and shadow for white cards */
   border: 1px solid rgba(87, 2, 40, 0.05); /* Softer border */
   border-radius: 8px;
   padding: 2rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Increased shadow for more pop */
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  color: var(--color-dark-berry); /* Project card text uses darkest color */
+  color: var(--color-dark-berry);
   text-decoration: none;
 }
 
@@ -373,22 +382,23 @@ nav {
 /* Placeholder element for projects without images */
 .project-image-placeholder {
   width: 100%;
-  /* FIX: Taller aspect ratio (3/2) */
-  aspect-ratio: 3 / 2;
-  background-color: var(--color-soft-pink); /* Using soft pink for placeholder */
+  /* FIX: Taller aspect ratio (16/9) for more vertical space */
+  aspect-ratio: 16 / 9;
+  /* FIX: Placeholder background is now light peach (same as tags) */
+  background-color: var(--color-light-peach);
   border-radius: 6px;
   margin-bottom: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--color-dark-berry); /* Darker text for readability */
+  color: var(--color-dark-berry);
   font-size: 0.9rem;
 }
 
 /* Styling for the actual images within the project cards */
 .project-card img.project-image {
-  /* FIX: Taller aspect ratio (3/2) */
-  aspect-ratio: 3 / 2;
+  /* FIX: Taller aspect ratio (16/9) for more vertical space */
+  aspect-ratio: 16 / 9;
   height: auto;
   width: 100%;
   object-fit: cover;
@@ -400,7 +410,7 @@ nav {
   font-size: 1.2rem;
   font-weight: 600;
   margin-top: 0.5rem;
-  color: var(--color-dark-berry); /* Card heading uses darkest color */
+  color: var(--color-dark-berry);
 }
 
 /* --- TECH TAG STYLING --- */
@@ -416,13 +426,12 @@ nav {
   display: inline-block;
   padding: 0.25rem 0.75rem;
   font-size: 0.75rem;
-  color: var(--color-dark-berry); /* Tech tag text uses darkest color */
-  /* NEW: Light peach for tech tag background */
+  color: var(--color-dark-berry);
   background-color: var(--color-light-peach);
   border-radius: 4px;
   font-weight: 500;
   white-space: nowrap;
-  border: 1px solid var(--color-light-peach); /* Border matches background */
+  border: 1px solid var(--color-light-peach);
 }
 
 /* Modal specific tech tags container (Adjusted for better spacing) */
@@ -437,20 +446,20 @@ nav {
 /* --- EXPERIENCE SECTION STYLING --- */
 .experience-section {
   padding: 4rem 1.5rem;
-  /* NEW: Experience section background is pale cream */
-  background: var(--color-pale-cream);
+  /* FIX: Experience section background is now white (formerly pale cream) */
+  background: var(--color-light);
 }
 
 .experience-category {
   margin-bottom: 3rem;
-  border-left: 3px solid var(--color-soft-pink); /* Uses the soft pink accent color */
+  border-left: 3px solid var(--color-soft-pink);
   padding-left: 1.5rem;
 }
 
 .experience-category h3 {
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--color-dark-berry); /* Heading uses darkest color */
+  color: var(--color-dark-berry);
   margin-bottom: 1.5rem;
   padding-left: 0.5rem;
   text-transform: uppercase;
@@ -460,7 +469,7 @@ nav {
 .experience-item {
   margin-bottom: 2rem;
   padding: 0.5rem;
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.1); /* Softer dashed border */
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
 }
 
 .experience-item:last-child {
@@ -477,14 +486,14 @@ nav {
 .experience-item h4 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--color-dark-berry); /* Item heading uses darkest color */
+  color: var(--color-dark-berry);
   margin: 0;
 }
 
 .experience-item .date {
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--color-dark-berry); /* Date uses darkest color */
+  color: var(--color-dark-berry);
   flex-shrink: 0;
   text-align: right;
 }
@@ -498,27 +507,28 @@ nav {
 
 .experience-item li {
   font-size: 1rem;
-  color: var(--color-dark-berry); /* List item uses darkest color */
+  color: var(--color-dark-berry);
   margin-bottom: 0.4rem;
 }
 
 .role-detail {
   font-style: italic;
-  color: var(--color-dark-berry); /* Role detail uses darkest color */
+  color: var(--color-dark-berry);
   margin: 0;
 }
 
 
 /* --- CONTACT SECTION STYLING (FULL WIDTH & TOUCHES FOOTER) --- */
 .contact-section {
-  padding: 4rem 0; /* REMOVED horizontal padding to stretch background 100% */
+  /* FIX: Only vertical padding for full-width background stretch */
+  padding: 4rem 0;
   text-align: center;
-  /* NEW: Contact section background is light peach */
   background: var(--color-light-peach);
   position: relative;
   overflow: hidden;
-  /* FIX: Negative margin to pull the contact section up to meet the footer */
-  margin-bottom: -3rem; 
+  /* Removed negative margin-bottom to fix footer collision.
+     Footer will now naturally follow after this section. */
+  margin-bottom: 0;
 }
 
 /* Background shape for Contact Section */
@@ -536,7 +546,9 @@ nav {
   z-index: 0;
 }
 
-/* The content inside the .contact-section is centered by the .container class, which retains its padding. */
+.contact-section .container {
+    padding: 0 1.5rem; /* Ensure inner content has padding */
+}
 
 .contact-links {
   display: flex;
@@ -561,9 +573,8 @@ nav {
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
 
-  /* Uniform Color (Matches Soft Pink) */
   background-color: var(--color-soft-pink);
-  color: var(--color-dark-berry); /* Text color uses darkest berry */
+  color: var(--color-dark-berry);
 
   font-weight: 600;
   font-size: 1rem;
@@ -574,26 +585,26 @@ nav {
 .contact-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  /* Darker accent on hover for depth (dark berry) */
   background-color: var(--color-dark-berry);
-  color: var(--color-light); /* Text color changes to light on hover */
+  color: var(--color-light);
 }
 
 
 /* --- SIMPLE FOOTER STYLES --- */
 footer {
   text-align: center;
-  padding: 2rem;
-  /* NEW: Footer background is pale cream */
-  background: var(--color-pale-cream);
-  border-top: 1px solid rgba(0, 0, 0, 0.05); /* Softer border */
-  /* FIX: Ensure there's no gap above the footer */
-  margin-top: 0; 
+  /* FIX: Added top padding to create space between contact and footer text */
+  padding: 2rem 2rem 2rem 2rem;
+  /* FIX: Footer background is now white (formerly pale cream) */
+  background: var(--color-light);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  /* FIX: Removed margin-top to avoid collision */
+  margin-top: 0;
 }
 
 .simple-footer p {
   font-size: 0.9rem;
-  color: var(--color-dark-berry); /* Footer text uses darkest color */
+  color: var(--color-dark-berry);
   margin: 0;
 }
 
@@ -612,8 +623,8 @@ footer {
 }
 
 .modal-content {
-  /* NEW: Modal background is pale cream */
-  background-color: var(--color-pale-cream);
+  /* FIX: Modal background is now white (formerly pale cream) */
+  background-color: var(--color-light);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -643,13 +654,13 @@ footer {
   flex: 1;
   /* CRITICAL: Taller aspect ratio for modal image */
   aspect-ratio: 4 / 3;
-  background-color: var(--color-light-peach); /* Using light peach for modal placeholder */
+  background-color: var(--color-light-peach);
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  color: var(--color-dark-berry); /* Darker text for readability */
+  color: var(--color-dark-berry);
 }
 
 
@@ -666,7 +677,7 @@ footer {
 
 .close-btn:hover,
 .close-btn:focus {
-  color: var(--color-dark-berry); /* Hover uses darkest color */
+  color: var(--color-dark-berry);
   text-decoration: none;
   cursor: pointer;
 }
