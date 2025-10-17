@@ -124,42 +124,30 @@ nav {
 
 /* --- Hero Section --- */
 .hero {
-  padding: 8rem 1.5rem 2rem;
+  /* FIX: Adjusted padding for desired vertical size and content spacing */
+  padding: 8rem 1.5rem 6rem; /* Increased bottom padding to stretch it slightly more */
   text-align: center;
-  overflow: hidden; /* Hide overflowing pseudo-elements */
-  position: relative; /* For absolute positioning of shapes */
+  overflow: hidden; 
+  position: relative; 
+  
+  /* UPDATED: Use a linear gradient for the full-width background */
+  background: linear-gradient(135deg, var(--color-soft-pink) 0%, var(--color-light-peach) 100%);
+  
+  /* UPDATED: Reduce opacity slightly for a softer look, similar to the original blur */
+  opacity: 0.9; 
 }
 
-/* Background shapes for Hero Section */
+/* UPDATED: Remove the original pseudo-elements for the gradient to take effect */
 .hero::before,
 .hero::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.6;
-  filter: blur(80px); /* Soft glow effect */
-  z-index: 0;
-}
-
-.hero::before {
-  width: 300px;
-  height: 300px;
-  background-color: var(--color-soft-pink);
-  top: -50px;
-  left: -80px;
-}
-
-.hero::after {
-  width: 250px;
-  height: 250px;
-  background-color: var(--color-light-peach);
-  bottom: 0px;
-  right: -50px;
+  content: none; 
 }
 
 .hero-content {
-  position: relative; /* Ensure content is above pseudo-elements */
-  z-index: 1;
+  position: relative; 
+  /* UPDATED: Ensure content is above the slightly-opaque background */
+  z-index: 2; 
+  opacity: 1; /* Ensure content is fully opaque */
 }
 
 .hero h1 {
@@ -527,7 +515,7 @@ nav {
   position: relative;
   overflow: hidden;
   /* Removed negative margin-bottom to fix footer collision.
-     Footer will now naturally follow after this section. */
+      Footer will now naturally follow after this section. */
   margin-bottom: 0;
 }
 
