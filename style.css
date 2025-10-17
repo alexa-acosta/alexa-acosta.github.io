@@ -215,11 +215,11 @@ nav {
 /* --- ABOUT ME SECTION STYLES --- */
 .about-section {
   padding: 6rem 0;
-  /* FIX: Remove all background/opacity to use the MAIN tag's background */
   background: none;
   opacity: 1;
   position: relative;
-  overflow: hidden;
+  /* FIX: Remove overflow: hidden; to prevent the profile picture border from being cut off */
+  /* overflow: hidden; */ /* <--- COMMENT OUT OR DELETE THIS LINE */
 }
 
 /* FIX: Remove pseudo-element for About section */
@@ -360,7 +360,7 @@ nav {
 .project-image-placeholder {
   width: 100%;
   /* FIX: Taller aspect ratio (16/9) for more vertical space */
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1/1; 
   /* FIX: Placeholder background is now light peach (same as tags) */
   background-color: var(--color-light-peach);
   border-radius: 6px;
@@ -375,13 +375,14 @@ nav {
 /* Styling for the actual images within the project cards */
 .project-card img.project-image {
   /* FIX: Taller aspect ratio (16/9) for more vertical space */
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1/1;
   height: auto;
   width: 100%;
   object-fit: cover;
   border-radius: 6px;
   margin-bottom: 1.5rem;
 }
+
 
 .project-card h4 {
   font-size: 1.2rem;
