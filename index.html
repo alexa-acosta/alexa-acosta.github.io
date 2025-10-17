@@ -10,6 +10,7 @@
 <body>
   <header>
     <nav class="container">
+            
             <ul class="nav-links">
         <li><a href="#about">About Me</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -59,30 +60,30 @@
             <div class="project-grid top-row">
         
                 <a href="#" class="project-card" data-project="blue-ridge">
-                    <img src="assets/snap-metrics.png" alt="Blue Ridge Predictor Project Cover" class="project-image" onerror="this.onerror=null;this.src='https://placehold.co/300x300/f5f5f7/6b6b6b?text=Blue+Ridge';" />
+          <img src="assets/snap-metrics.png" alt="Blue Ridge Predictor Project Cover" class="project-image" onerror="this.onerror=null;this.src='https://placehold.co/300x200/f5f5f7/6b6b6b?text=Blue+Ridge';" />
           <h4>Blue Ridge Predictor Module</h4>
           <div class="tech-tags" data-tags="React,JavaScript,APIs,CSS"></div>
         </a>
 
                 <a href="#" class="project-card" data-project="matchbook">
-                    <img src="assets/matchbook.png" alt="Matchbook Project Cover" class="project-image" onerror="this.onerror=null;this.src='https://placehold.co/300x300/f5f5f7/6b6b6b?text=MatchBook';" />
+          <img src="assets/matchbook.png" alt="Matchbook Project Cover" class="project-image" onerror="this.onerror=null;this.src='https://placehold.co/300x200/f5f5f7/6b6b6b?text=MatchBook';" />
           <h4>MatchBook</h4>
           <div class="tech-tags" data-tags="React Native,Expo-Go,MongoDB,Figma,Node.js"></div>
         </a>
 
-                <a href="#" class="project-card" data-project="forkcast-new">
+                <a href="#" class="project-card" data-project="bloomville">
           <div class="project-image-placeholder"></div>
-          <h4>ForkCast</h4>
-          <div class="tech-tags" data-tags="React,Tailwind CSS,Firebase,Spoonacular API,Node.js"></div>
+          <h4>EasyMeal: Recipe Generator App</h4>
+          <div class="tech-tags" data-tags="Unity"></div>
         </a>
       </div>
 
             <div class="project-grid bottom-row">
         
-                <a href="#" class="project-card" data-project="bloomville-game">
+                <a href="#" class="project-card" data-project="forkcast">
           <div class="project-image-placeholder"></div>
-          <h4>Bloomville Game</h4>
-          <div class="tech-tags" data-tags="Unity"></div>
+          <h4>ForkCast</h4>
+          <div class="tech-tags" data-tags="React,Tailwind CSS,Firebase,Spoonacular API,Node.js"></div>
         </a>
 
                 <a href="#" class="project-card" data-project="smartfit">
@@ -92,7 +93,7 @@
         </a>
         
                 <a href="#" class="project-card" data-project="gator-girls">
-                    <img src="assets/gator-girls.png" alt="Gator Girls Guide Project Cover" class="project-image" onerror="this.onerror=null;this.src='https://placehold.co/300x300/f5f5f7/6b6b6b?text=Gator+Girls';" />
+          <img src="assets/gator-girls.png" alt="Gator Girls Guide Project Cover" class="project-image" onerror="this.onerror=null;this.src='https://placehold.co/300x200/f5f5f7/6b6b6b?text=Gator+Girls';" />
           <h4>Gator Girls Guide</h4>
           <div class="tech-tags" data-tags="HTML,CSS,JavaScript,Hackathon"></div>
         </a>
@@ -206,7 +207,7 @@
     <footer>
     <div class="container simple-footer">
         <p>Alexa Acosta | Last Updated: October 16th, 2025</p>
-    </div>
+      </div>
   </footer>
 
     <div id="project-modal" class="modal">
@@ -250,17 +251,17 @@
 
     // Project data map (Used to populate the modal with full descriptions)
     const projectData = {
-      // SmartFit (UPDATED NAME)
+      // SmartFit: Fashion App
       'smartfit': { 
         title: 'SmartFit', 
         description: 'Developed a gamified wardrobe management platform with outfit logging, history tracking, and streak-based rewards, increasing user engagement with personal style data. Built the outfit builder, CRUD wardrobe items, and category filters in React/Tailwind, collaborating in an Agile team using Jira, GitHub, and Docker for consistent development workflows.', 
         link: 'smartfit-case-study.html' 
       },
-      // ForkCast (UPDATED NAME and KEY from EasyMeal)
-      'forkcast-new': { 
-        title: 'ForkCast', 
-        description: 'Engineered a recipe app generating personalized meals from user-provided ingredients, reducing food waste and saving time for students. Integrated Firebase authentication/database and Spoonacular API with a responsive React/Tailwind interface, consolidating meal planning into a single, accessible platform.', 
-        link: 'forkcast-new-case-study.html' 
+      // EasyMeal: Recipe Generator App (Mapped to Bloomville key)
+      'bloomville': { 
+        title: 'BloomVille', 
+        description: 'Developed a simple 3D game using the Unity engine, focusing on game logic, physics, and asset integration. This project demonstrates foundational skills in game development and C# scripting within a real-time environment.', 
+        link: 'easymeal-case-study.html' 
       },
       // Blue Ridge Predictor Module — Snap Metrics
       'blue-ridge': { 
@@ -280,11 +281,11 @@
         description: 'Developed a dating-style mobile app to connect college students with compatible study partners using React Native and Expo-Go for cross-platform deployment. Designed a user-friendly interface using Figma for profile creation, study preferences, and matching students based on similarities.', 
         link: 'matchbook-case-study.html' 
       },
-      // Bloomville Game (UPDATED NAME, TAG, and KEY from ForkCast)
-      'bloomville-game': { 
-        title: 'Bloomville Game', 
-        description: 'Developed a simple 3D game using the Unity engine, focusing on game logic, physics, and asset integration. This project demonstrates foundational skills in game development and C# scripting within a real-time environment.', 
-        link: 'bloomville-game-case-study.html' 
+      // ForkCast (Placeholder for remaining key)
+      'forkcast': { 
+        title: 'ForkCast', 
+        description: 'Engineered a recipe app generating personalized meals from user-provided ingredients, reducing food waste and saving time for students. Integrated Firebase authentication/database and Spoonacular API with a responsive React/Tailwind interface, consolidating meal planning into a single, accessible platform.', 
+        link: 'forkcast-case-study.html' 
       },
     };
 
@@ -314,12 +315,12 @@
     // Close the modal when the user clicks on (x)
     closeBtn.addEventListener('click', function() {
       modal.style.display = 'none';
-      document.body.classList.remove('modal-open'); 
+      document.body.classList.remove('modal-open');
     });
 
-    // Close the modal when the user clicks anywhere outside of the modal
+    // Close the modal when the user clicks anywhere outside of it
     window.addEventListener('click', function(event) {
-      if (event.target == modal) {
+      if (event.target === modal) {
         modal.style.display = 'none';
         document.body.classList.remove('modal-open');
       }
