@@ -34,10 +34,25 @@ body.modal-open {
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0;
-  /* NEW: Body background is now white (formerly pale cream) */
+  /* Body background is a fallback/default */
   background: var(--color-light);
   color: var(--color-text-heading);
   line-height: 1.6;
+}
+
+/* NEW: Apply a single, continuous, soft background to the entire main content area */
+main {
+  /* Using white mixed with the pale colors to create the very soft, airy, and blurry effect */
+  background: linear-gradient(
+    180deg, 
+    var(--color-light) 0%, 
+    var(--color-soft-pink) 10%, 
+    var(--color-light) 30%,
+    var(--color-light-peach) 50%,
+    var(--color-light) 70%, 
+    var(--color-soft-pink) 90%, 
+    var(--color-light) 100%
+  );
 }
 
 h1,
@@ -66,9 +81,8 @@ a:hover {
   position: relative; /* Needed for absolute positioning of background shapes */
 }
 
-/* --- Header/Navigation --- */
+/* --- Header/Navigation (Kept White) --- */
 header {
-  /* NEW: Header background is white (formerly pale cream) */
   background: var(--color-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Softer border */
   position: sticky;
@@ -122,22 +136,19 @@ nav {
   color: var(--color-soft-pink); /* Icons hover uses soft pink */
 }
 
-/* --- Hero Section (FULL-WIDTH GRADIENT) --- */
+/* --- Hero Section --- */
 .hero {
-  /* FIX: Adjusted padding for desired vertical size and content spacing */
-  padding: 8rem 1.5rem 6rem; /* Increased bottom padding to stretch it slightly more */
+  padding: 8rem 1.5rem 6rem;
   text-align: center;
   overflow: hidden; 
   position: relative; 
   
-  /* UPDATED: Use a linear gradient for the full-width background */
-  background: linear-gradient(135deg, var(--color-soft-pink) 0%, var(--color-light-peach) 100%);
-  
-  /* UPDATED: Reduce opacity slightly for a softer look, similar to the original blur */
-  opacity: 0.9; 
+  /* FIX: Remove all background/opacity to use the MAIN tag's background */
+  background: none;
+  opacity: 1;
 }
 
-/* UPDATED: Remove the original pseudo-elements for the gradient to take effect */
+/* FIX: Remove pseudo-elements */
 .hero::before,
 .hero::after {
   content: none; 
@@ -145,9 +156,7 @@ nav {
 
 .hero-content {
   position: relative; 
-  /* UPDATED: Ensure content is above the slightly-opaque background */
-  z-index: 2; 
-  opacity: 1; /* Ensure content is fully opaque */
+  z-index: 1; 
 }
 
 .hero h1 {
@@ -155,13 +164,13 @@ nav {
   font-weight: 800;
   letter-spacing: -0.05em;
   margin-bottom: 0.1em;
-  color: var(--color-dark-berry); /* Hero heading uses darkest color */
+  color: var(--color-dark-berry); 
 }
 
 .hero .subtitle {
   font-size: 1.2rem;
   font-weight: 500;
-  color: var(--color-dark-berry); /* Subtitle uses darkest color */
+  color: var(--color-dark-berry); 
   margin-bottom: 1.5rem;
 }
 
@@ -172,7 +181,7 @@ nav {
 }
 
 .hero-description p {
-  color: var(--color-dark-berry); /* Description uses darkest color */
+  color: var(--color-dark-berry); 
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -183,7 +192,7 @@ nav {
   align-items: center;
   gap: 0.75rem;
   padding: 0.8rem 2rem;
-  background-color: var(--color-dark-berry); /* Button uses darkest color */
+  background-color: var(--color-dark-berry); 
   color: var(--color-light);
   border-radius: 6px;
   font-weight: 600;
@@ -196,25 +205,24 @@ nav {
 }
 
 .resume-button:hover {
-  background-color: var(--color-soft-pink); /* Hover uses soft pink */
+  background-color: var(--color-soft-pink); 
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  color: var(--color-dark-berry); /* Text color changes to dark berry on hover */
+  color: var(--color-dark-berry); 
 }
 
 
-/* --- ABOUT ME SECTION STYLES (FULL-WIDTH GRADIENT) --- */
+/* --- ABOUT ME SECTION STYLES --- */
 .about-section {
-  /* FIX: Only vertical padding for full-width background stretch */
   padding: 6rem 0;
-  /* UPDATED: Use a linear gradient for the full-width background, similar to the hero */
-  background: linear-gradient(135deg, var(--color-soft-pink) 0%, var(--color-light-peach) 100%);
-  opacity: 0.9; /* Soften the background slightly */
+  /* FIX: Remove all background/opacity to use the MAIN tag's background */
+  background: none;
+  opacity: 1;
   position: relative;
   overflow: hidden;
 }
 
-/* UPDATED: Remove the pseudo-element for About section */
+/* FIX: Remove pseudo-element for About section */
 .about-section::before {
   content: none; 
 }
@@ -274,18 +282,17 @@ nav {
   font-weight: 600;
 }
 
-/* --- PROJECTS SECTION STYLING (FULL-WIDTH GRADIENT) --- */
+/* --- PROJECTS SECTION STYLING --- */
 .projects-section {
-  /* FIX: Only vertical padding for full-width background stretch */
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
-  /* UPDATED: Use a linear gradient for the full-width background, similar to the hero */
-  background: linear-gradient(135deg, var(--color-soft-pink) 0%, var(--color-light-peach) 100%);
-  opacity: 0.9; /* Soften the background slightly */
+  /* FIX: Remove all background/opacity to use the MAIN tag's background */
+  background: none;
+  opacity: 1;
 }
 
-/* UPDATED: Remove the pseudo-element for Projects section */
+/* FIX: Remove pseudo-element for Projects section */
 .projects-section::before {
   content: none;
 }
@@ -331,7 +338,7 @@ nav {
 .project-card {
   display: flex;
   flex-direction: column;
-  /* FIX: Cards background is now pure white */
+  /* FIX: Cards background is pure white to contrast with main background */
   background: var(--color-light);
   /* Adjusted border and shadow for white cards */
   border: 1px solid rgba(87, 2, 40, 0.05); /* Softer border */
@@ -413,10 +420,10 @@ nav {
 }
 
 
-/* --- EXPERIENCE SECTION STYLING --- */
+/* --- EXPERIENCE SECTION STYLING (KEPT WHITE) --- */
 .experience-section {
   padding: 4rem 1.5rem;
-  /* FIX: Experience section background is now white (formerly pale cream) */
+  /* FIX: Experience section background is now white (formerly pale cream) - Kept white to break up the pink gradient */
   background: var(--color-light);
 }
 
@@ -488,22 +495,19 @@ nav {
 }
 
 
-/* --- CONTACT SECTION STYLING (FULL-WIDTH GRADIENT) --- */
+/* --- CONTACT SECTION STYLING --- */
 .contact-section {
-  /* FIX: Only vertical padding for full-width background stretch */
   padding: 4rem 0;
   text-align: center;
-  /* UPDATED: Use a linear gradient for the full-width background, similar to the hero */
-  background: linear-gradient(135deg, var(--color-soft-pink) 0%, var(--color-light-peach) 100%);
-  opacity: 0.9; /* Soften the background slightly */
+  /* FIX: Remove all background/opacity to use the MAIN tag's background */
+  background: none;
+  opacity: 1;
   position: relative;
   overflow: hidden;
-  /* Removed negative margin-bottom to fix footer collision.
-      Footer will now naturally follow after this section. */
   margin-bottom: 0;
 }
 
-/* UPDATED: Remove the pseudo-element for Contact section */
+/* FIX: Remove pseudo-element for Contact section */
 .contact-section::before {
   content: none;
 }
@@ -552,15 +556,12 @@ nav {
 }
 
 
-/* --- SIMPLE FOOTER STYLES --- */
+/* --- SIMPLE FOOTER STYLES (Kept White) --- */
 footer {
   text-align: center;
-  /* FIX: Added top padding to create space between contact and footer text */
   padding: 2rem 2rem 2rem 2rem;
-  /* FIX: Footer background is now white (formerly pale cream) */
   background: var(--color-light);
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  /* FIX: Removed margin-top to avoid collision */
   margin-top: 0;
 }
 
