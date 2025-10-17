@@ -332,23 +332,25 @@ nav {
 
 .top-row,
 .bottom-row {
+  /* This creates the 3-column layout */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-/* 🔥 NEW/UPDATED: Horizontal Card Layout using Flexbox */
+/* 🔥 UPDATED: Vertical Card Layout with reduced padding/margins for a compact look */
 .project-card {
-  /* FIX: Changed to a horizontal flex layout */
   display: flex;
-  flex-direction: row; /* Ensures content is side-by-side */
-  align-items: center; /* Vertically center image and content */
-  gap: 1.5rem; /* Space between image and text content */
-
+  flex-direction: column; /* Ensure vertical stacking */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Center text */
+  
+  /* UPDATED: Reduced vertical padding for a shorter card */
+  padding: 1.5rem 1rem; 
+  
   /* Keep existing styles */
   background: var(--color-light);
   border: 1px solid rgba(87, 2, 40, 0.05); /* Softer border */
   border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Increased shadow for more pop */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); 
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   color: var(--color-dark-berry);
   text-decoration: none;
@@ -356,31 +358,24 @@ nav {
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18); /* Even more pronounced shadow on hover */
-  border-color: var(--color-soft-pink); /* Border highlight on hover */
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18); 
+  border-color: var(--color-soft-pink); 
 }
 
-/* 🔥 NEW: Wrapper for the text content on the right side of the card */
-.card-content {
-    flex: 1; /* Allows the content to take up the remaining space */
-    display: flex;
-    flex-direction: column; /* Stack the title and tags vertically */
-}
-
+/* 🔥 REMOVED: .card-content wrapper CSS (reverted to original HTML structure) */
 
 /* Styling for the actual images/placeholders within the project cards */
 .project-card img.project-image,
 .project-image-placeholder {
-  /* 🔥 UPDATED: Set a fixed size for the left-side image/placeholder */
+  /* 🔥 UPDATED: Reduced size for a compact card look */
   width: 100px;
   height: 100px;
-  /* Keep existing square ratio and radius */
+  flex-shrink: 0; /* Keep this to prevent squishing */
   aspect-ratio: 1 / 1; 
+  object-fit: cover;
   border-radius: 6px;
-  /* Add shrink: 0 to prevent the image from being squished by text */
-  flex-shrink: 0; 
-  /* Clear the margin-bottom from the previous vertical layout */
-  margin-bottom: 0 !important; 
+  /* UPDATED: Smaller margin for a compact look */
+  margin-bottom: 0.75rem; 
 }
 
 /* Placeholder element for projects without images */
@@ -394,11 +389,12 @@ nav {
   font-size: 0.9rem;
 }
 
-
 .project-card h4 {
   font-size: 1.2rem;
   font-weight: 600;
-  margin-top: 0; /* Cleared margin for better alignment inside flex container */
+  /* UPDATED: Removed margin-top and reduced bottom margin */
+  margin-top: 0;
+  margin-bottom: 0.5rem;
   color: var(--color-dark-berry);
 }
 
@@ -409,6 +405,8 @@ nav {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  /* Center tags inside the card, which is centered */
+  justify-content: center;
 }
 
 .tech-tag {
@@ -700,20 +698,19 @@ footer {
     grid-template-columns: 1fr;
   }
     
-  /* 🔥 UPDATED: Stack cards vertically on mobile */
+  /* Card Mobile Layout */
   .project-card {
-    flex-direction: column; 
-    align-items: flex-start;
-    gap: 1rem; 
     padding: 1.5rem;
+    /* Ensure content remains centered */
+    align-items: center; 
   }
     
-  /* On mobile, let the image take up the full card width */
+  /* On mobile, allow the image to scale within the card */
   .project-card img.project-image,
   .project-image-placeholder {
-    width: 100%; 
-    height: auto;
-    margin-bottom: 1rem !important; 
+    width: 120px; /* Keep a decent size on mobile */
+    height: 120px;
+    margin-bottom: 0.75rem; 
   }
     
   .project-card h4 {
@@ -721,7 +718,6 @@ footer {
   }
     
   .card-content {
-      /* Ensure text wrapper stretches to fill space */
       width: 100%;
   }
 
@@ -751,3 +747,4 @@ footer {
     gap: 0.75rem;
   }
 }
+
