@@ -328,13 +328,11 @@ nav {
   margin-bottom: 2rem;
   position: relative;
   z-index: 1;
-}
-
-.top-row,
-.bottom-row {
-  /* This creates the 3-column layout */
+    /* 🔥 FIX: Apply the 3-column rule directly to the main container */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
+
+/* 🔥 DELETED: The .top-row, .bottom-row selectors are removed from the CSS entirely */
 
 /* 🔥 UPDATED: Vertical Card Layout with reduced padding/margins for a compact look */
 .project-card {
@@ -674,77 +672,77 @@ footer {
 
   .header-social-links {
     position: static;
-    order: 1;
-    margin-bottom: 1rem;
+    order: 1; /* Puts social links above nav links if you want them at the top of the header */
+    margin-bottom: 1rem; /* Add spacing below social links */
+  }
+
+  /* Hero Section */
+  .hero {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
   }
 
   .hero h1 {
     font-size: 2.5rem;
   }
 
-  /* About Section Mobile */
+  /* About Me Section Mobile */
   .about-flex {
     flex-direction: column;
+    align-items: center;
     text-align: center;
+    gap: 2.5rem; /* Reduced gap for mobile */
   }
 
-  .profile-pic {
-    margin: 0 auto 2rem;
+  .about-text p {
+    text-align: left; /* Keep the paragraph text left-aligned for readability */
+    font-size: 1rem;
   }
 
-  /* Project Grid Mobile */
-  .top-row,
-  .bottom-row {
+  .section-heading {
+    margin-bottom: 2rem;
+  }
+
+  /* Projects Section Mobile */
+  .project-grid {
+    /* Auto-fit is already good, but for smaller phones, a single column is better */
     grid-template-columns: 1fr;
-  }
-    
-  /* Card Mobile Layout */
-  .project-card {
-    padding: 1.5rem;
-    /* Ensure content remains centered */
-    align-items: center; 
-  }
-    
-  /* On mobile, allow the image to scale within the card */
-  .project-card img.project-image,
-  .project-image-placeholder {
-    width: 120px; /* Keep a decent size on mobile */
-    height: 120px;
-    margin-bottom: 0.75rem; 
-  }
-    
-  .project-card h4 {
-    margin-top: 0;
-  }
-    
-  .card-content {
-      width: 100%;
-  }
-
-  /* Experience Section Mobile */
-  .title-flex {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .experience-item .date {
-    text-align: left;
-    margin-top: 0.25rem;
   }
 
   /* Contact Section Mobile */
-  .contact-links {
+  .center-contact-links {
     flex-direction: column;
-    align-items: center;
     gap: 1rem;
+    margin-top: 2rem;
   }
-}
-
-@media (max-width: 500px) {
-  .nav-links {
-    flex-wrap: wrap;
+  
+  .contact-button {
+    /* Make contact buttons full width on smaller screens */
+    width: 100%; 
     justify-content: center;
-    gap: 0.75rem;
+  }
+
+  /* Modal Mobile Adjustments */
+  .modal-content {
+    width: 95%; /* Make it wider on small screens */
+    padding: 20px;
+  }
+
+  .modal-flex {
+    flex-direction: column; /* Stack image and text vertically */
+    gap: 1.5rem;
+  }
+
+  .modal-image-placeholder {
+    /* Make image/placeholder take up a reasonable space at the top */
+    width: 100%;
+    /* You can give it a fixed height or keep aspect-ratio */
+    /* aspect-ratio: 16 / 9; */
+    min-height: 200px;
+  }
+
+  .close-btn {
+    top: 10px;
+    right: 20px;
   }
 }
-
