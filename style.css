@@ -360,7 +360,7 @@ nav {
 .project-image-placeholder {
   width: 100%;
   /* FIX: Taller aspect ratio (16/9) for more vertical space */
-  aspect-ratio: 1/1; 
+  aspect-ratio: 4/3; 
   /* FIX: Placeholder background is now light peach (same as tags) */
   background-color: var(--color-light-peach);
   border-radius: 6px;
@@ -375,7 +375,7 @@ nav {
 /* Styling for the actual images within the project cards */
 .project-card img.project-image {
   /* FIX: Taller aspect ratio (16/9) for more vertical space */
-  aspect-ratio: 1/1;
+  aspect-ratio: 4/3;
   height: auto;
   width: 100%;
   object-fit: cover;
