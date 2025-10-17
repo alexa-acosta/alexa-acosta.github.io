@@ -5,10 +5,10 @@
   --color-grey-bg: #f5f5f7;
   --color-text-body: #6b6b6b;
   --color-text-heading: #333333;
-  --color-accent: #e5b89c;
-  --color-linkedin: #0a66c2;
+  --color-accent: #e5b89c; /* Accent color used for divider lines and uniform contact buttons */
+  --color-linkedin: #0a66c2; /* Kept variables for reference but overridden in contact section */
   --color-github: #24292e;
-  --color-email: #d93025; /* Reddish tone for email */
+  --color-email: #d93025;
 }
 
 /* FIX: Smooth Scroll */
@@ -176,7 +176,7 @@ nav {
   position: relative;
 }
 
-/* NEW/UPDATED: Profile picture styling to handle <img> tag */
+/* UPDATED: Profile picture styling to handle <img> tag */
 .profile-pic {
   width: 250px;
   height: 250px;
@@ -262,7 +262,7 @@ nav {
   font-size: 0.8rem;
 }
 
-/* Styling for the actual images within the project cards */
+/* Styling for the actual images within the project cards (NEW: Enforces 16/9 aspect ratio) */
 .project-card img.project-image {
     aspect-ratio: 16 / 9;
     height: auto;
@@ -299,6 +299,11 @@ nav {
     border: 1px solid #e0e0e0; 
 }
 
+/* Modal specific tech tags container */
+.tech-tags-modal {
+    margin-top: 1.5rem;
+}
+
 
 /* --- EXPERIENCE SECTION STYLING --- */
 .experience-section {
@@ -308,7 +313,7 @@ nav {
 .experience-category {
     margin-bottom: 3rem;
     /* Left border for visual separation of categories */
-    border-left: 3px solid var(--color-accent);
+    border-left: 3px solid var(--color-accent); /* Accent line for uniformity */
     padding-left: 1.5rem;
 }
 
@@ -374,7 +379,7 @@ nav {
 }
 
 
-/* --- CONTACT SECTION STYLING (UPDATED) --- */
+/* --- CONTACT SECTION STYLING (UNIFORM COLOR) --- */
 .contact-section {
     padding: 4rem 1.5rem 8rem;
     text-align: center;
@@ -401,7 +406,11 @@ nav {
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
-    color: var(--color-light);
+    
+    /* NEW: Uniform Color (Matches Experience Accent) */
+    background-color: var(--color-accent);
+    color: var(--color-dark); /* Use dark text for contrast on lighter accent background */
+
     font-weight: 600;
     font-size: 1rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -411,19 +420,12 @@ nav {
 .contact-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    color: var(--color-light); /* Keep text white on hover */
+    /* NEW: Keep color consistent on hover */
+    background-color: var(--color-accent); 
+    color: var(--color-dark);
 }
 
-/* Specific Button Colors */
-.linkedin-btn {
-    background-color: var(--color-linkedin);
-}
-.github-btn {
-    background-color: var(--color-github);
-}
-.email-btn {
-    background-color: var(--color-email);
-}
+/* Specific Button Color Overrides REMOVED to achieve uniformity */
 
 
 /* --- SIMPLE FOOTER STYLES --- */
@@ -485,7 +487,8 @@ footer {
 
 .modal-image-placeholder {
   flex: 1;
-  min-height: 400px;
+  /* Removed fixed min-height */
+  aspect-ratio: 16 / 9; /* NEW: Enforce same aspect ratio as project cards */
   background-color: var(--color-grey-bg);
   border-radius: 8px;
   display: flex;
@@ -495,18 +498,7 @@ footer {
   color: var(--color-text-body);
 }
 
-.modal-cta {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  background: var(--color-dark);
-  color: white;
-  border-radius: 8px;
-  font-weight: 500;
-}
-.modal-cta:hover {
-    background: var(--color-text-heading);
-}
+/* .modal-cta removed */
 
 .close-btn {
   color: #aaa;
@@ -534,7 +526,8 @@ footer {
   }
   
   .modal-image-placeholder {
-    min-height: 250px;
+    /* Removed min-height change */
+    aspect-ratio: 16 / 9;
   }
 }
 

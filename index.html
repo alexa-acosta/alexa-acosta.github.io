@@ -33,7 +33,7 @@
             <p>Welcome to my developer journey. I'm a passionate developer from Miami, FL. I enjoy designing and creating web/IOS applications and expanding into the cybersecurity sphere. I have experience with **Python, Javascript, & C++**.</p>
         </div>
         <!-- RESUME BUTTON -->
-        <a href="alexa_acosta_resume.pdf" download class="resume-button" target="_blank" rel="noopener noreferrer">
+        <a href="AlexaAcostaResume.pdf" download class="resume-button" target="_blank" rel="noopener noreferrer">
             <i class="fa-solid fa-download"></i> Download Resume
         </a>
       </div>
@@ -45,7 +45,7 @@
         <div class="about-flex">
           <div class="image-wrapper">
             <!-- IMAGE: about-me.jpg (Profile Picture) -->
-            <img src="assets/about-me.jpg" alt="Alexa Acosta profile picture" class="profile-pic" onerror="this.onerror=null;this.src='https://placehold.co/250x250/e5b89c/ffffff?text=Alexa';" />
+            <img src="assets/about-me.JPG" alt="Alexa Acosta profile picture" class="profile-pic" onerror="this.onerror=null;this.src='https://placehold.co/250x250/e5b89c/ffffff?text=Alexa';" />
           </div>
           <div class="about-text">
             <p>My name is <span class="highlight">Alexa</span>- I'm an ambitious, goal-oriented, <span class="highlight">2nd-year undergraduate student</span> at the University of Florida.</p>
@@ -226,7 +226,7 @@
     </div>
   </footer>
 
-  <!-- PROJECT MODAL POP-UP STRUCTURE -->
+  <!-- PROJECT MODAL POP-UP STRUCTURE (UPDATED) -->
   <div id="project-modal" class="modal">
     <div class="modal-content">
       <span class="close-btn">&times;</span>
@@ -234,7 +234,8 @@
         <div class="modal-description">
           <h3 id="modal-title">Project Title</h3>
           <p id="modal-text">This is the full project description that will appear in the pop-up.</p>
-          <a href="#" class="modal-cta">View Full Case Study &rarr;</a>
+          <!-- NEW: Tech Tags now displayed instead of 'View Full Case Study' button -->
+          <div id="modal-tech-tags" class="tech-tags-modal"></div>
         </div>
         <div class="modal-image-placeholder">
           <p>Image/Prototype Preview</p>
@@ -250,12 +251,12 @@
     const projectCards = document.querySelectorAll('.project-card');
     const modalTitle = document.getElementById('modal-title');
     const modalText = document.getElementById('modal-text');
-    const modalCta = document.querySelector('.modal-cta');
+    // Removed modalCta as the link button is gone
     const techTagsContainers = document.querySelectorAll('.tech-tags');
+    const modalTechTagsContainer = document.getElementById('modal-tech-tags'); // NEW element for modal tags
     
     // Function to generate the HTML tags
-    function createTechTags(container) {
-        const tagsString = container.getAttribute('data-tags');
+    function createTechTags(container, tagsString) {
         if (tagsString) {
             const tagsArray = tagsString.split(',');
             // Map the array of tags to correctly styled span elements
@@ -263,8 +264,8 @@
         }
     }
 
-    // Initialize tags on load
-    techTagsContainers.forEach(createTechTags);
+    // Initialize tags on load for project grid
+    techTagsContainers.forEach(container => createTechTags(container, container.getAttribute('data-tags')));
 
 
     // Project data map (Used to populate the modal with full descriptions)
@@ -313,11 +314,17 @@
         
         const projectKey = this.getAttribute('data-project');
         const data = projectData[projectKey];
+        // Retrieve the tags string from the clicked project card
+        const tagsString = this.querySelector('.tech-tags').getAttribute('data-tags'); 
 
         if (data) {
           modalTitle.textContent = data.title;
           modalText.textContent = data.description;
-          modalCta.href = data.link;
+          // modalCta.href is no longer set/used
+
+          // Populate the modal with the tech tags
+          createTechTags(modalTechTagsContainer, tagsString); 
+          
           modal.style.display = 'block';
           // Fix: Prevent main page scroll when modal is open
           document.body.classList.add('modal-open'); 
