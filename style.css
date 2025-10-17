@@ -219,7 +219,7 @@ nav {
   opacity: 1;
   position: relative;
   /* FIX: Remove overflow: hidden; to prevent the profile picture border from being cut off */
-  /* overflow: hidden; */ /* <--- COMMENT OUT OR DELETE THIS LINE */
+  /* overflow: hidden; */ 
 }
 
 /* FIX: Remove pseudo-element for About section */
@@ -335,12 +335,16 @@ nav {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
+/* 🔥 NEW/UPDATED: Horizontal Card Layout using Flexbox */
 .project-card {
+  /* FIX: Changed to a horizontal flex layout */
   display: flex;
-  flex-direction: column;
-  /* FIX: Cards background is pure white to contrast with main background */
+  flex-direction: row; /* Ensures content is side-by-side */
+  align-items: center; /* Vertically center image and content */
+  gap: 1.5rem; /* Space between image and text content */
+
+  /* Keep existing styles */
   background: var(--color-light);
-  /* Adjusted border and shadow for white cards */
   border: 1px solid rgba(87, 2, 40, 0.05); /* Softer border */
   border-radius: 8px;
   padding: 2rem;
@@ -356,15 +360,33 @@ nav {
   border-color: var(--color-soft-pink); /* Border highlight on hover */
 }
 
+/* 🔥 NEW: Wrapper for the text content on the right side of the card */
+.card-content {
+    flex: 1; /* Allows the content to take up the remaining space */
+    display: flex;
+    flex-direction: column; /* Stack the title and tags vertically */
+}
+
+
+/* Styling for the actual images/placeholders within the project cards */
+.project-card img.project-image,
+.project-image-placeholder {
+  /* 🔥 UPDATED: Set a fixed size for the left-side image/placeholder */
+  width: 100px;
+  height: 100px;
+  /* Keep existing square ratio and radius */
+  aspect-ratio: 1 / 1; 
+  border-radius: 6px;
+  /* Add shrink: 0 to prevent the image from being squished by text */
+  flex-shrink: 0; 
+  /* Clear the margin-bottom from the previous vertical layout */
+  margin-bottom: 0 !important; 
+}
+
 /* Placeholder element for projects without images */
 .project-image-placeholder {
-  width: 100%;
-  /* FINAL FIX: Square aspect ratio */
-  aspect-ratio: 1 / 1; 
   /* FIX: Placeholder background is now light peach (same as tags) */
   background-color: var(--color-light-peach);
-  border-radius: 6px;
-  margin-bottom: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -372,28 +394,17 @@ nav {
   font-size: 0.9rem;
 }
 
-/* Styling for the actual images within the project cards */
-.project-card img.project-image {
-  /* FINAL FIX: Square aspect ratio */
-  aspect-ratio: 1 / 1;
-  height: auto;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 1.5rem;
-}
-
 
 .project-card h4 {
   font-size: 1.2rem;
   font-weight: 600;
-  margin-top: 0.5rem;
+  margin-top: 0; /* Cleared margin for better alignment inside flex container */
   color: var(--color-dark-berry);
 }
 
 /* --- TECH TAG STYLING --- */
 .tech-tags {
-  margin-bottom: 1rem;
+  margin-bottom: 0; /* Cleared bottom margin */
   margin-top: 0.5rem;
   display: flex;
   flex-wrap: wrap;
@@ -688,38 +699,55 @@ footer {
   .bottom-row {
     grid-template-columns: 1fr;
   }
-
-  /* Modal Mobile */
-  .modal-flex {
-    flex-direction: column;
+    
+  /* 🔥 UPDATED: Stack cards vertically on mobile */
+  .project-card {
+    flex-direction: column; 
+    align-items: flex-start;
+    gap: 1rem; 
+    padding: 1.5rem;
+  }
+    
+  /* On mobile, let the image take up the full card width */
+  .project-card img.project-image,
+  .project-image-placeholder {
+    width: 100%; 
+    height: auto;
+    margin-bottom: 1rem !important; 
+  }
+    
+  .project-card h4 {
+    margin-top: 0;
+  }
+    
+  .card-content {
+      /* Ensure text wrapper stretches to fill space */
+      width: 100%;
   }
 
-  .modal-image-placeholder {
-    /* Keeping 1 / 1 on mobile too */
-    aspect-ratio: 1 / 1;
-  }
-
-  /* Experience Mobile */
+  /* Experience Section Mobile */
   .title-flex {
     flex-direction: column;
     align-items: flex-start;
   }
 
   .experience-item .date {
+    text-align: left;
     margin-top: 0.25rem;
   }
 
-  /* Contact Links Mobile (Stacked and Centered) */
+  /* Contact Section Mobile */
   .contact-links {
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
-  }
-
-  .contact-button {
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-    justify-content: center;
   }
 }
 
+@media (max-width: 500px) {
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+}
