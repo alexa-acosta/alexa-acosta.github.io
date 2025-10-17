@@ -359,8 +359,8 @@ nav {
 /* Placeholder element for projects without images */
 .project-image-placeholder {
   width: 100%;
-  /* FIX: Taller aspect ratio (16/9) for more vertical space */
-  aspect-ratio: 4/3; 
+  /* FINAL FIX: Square aspect ratio */
+  aspect-ratio: 1 / 1; 
   /* FIX: Placeholder background is now light peach (same as tags) */
   background-color: var(--color-light-peach);
   border-radius: 6px;
@@ -374,8 +374,8 @@ nav {
 
 /* Styling for the actual images within the project cards */
 .project-card img.project-image {
-  /* FIX: Taller aspect ratio (16/9) for more vertical space */
-  aspect-ratio: 4/3;
+  /* FINAL FIX: Square aspect ratio */
+  aspect-ratio: 1 / 1;
   height: auto;
   width: 100%;
   object-fit: cover;
@@ -616,8 +616,8 @@ footer {
 
 .modal-image-placeholder {
   flex: 1;
-  /* CRITICAL: Taller aspect ratio for modal image */
-  aspect-ratio: 4 / 3;
+  /* FINAL FIX: Using 1 / 1 aspect ratio for modal to match project cards */
+  aspect-ratio: 1 / 1; 
   background-color: var(--color-light-peach);
   border-radius: 8px;
   display: flex;
@@ -695,7 +695,8 @@ footer {
   }
 
   .modal-image-placeholder {
-    aspect-ratio: 4 / 3;
+    /* Keeping 1 / 1 on mobile too */
+    aspect-ratio: 1 / 1;
   }
 
   /* Experience Mobile */
@@ -721,3 +722,4 @@ footer {
     justify-content: center;
   }
 }
+
