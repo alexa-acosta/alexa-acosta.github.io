@@ -325,11 +325,13 @@ nav {
 .project-grid {
   display: grid;
   gap: 2rem;
-  margin-bottom: 2rem;
+  /* 🔥 FIX 1: Set max-width and use margin: auto to center the entire grid block */
+  max-width: 900px; 
+  margin: 0 auto 2rem auto; 
   position: relative;
   z-index: 1;
-    /* 🔥 FIX: Apply the 3-column rule directly to the main container */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* 🔥 FIX 2: Use repeat(3, 1fr) for a strict 3-column layout when space allows */
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* 🔥 DELETED: The .top-row, .bottom-row selectors are removed from the CSS entirely */
@@ -655,6 +657,13 @@ footer {
 
 
 /* Responsive Adjustments */
+@media (max-width: 950px) { /* NEW: A wider breakpoint for the 3 -> 2 column switch */
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns */
+        max-width: 600px; /* Adjust max-width to center 2 columns better */
+    }
+}
+
 @media (max-width: 768px) {
 
   /* Navigation Mobile */
@@ -704,9 +713,12 @@ footer {
   }
 
   /* Projects Section Mobile */
-  .project-grid {
-    /* Auto-fit is already good, but for smaller phones, a single column is better */
-    grid-template-columns: 1fr;
+  /* This rule will override the 950px rule when screen is < 500px */
+  @media (max-width: 500px) {
+      .project-grid {
+          grid-template-columns: 1fr; /* Switch to 1 column on tiny screens */
+          max-width: none;
+      }
   }
 
   /* Contact Section Mobile */
@@ -746,3 +758,4 @@ footer {
     right: 20px;
   }
 }
+
