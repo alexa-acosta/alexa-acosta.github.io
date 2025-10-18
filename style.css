@@ -547,6 +547,10 @@ nav {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.contact-button i {
+    color: var(--color-dark-berry); 
+}
+
 .contact-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
@@ -554,6 +558,9 @@ nav {
   color: var(--color-light);
 }
 
+.contact-button:hover i {
+    color: var(--color-light);
+}
 
 /* --- SIMPLE FOOTER STYLES (Kept White) --- */
 footer {
