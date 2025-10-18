@@ -326,19 +326,21 @@ nav {
   display: grid;
   gap: 2rem;
   
-  /* 🔥 FIX for staggered layout: Set a width and ensure content is centered */
-  max-width: 90%;
+  /* FINAL FIX: Increased max-width and used margin: 0 auto for perfect centering */
+  max-width: 1050px; 
   margin: 0 auto 2rem auto; 
   position: relative;
   z-index: 1;
-  font-size: 0;
-  /* Use repeat(3, 1fr) for a strict 3-column layout when space allows */
-  place-items: center;
+  
+  /* Forces 3 equally sized columns */
   grid-template-columns: repeat(3, 1fr);
-  justify-content: center; /* Ensures the grid container content is centered */
+  
+  /* THE KEY FIX: Ensures the columns are grouped and centered horizontally */
+  justify-content: center; 
+  
+  /* Fix for whitespace between HTML elements causing staggering */
+  font-size: 0; 
 }
-
-/* 🔥 DELETED: The .top-row, .bottom-row selectors are removed from the CSS entirely */
 
 /* 🔥 UPDATED: Vertical Card Layout with reduced padding/margins for a compact look */
 .project-card {
@@ -347,9 +349,12 @@ nav {
   align-items: center; /* Center content horizontally */
   text-align: center; /* Center text */
   
+  /* NEW FIX: Enforce uniform card height regardless of tag wrapping */
+  min-height: 280px; 
+  
   /* UPDATED: Reduced vertical padding for a shorter card */
   padding: 1.5rem 1rem; 
-  font-size: 1rem;
+  
   /* Keep existing styles */
   background: var(--color-light);
   border: 1px solid rgba(87, 2, 40, 0.05); /* Softer border */
@@ -358,6 +363,9 @@ nav {
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   color: var(--color-dark-berry);
   text-decoration: none;
+  
+  /* Reset font size for text inside the card */
+  font-size: 1rem;
 }
 
 .project-card:hover {
@@ -365,8 +373,6 @@ nav {
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18); 
   border-color: var(--color-soft-pink); 
 }
-
-/* 🔥 REMOVED: .card-content wrapper CSS (reverted to original HTML structure) */
 
 /* Styling for the actual images/placeholders within the project cards */
 .project-card img.project-image,
@@ -793,8 +799,6 @@ footer {
     }
     
     .contact-links {
-        /* Ensures proper centering for stacked buttons */
         max-width: 100%;
     }
 }
-
