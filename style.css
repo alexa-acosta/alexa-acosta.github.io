@@ -539,7 +539,7 @@ nav {
   border-radius: 8px;
 
   background-color: var(--color-soft-pink);
-  color: var(--color-dark-berry);
+  color: var(--color-dark-berry); /* Sets text color */
 
   font-weight: 600;
   font-size: 1rem;
@@ -547,20 +547,24 @@ nav {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* 🔥 FINAL FIX: Ensure icons use the berry color and are aligned */
 .contact-button i {
     color: var(--color-dark-berry); 
+    /* The font-awesome icons are already part of the flex layout, no extra margin needed here */
 }
 
 .contact-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   background-color: var(--color-dark-berry);
-  color: var(--color-light);
+  color: var(--color-light); /* Text color changes to white */
 }
 
+/* 🔥 FINAL FIX: Ensure icons change color on hover */
 .contact-button:hover i {
-    color: var(--color-light);
+  color: var(--color-light); /* Icon color changes to white on hover */
 }
+
 
 /* --- SIMPLE FOOTER STYLES (Kept White) --- */
 footer {
