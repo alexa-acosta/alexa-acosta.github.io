@@ -325,13 +325,17 @@ nav {
 .project-grid {
   display: grid;
   gap: 2rem;
-  /* 🔥 FIX 1: Set max-width and use margin: auto to center the entire grid block */
-  max-width: 900px; 
+  
+  /* 🔥 FIX for staggered layout: Set a width and ensure content is centered */
+  max-width: 1000px; 
   margin: 0 auto 2rem auto; 
   position: relative;
   z-index: 1;
-  /* 🔥 FIX 2: Use repeat(3, 1fr) for a strict 3-column layout when space allows */
+  
+  /* Use repeat(3, 1fr) for a strict 3-column layout when space allows */
   grid-template-columns: repeat(3, 1fr);
+  justify-content: center; /* Ensures the grid container content is centered */
+  place-content: center; /* Additional alignment for robust centering */
 }
 
 /* 🔥 DELETED: The .top-row, .bottom-row selectors are removed from the CSS entirely */
@@ -793,3 +797,4 @@ footer {
         max-width: 100%;
     }
 }
+
