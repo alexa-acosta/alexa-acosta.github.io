@@ -659,103 +659,137 @@ footer {
 /* Responsive Adjustments */
 @media (max-width: 950px) { /* NEW: A wider breakpoint for the 3 -> 2 column switch */
     .project-grid {
-        grid-template-columns: repeat(2, 1fr); /* Switch to 2 columns */
+        /* 950px to 601px: Switch to 2 columns */
+        grid-template-columns: repeat(2, 1fr); 
         max-width: 600px; /* Adjust max-width to center 2 columns better */
+        gap: 1.5rem; /* Slightly reduced gap */
+    }
+
+    /* Additional layout adjustments for the 950px breakpoint */
+    .about-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
     }
 }
 
 @media (max-width: 768px) {
 
-  /* Navigation Mobile */
-  nav {
-    flex-direction: column;
-    padding: 1rem 0;
-    align-items: center;
-  }
+    /* Navigation Mobile */
+    nav {
+        flex-direction: column;
+        padding: 1rem 0;
+        align-items: center;
+    }
 
-  .nav-links {
-    margin-bottom: 1rem;
-    order: 2;
-    gap: 1.5rem;
-  }
+    .nav-links {
+        margin-bottom: 1rem;
+        order: 2;
+        gap: 1.5rem;
+    }
 
-  .header-social-links {
-    position: static;
-    order: 1; /* Puts social links above nav links if you want them at the top of the header */
-    margin-bottom: 1rem; /* Add spacing below social links */
-  }
+    .header-social-links {
+        position: static;
+        order: 1; /* Puts social links above nav links if you want them at the top of the header */
+        margin-bottom: 1rem; /* Add spacing below social links */
+        /* Center icons when static */
+        justify-content: center; 
+    }
 
-  /* Hero Section */
-  .hero {
-    padding-top: 5rem;
-    padding-bottom: 4rem;
-  }
+    /* Hero Section */
+    .hero {
+        padding-top: 5rem;
+        padding-bottom: 4rem;
+    }
 
-  .hero h1 {
-    font-size: 2.5rem;
-  }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
 
-  /* About Me Section Mobile */
-  .about-flex {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 2.5rem; /* Reduced gap for mobile */
-  }
+    /* About Me Section Mobile */
+    .about-flex {
+        /* Already defined at 950px, but including here for context */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2.5rem; 
+    }
 
-  .about-text p {
-    text-align: left; /* Keep the paragraph text left-aligned for readability */
-    font-size: 1rem;
-  }
+    .about-text p {
+        text-align: left; /* Keep the paragraph text left-aligned for readability */
+        font-size: 1rem;
+    }
 
-  .section-heading {
-    margin-bottom: 2rem;
-  }
+    .section-heading {
+        margin-bottom: 2rem;
+    }
+    
+    /* Experience items can be better spaced */
+    .experience-item {
+        margin-bottom: 1.5rem;
+    }
 
-  /* Projects Section Mobile */
-  /* This rule will override the 950px rule when screen is < 500px */
-  @media (max-width: 500px) {
-      .project-grid {
-          grid-template-columns: 1fr; /* Switch to 1 column on tiny screens */
-          max-width: none;
-      }
-  }
+    .title-flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-  /* Contact Section Mobile */
-  .center-contact-links {
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-  
-  .contact-button {
-    /* Make contact buttons full width on smaller screens */
-    width: 100%; 
-    justify-content: center;
-  }
+    .experience-item .date {
+        margin-top: 0.25rem;
+        text-align: left;
+    }
 
-  /* Modal Mobile Adjustments */
-  .modal-content {
-    width: 95%; /* Make it wider on small screens */
-    padding: 20px;
-  }
+    /* Contact Section Mobile */
+    .center-contact-links {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .contact-button {
+        /* Make contact buttons nearly full width on smaller screens */
+        width: 90%; 
+        max-width: 300px; /* Cap width for better visual appeal */
+        justify-content: center;
+    }
 
-  .modal-flex {
-    flex-direction: column; /* Stack image and text vertically */
-    gap: 1.5rem;
-  }
+    /* Modal Mobile Adjustments */
+    .modal-content {
+        width: 95%; /* Make it wider on small screens */
+        padding: 20px;
+    }
 
-  .modal-image-placeholder {
-    /* Make image/placeholder take up a reasonable space at the top */
-    width: 100%;
-    /* You can give it a fixed height or keep aspect-ratio */
-    /* aspect-ratio: 16 / 9; */
-    min-height: 200px;
-  }
+    .modal-flex {
+        flex-direction: column; /* Stack image and text vertically */
+        gap: 1.5rem;
+    }
 
-  .close-btn {
-    top: 10px;
-    right: 20px;
-  }
+    .modal-image-placeholder {
+        /* Make image/placeholder take up a reasonable space at the top */
+        width: 100%;
+        min-height: 200px;
+    }
+
+    .close-btn {
+        top: 10px;
+        right: 20px;
+    }
 }
 
+@media (max-width: 600px) {
+    /* Projects Grid: Switch to 1 column */
+    .project-grid {
+        grid-template-columns: 1fr; 
+        max-width: 350px; /* Constrain single column width */
+    }
+
+    /* Further small screen adjustments */
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .contact-links {
+        /* Ensures proper centering for stacked buttons */
+        max-width: 100%;
+    }
+}
