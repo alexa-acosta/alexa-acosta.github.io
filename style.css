@@ -327,15 +327,15 @@ nav {
   gap: 2rem;
   
   /* 🔥 FIX for staggered layout: Set a width and ensure content is centered */
-  max-width: 1000px; 
+  max-width: 90%;
   margin: 0 auto 2rem auto; 
   position: relative;
   z-index: 1;
   font-size: 0;
   /* Use repeat(3, 1fr) for a strict 3-column layout when space allows */
+  place-items: center;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center; /* Ensures the grid container content is centered */
-  place-content: center; /* Additional alignment for robust centering */
 }
 
 /* 🔥 DELETED: The .top-row, .bottom-row selectors are removed from the CSS entirely */
