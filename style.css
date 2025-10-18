@@ -1,803 +1,760 @@
-/* Base Styles & Typography */
 :root {
-  --color-dark: #1f1f1f;
-  --color-light: #ffffff;
-  --color-text-body: #6b6b6b;
-  --color-text-heading: #333333;
+  --color-dark: #1f1f1f;
+  --color-light: #ffffff;
+  --color-text-body: #6b6b6b;
+  --color-text-heading: #333333;
 
-  --color-pale-cream: var(--color-light); /* FIX: Changed to white */
-  --color-light-peach: #FFDBD1; /* Second lightest, for accents/sections */
-  --color-dark-berry: #570228; /* Darkest, for text/accents */
-  --color-soft-pink: #FA9EBC; /* Mid-tone, for highlights/accents */
 
-  --color-accent-main: var(--color-dark-berry); /* Used for strong accents */
-  --color-accent-light: var(--color-soft-pink); /* Used for lighter accents */
+  --color-pale-cream: var(--color-light); /* FIX: Changed to white */
+  --color-light-peach: #FFDBD1; /* Second lightest, for accents/sections */
+  --color-dark-berry: #570228; /* Darkest, for text/accents */
+  --color-soft-pink: #FA9EBC; /* Mid-tone, for highlights/accents */
 
-  --color-linkedin: #0a66c2;
-  --color-github: #24292e;
-  --color-email: #d93025;
+
+  --color-accent-main: var(--color-dark-berry); /* Used for strong accents */
+  --color-accent-light: var(--color-soft-pink); /* Used for lighter accents */
+
+
+  --color-linkedin: #0a66c2;
+  --color-github: #24292e;
+  --color-email: #d93025;
 }
 
-/* FIX: Smooth Scroll */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-/* FIX: Prevents scrollbar from appearing when modal is active, ensuring the page content doesn't shift */
 body.modal-open {
-  overflow: hidden;
-  padding-right: 15px;
+  overflow: hidden;
+  padding-right: 15px;
 }
+
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  margin: 0;
-  /* Body background is a fallback/default */
-  background: var(--color-light);
-  color: var(--color-text-heading);
-  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  margin: 0;
+  background: var(--color-light);
+  color: var(--color-text-heading);
+  line-height: 1.6;
 }
 
+
 main {
-  /* Using white mixed with the pale colors to create the very soft, airy, and blurry effect */
-  background: linear-gradient(
-    180deg, 
-    var(--color-light) 0%, 
-    var(--color-soft-pink) 10%, 
-    var(--color-light) 30%,
-    var(--color-light-peach) 50%,
-    var(--color-light) 70%, 
-    var(--color-soft-pink) 90%, 
-    var(--color-light) 100%
-  );
+  background: linear-gradient(
+    180deg,
+    var(--color-light) 0%,
+    var(--color-soft-pink) 10%,
+    var(--color-light) 30%,
+    var(--color-light-peach) 50%,
+    var(--color-light) 70%,
+    var(--color-soft-pink) 90%,
+    var(--color-light) 100%
+  );
 }
 
 h1,
 h2,
 h3,
 h4 {
-  color: var(--color-dark-berry); /* Headings use the darkest color */
-  margin: 0 0 0.5em 0;
+  color: var(--color-dark-berry); /* Headings use the darkest color */
+  margin: 0 0 0.5em 0;
 }
 
 a {
-  text-decoration: none;
-  color: var(--color-text-heading);
-  transition: color 0.2s ease;
+  text-decoration: none;
+  color: var(--color-text-heading);
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--color-dark-berry); /* Hover uses darkest color */
+  color: var(--color-dark-berry); /* Hover uses darkest color */
 }
 
-/* Utility Class for Layout */
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem; /* This keeps your content padded/centered */
-  position: relative; /* Needed for absolute positioning of background shapes */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem; /* This keeps your content padded/centered */
+  position: relative; /* Needed for absolute positioning of background shapes */
 }
 
-/* --- Header/Navigation (Kept White) --- */
 header {
-  background: var(--color-light);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Softer border */
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 0.5rem 0;
+  background: var(--color-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Softer border */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 0;
 }
 
-/* MODIFIED: Nav now uses flex to space out the links and the new social div */
 nav {
-  display: flex;
-  justify-content: space-between; /* This spreads the navigation and social links */
-  align-items: center;
-  padding: 1.5rem 0;
-  position: relative;
+  display: flex;
+  justify-content: space-between; /* This spreads the navigation and social links */
+  align-items: center;
+  padding: 1.5rem 0;
+  position: relative;
 }
 
-/* Nav Links - Centered */
 .nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
-  /* NEW: Use flex-grow and center alignment to keep the links centralized */
-  flex-grow: 1; 
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
   justify-content: center;
 }
 
 .nav-links a {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--color-dark-berry); /* Nav links use darkest color */
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-dark-berry); /* Nav links use darkest color */
 }
 
 .nav-links a:hover {
-  color: var(--color-soft-pink); /* Nav links hover uses soft pink */
+  color: var(--color-soft-pink); /* Nav links hover uses soft pink */
 }
 
-/* MODIFIED: Header Social Links (Now positioned by flex, not absolute) */
 .header-social-links {
   display: flex;
-  gap: 1rem;
-  /* Ensures it aligns to the far right within the 'nav' container */
-  margin-left: auto; 
-  flex-shrink: 0; 
+  gap: 1rem;
+  margin-left: auto;
+  flex-shrink: 0;
 }
 
 .header-social-links a {
-  font-size: 1.25rem;
-  color: var(--color-dark-berry); /* Icons use darkest color */
-  transition: color 0.2s ease, transform 0.2s ease;
+  font-size: 1.25rem;
+  color: var(--color-dark-berry); /* Icons use darkest color */
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .header-social-links a:hover {
-  color: var(--color-soft-pink); /* Icons hover uses soft pink */
+  color: var(--color-soft-pink); /* Icons hover uses soft pink */
   transform: translateY(-2px); /* Subtle lift */
 }
 
-/* --- Hero Section --- */
 .hero {
-  padding: 8rem 1.5rem 6rem;
-  text-align: center;
-  overflow: hidden; 
-  position: relative; 
-  background: none;
-  opacity: 1;
+  padding: 8rem 1.5rem 6rem;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  background: none;
+  opacity: 1;
 }
+
 
 .hero::before,
 .hero::after {
-  content: none; 
+  content: none;
 }
+
 
 .hero-content {
-  position: relative; 
-  z-index: 1; 
+  position: relative;
+  z-index: 1;
 }
 
+
 .hero h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  letter-spacing: -0.05em;
-  margin-bottom: 0.1em;
-  color: var(--color-dark-berry); 
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  margin-bottom: 0.1em;
+  color: var(--color-dark-berry);
 }
 
 .hero .subtitle {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--color-dark-berry); 
-  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-dark-berry);
+  margin-bottom: 1.5rem;
 }
 
-/* Hero Description Styling */
 .hero-description {
-  max-width: 600px;
-  margin: 0 auto 2rem auto;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
 }
+
 
 .hero-description p {
-  color: var(--color-dark-berry); 
-  font-size: 1rem;
-  line-height: 1.5;
+  color: var(--color-dark-berry);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-/* Resume Button Styling */
 .resume-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.8rem 2rem;
-  background-color: var(--color-dark-berry); 
-  color: var(--color-light);
-  border-radius: 6px;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 2rem;
+  background-color: var(--color-dark-berry);
+  color: var(--color-light);
+  border-radius: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
 }
 
 .resume-button:hover {
-  background-color: var(--color-soft-pink); 
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  color: var(--color-dark-berry); 
+  background-color: var(--color-soft-pink);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  color: var(--color-dark-berry);
 }
 
-
-/* --- ABOUT ME SECTION STYLES --- */
 .about-section {
-  padding: 6rem 0;
-  background: none;
-  opacity: 1;
-  position: relative;
+  padding: 6rem 0;
+  background: none;
+  opacity: 1;
+  position: relative;
 }
 
-/* FIX: Remove pseudo-element for About section */
 .about-section::before {
-  content: none; 
+  content: none;
 }
 
 .section-heading {
-  color: var(--color-dark-berry);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 3rem;
-  letter-spacing: 0.1em;
-  position: relative;
-  z-index: 1;
-  text-align: center;
+  color: var(--color-dark-berry);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  letter-spacing: 0.1em;
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
 
 .about-section .container {
-    padding: 0 1.5rem; /* Ensure inner content has padding */
+    padding: 0 1.5rem; /* Ensure inner content has padding */
 }
 
 .about-flex {
-  display: flex;
-  align-items: flex-start;
-  gap: 4rem;
-  position: relative;
-  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
 }
 
 .image-wrapper {
-  flex-shrink: 0;
-  position: relative;
+  flex-shrink: 0;
+  position: relative;
 }
 
-/* Profile picture styling */
 .profile-pic {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 50%;
-  /* FIX: Border is now ONLY white (formerly pale cream) */
-  border: 10px solid var(--color-light);
-  /* The box-shadow acts as the second, outer white ring */
-  box-shadow: 0 0 0 10px var(--color-light);
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 10px solid var(--color-light);
+  box-shadow: 0 0 0 10px var(--color-light);
 }
-
 
 .about-text p {
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--color-dark-berry);
-  margin-bottom: 1.5rem;
-  max-width: 600px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-dark-berry);
+  margin-bottom: 1.5rem;
+  max-width: 600px;
 }
 
+
 .about-text .highlight {
-  color: var(--color-dark-berry);
-  font-weight: 600;
+  color: var(--color-dark-berry);
+  font-weight: 600;
 }
 
 .projects-section {
-  padding: 4rem 0;
-  position: relative;
-  overflow: hidden;
-  /* FIX: Remove all background/opacity to use the MAIN tag's background */
-  background: none;
-  opacity: 1;
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  background: none;
+  opacity: 1;
 }
 
-/* FIX: Remove pseudo-element for Projects section */
 .projects-section::before {
-  content: none;
+  content: none;
 }
+
 
 .projects-section .container {
-    padding: 0 1.5rem; /* Ensure inner content has padding */
+    padding: 0 1.5rem; /* Ensure inner content has padding */
 }
 
-
 .projects-section h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--color-dark-berry);
-  position: relative;
-  z-index: 1;
-  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-dark-berry);
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
 
 .university-affiliation {
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--color-dark-berry);
-  margin-bottom: 3rem;
-  position: relative;
-  z-index: 1;
-  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-dark-berry);
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
 
 .project-grid {
-  display: grid;
-  gap: 2rem;
-  max-width: 1050px; /* Controls the overall width of the grid */
-  margin: 0 auto 2rem auto; /* Centers the whole grid block */
-  grid-template-columns: repeat(3, 1fr); /* **FORCES 3 EQUAL COLUMNS** */
-  justify-content: center; /* Ensures the columns are centered horizontally */
-  font-size: 0; /* Fixes whitespace/staggering issue */
+  display: grid;
+  gap: 2rem;
+  max-width: 1050px; /* Controls the overall width of the grid */
+  margin: 0 auto 2rem auto; /* Centers the whole grid block */
+  grid-template-columns: repeat(3, 1fr); /* **FORCES 3 EQUAL COLUMNS** */
+  justify-content: center; /* Ensures the columns are centered horizontally */
+  font-size: 0; /* Fixes whitespace/staggering issue */
 }
-
 
 .project-card {
-  display: flex;
-  flex-direction: column; /* Ensure vertical stacking */
-  align-items: center; /* Center content horizontally */
-  text-align: center; /* Center text */
-  
-  /* NEW FIX: Enforce uniform card height regardless of tag wrapping */
-  min-height: 280px; 
-  
-  /* UPDATED: Reduced vertical padding for a shorter card */
-  padding: 1.5rem 1rem; 
-  
-  /* Keep existing styles */
-  background: var(--color-light);
-  border: 1px solid rgba(87, 2, 40, 0.05); /* Softer border */
-  border-radius: 8px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); 
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  color: var(--color-dark-berry);
-  text-decoration: none;
-  
-  /* Reset font size for text inside the card */
-  font-size: 1rem;
+  display: flex;
+  flex-direction: column; /* Ensure vertical stacking */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Center text */
+  min-height: 280px;
+  padding: 1.5rem 1rem;
+  background: var(--color-light);
+  border: 1px solid rgba(87, 2, 40, 0.05); /* Softer border */
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  color: var(--color-dark-berry);
+  text-decoration: none;
+   font-size: 1rem;
 }
 
+
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18); 
-  border-color: var(--color-soft-pink); 
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+  border-color: var(--color-soft-pink);
 }
+
 
 .project-card img.project-image,
 .project-image-placeholder {
-  /* 🔥 UPDATED: Reduced size for a compact card look */
-  width: 100px;
-  height: 100px;
-  flex-shrink: 0; /* Keep this to prevent squishing */
-  aspect-ratio: 1 / 1; 
-  object-fit: cover;
-  border-radius: 6px;
-  /* UPDATED: Smaller margin for a compact look */
-  margin-bottom: 0.75rem; 
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0; /* Keep this to prevent squishing */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+  /* UPDATED: Smaller margin for a compact look */
+  margin-bottom: 0.75rem;
 }
 
-/* Placeholder element for projects without images */
 .project-image-placeholder {
-  /* FIX: Placeholder background is now light peach (same as tags) */
-  background-color: var(--color-light-peach);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--color-dark-berry);
-  font-size: 0.9rem;
+  /* FIX: Placeholder background is now light peach (same as tags) */
+  background-color: var(--color-light-peach);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-dark-berry);
+  font-size: 0.9rem;
 }
 
 .project-card h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  /* UPDATED: Removed margin-top and reduced bottom margin */
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  color: var(--color-dark-berry);
+  font-size: 1.2rem;
+  font-weight: 600;
+  /* UPDATED: Removed margin-top and reduced bottom margin */
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--color-dark-berry);
 }
 
-/* --- TECH TAG STYLING --- */
 .tech-tags {
-  margin-bottom: 0; /* Cleared bottom margin */
-  margin-top: 0.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  /* Center tags inside the card, which is centered */
-  justify-content: center;
+  margin-bottom: 0; /* Cleared bottom margin */
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
 }
+
 
 .tech-tag {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.75rem;
-  color: var(--color-dark-berry);
-  background-color: var(--color-light-peach);
-  border-radius: 4px;
-  font-weight: 500;
-  white-space: nowrap;
-  border: 1px solid var(--color-light-peach);
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  color: var(--color-dark-berry);
+  background-color: var(--color-light-peach);
+  border-radius: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid var(--color-light-peach);
 }
 
-/* Modal specific tech tags container (Adjusted for better spacing) */
 .tech-tags-modal {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-
-/* --- EXPERIENCE SECTION STYLING (KEPT WHITE) --- */
 .experience-section {
-  padding: 4rem 1.5rem;
-  /* FIX: Experience section background is now white (formerly pale cream) - Kept white to break up the pink gradient */
-  background: var(--color-light);
+  padding: 4rem 1.5rem;
+  background: var(--color-light);
 }
+
 
 .experience-category {
-  margin-bottom: 3rem;
-  border-left: 3px solid var(--color-soft-pink);
-  padding-left: 1.5rem;
+  margin-bottom: 3rem;
+  border-left: 3px solid var(--color-soft-pink);
+  padding-left: 1.5rem;
 }
+
 
 .experience-category h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--color-dark-berry);
-  margin-bottom: 1.5rem;
-  padding-left: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-dark-berry);
+  margin-bottom: 1.5rem;
+  padding-left: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
+
 
 .experience-item {
-  margin-bottom: 2rem;
-  padding: 0.5rem;
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
 }
+
 
 .experience-item:last-child {
-  border-bottom: none;
+  border-bottom: none;
 }
 
+
 .title-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
 }
 
 .experience-item h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--color-dark-berry);
-  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-dark-berry);
+  margin: 0;
 }
 
 .experience-item .date {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--color-dark-berry);
-  flex-shrink: 0;
-  text-align: right;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-dark-berry);
+  flex-shrink: 0;
+  text-align: right;
 }
 
 .experience-item ul {
-  list-style: disc;
-  padding-left: 25px;
-  margin-top: 0.5rem;
-  margin-bottom: 0;
+  list-style: disc;
+  padding-left: 25px;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
 }
 
 .experience-item li {
-  font-size: 1rem;
-  color: var(--color-dark-berry);
-  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  color: var(--color-dark-berry);
+  margin-bottom: 0.4rem;
 }
 
 .role-detail {
-  font-style: italic;
-  color: var(--color-dark-berry);
-  margin: 0;
+  font-style: italic;
+  color: var(--color-dark-berry);
+  margin: 0;
 }
 
-
-/* --- CONTACT SECTION STYLING --- */
 .contact-section {
-  padding: 4rem 0;
-  text-align: center;
-  /* FIX: Remove all background/opacity to use the MAIN tag's background */
-  background: none;
-  opacity: 1;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 0;
+  padding: 4rem 0;
+  text-align: center;
+  /* FIX: Remove all background/opacity to use the MAIN tag's background */
+  background: none;
+  opacity: 1;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
 }
 
-/* FIX: Remove pseudo-element for Contact section */
 .contact-section::before {
-  content: none;
+  content: none;
 }
 
 .contact-section .container {
-    padding: 0 1.5rem; /* Ensure inner content has padding */
+    padding: 0 1.5rem; /* Ensure inner content has padding */
 }
 
 .contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 3rem;
-  position: relative;
-  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
 }
+
 
 .center-contact-links {
-  max-width: 700px;
-  margin: 3rem auto 0;
-  gap: 2.5rem;
+  max-width: 700px;
+  margin: 3rem auto 0;
+  gap: 2.5rem;
 }
 
-
-/* MODIFIED: CONTACT BUTTONS (Updated to display icon and text horizontally) */
 .contact-button {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Aligns content (icon + text) to the left */
-  gap: 0.5rem;
-  padding: 1rem 1.75rem; /* Increased padding for better button look */
-  border-radius: 12px; /* Increased border radius for a softer button */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Aligns content (icon + text) to the left */
+  gap: 0.5rem;
+  padding: 1rem 1.75rem; /* Increased padding for better button look */
+  border-radius: 12px; /* Increased border radius for a softer button */
 
-  background-color: var(--color-soft-pink); /* Button background color */
-  border: 1px solid var(--color-soft-pink); /* Added subtle border */
+
+  background-color: var(--color-soft-pink); /* Button background color */
+  border: 1px solid var(--color-soft-pink); /* Added subtle border */
   color: var(--color-dark-berry); /* Sets text color */
 
-  font-weight: 600;
-  font-size: 1.1rem; /* Slightly larger font */
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+
+  font-weight: 600;
+  font-size: 1.1rem; /* Slightly larger font */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box shadow */
   min-width: 180px; /* Ensures buttons have a uniform size */
 }
 
-/* Style the icon inside the button */
 .contact-button i {
-    color: var(--color-dark-berry); 
+    color: var(--color-dark-berry);
     font-size: 1.3em; /* Make the icon slightly larger than the text */
 }
 
-/* Style the text inside the button */
 .contact-button span {
     white-space: nowrap; /* Prevents text from wrapping */
 }
 
 .contact-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  background-color: var(--color-dark-berry); /* Hover state: Dark Berry background */
-  color: var(--color-light); /* Hover state: White text */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-dark-berry); /* Hover state: Dark Berry background */
+  color: var(--color-light); /* Hover state: White text */
 }
 
-/* Ensure icons change color on hover */
 .contact-button:hover i {
-  color: var(--color-light); /* Hover state: White icon */
+  color: var(--color-light); /* Hover state: White icon */
 }
 
-
-/* --- SIMPLE FOOTER STYLES (Kept White) --- */
 footer {
-  text-align: center;
-  padding: 2rem 2rem 2rem 2rem;
-  background: var(--color-light);
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  margin-top: 0;
+  text-align: center;
+  padding: 2rem 2rem 2rem 2rem;
+  background: var(--color-light);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: 0;
 }
 
 .simple-footer p {
-  font-size: 0.9rem;
-  color: var(--color-dark-berry);
-  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-dark-berry);
+  margin: 0;
 }
 
-
-/* --- MODAL (POP-UP) STYLES --- */
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 200;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
+  display: none;
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
-  /* FIX: Modal background is now white (formerly pale cream) */
-  background-color: var(--color-light);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background-color: var(--color-light);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-  padding: 30px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 900px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-  position: relative;
-  max-height: 90vh;
-  overflow-y: auto;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 900px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-flex {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
 }
 
 .modal-description {
-  flex: 1;
+  flex: 1;
 }
 
 .modal-image-placeholder {
-  flex: 1;
-  /* FINAL FIX: Using 1 / 1 aspect ratio for modal to match project cards */
-  aspect-ratio: 1 / 1; 
-  background-color: var(--color-light-peach);
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-  color: var(--color-dark-berry);
+  flex: 1;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-light-peach);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--color-dark-berry);
 }
 
 
+
+
 .close-btn {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  cursor: pointer;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  cursor: pointer;
 }
 
 .close-btn:hover,
 .close-btn:focus {
-  color: var(--color-dark-berry);
-  text-decoration: none;
-  cursor: pointer;
+  color: var(--color-dark-berry);
+  text-decoration: none;
+  cursor: pointer;
 }
 
+@media (max-width: 950px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px;
+        gap: 1.5rem;
+    }
 
-@media (max-width: 950px) { /* NEW: A wider breakpoint for the 3 -> 2 column switch */
-    .project-grid {
-        /* 950px to 601px: Switch to 2 columns */
-        grid-template-columns: repeat(2, 1fr); 
-        max-width: 600px; /* Adjust max-width to center 2 columns better */
-        gap: 1.5rem; /* Slightly reduced gap */
-    }
-
-    /* Additional layout adjustments for the 950px breakpoint */
-    .about-flex {
-        flex-direction: column;
-        align-items: center;
-        gap: 2.5rem;
-    }
+    .about-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+    }
 }
 
 @media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 1rem 0;
+        align-items: center;
+    }
 
-    /* Navigation Mobile: Stack items vertically */
-    nav {
-        flex-direction: column;
-        padding: 1rem 0;
-        align-items: center;
-    }
+    .nav-links {
+        margin-bottom: 1rem;
+        order: 2;
+        gap: 1.5rem;
+    }
 
-    .nav-links {
-        margin-bottom: 1rem;
-        order: 2; /* Main links below the icons */
-        gap: 1.5rem;
-    }
+    .header-social-links {
+        position: static;
+        order: 1;
+        margin-bottom: 1rem;
+        justify-content: center;
+    }
 
-    /* MODIFIED MOBILE: Puts social links at the top of the header, centered */
-    .header-social-links {
-        position: static;
-        order: 1; 
-        margin-bottom: 1rem; 
-        justify-content: center; 
-    }
+    .hero {
+        padding-top: 5rem;
+        padding-bottom: 4rem;
+    }
 
-    /* Hero Section */
-    .hero {
-        padding-top: 5rem;
-        padding-bottom: 4rem;
-    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
 
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+    .about-flex {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2.5rem;
+    }
 
-    /* About Me Section Mobile */
-    .about-flex {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 2.5rem; 
-    }
+    .about-text p {
+        text-align: left; 
+        font-size: 1rem;
+    }
 
-    .about-text p {
-        text-align: left; /* Keep the paragraph text left-aligned for readability */
-        font-size: 1rem;
-    }
+    .section-heading {
+        margin-bottom: 2rem;
+    }
+   
+    .experience-item {
+        margin-bottom: 1.5rem;
+    }
 
-    .section-heading {
-        margin-bottom: 2rem;
-    }
-    
-    /* Experience items can be better spaced */
-    .experience-item {
-        margin-bottom: 1.5rem;
-    }
+    .title-flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-    .title-flex {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+    .experience-item .date {
+        margin-top: 0.25rem;
+        text-align: left;
+    }
 
-    .experience-item .date {
-        margin-top: 0.25rem;
-        text-align: left;
-    }
+    .center-contact-links {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+   
+    .contact-button {
+        width: 90%;
+        max-width: 300px;
+        justify-content: center;
+    }
 
-    /* Contact Section Mobile */
-    .center-contact-links {
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 2rem;
-    }
-    
-    .contact-button {
-        width: 90%; 
-        max-width: 300px; 
-        justify-content: center;
-    }
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
 
-    /* Modal Mobile Adjustments */
-    .modal-content {
-        width: 95%;
-        padding: 20px;
-    }
+    .modal-flex {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
 
-    .modal-flex {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
+    .modal-image-placeholder {
+        width: 100%;
+        min-height: 200px;
+    }
 
-    .modal-image-placeholder {
-        width: 100%;
-        min-height: 200px;
-    }
-
-    .close-btn {
-        top: 10px;
-        right: 20px;
-    }
+    .close-btn {
+        top: 10px;
+        right: 20px;
+    }
 }
 
 @media (max-width: 600px) {
-    .project-grid {
-        grid-template-columns: 1fr; 
-        max-width: 350px;
-    }
+    .project-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+    }
 
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    .contact-links {
-        max-width: 100%;
-    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+   
+    .contact-links {
+        max-width: 100%;
+    }
 }
