@@ -5,13 +5,11 @@
   --color-text-body: #6b6b6b;
   --color-text-heading: #333333;
 
-  /* UPDATED PALETTE (FROM IMAGE 4) */
   --color-pale-cream: var(--color-light); /* FIX: Changed to white */
   --color-light-peach: #FFDBD1; /* Second lightest, for accents/sections */
   --color-dark-berry: #570228; /* Darkest, for text/accents */
   --color-soft-pink: #FA9EBC; /* Mid-tone, for highlights/accents */
 
-  /* Renaming existing for clarity with new palette */
   --color-accent-main: var(--color-dark-berry); /* Used for strong accents */
   --color-accent-light: var(--color-soft-pink); /* Used for lighter accents */
 
@@ -40,7 +38,6 @@ body {
   line-height: 1.6;
 }
 
-/* NEW: Apply a single, continuous, soft background to the entire main content area */
 main {
   /* Using white mixed with the pale colors to create the very soft, airy, and blurry effect */
   background: linear-gradient(
@@ -142,13 +139,10 @@ nav {
   text-align: center;
   overflow: hidden; 
   position: relative; 
-  
-  /* FIX: Remove all background/opacity to use the MAIN tag's background */
   background: none;
   opacity: 1;
 }
 
-/* FIX: Remove pseudo-elements */
 .hero::before,
 .hero::after {
   content: none; 
@@ -218,8 +212,6 @@ nav {
   background: none;
   opacity: 1;
   position: relative;
-  /* FIX: Remove overflow: hidden; to prevent the profile picture border from being cut off */
-  /* overflow: hidden; */ 
 }
 
 /* FIX: Remove pseudo-element for About section */
@@ -238,7 +230,6 @@ nav {
   text-align: center;
 }
 
-/* Content within stretched sections gets its horizontal padding from .container */
 .about-section .container {
   padding: 0 1.5rem; /* Ensure inner content has padding */
 }
@@ -282,7 +273,6 @@ nav {
   font-weight: 600;
 }
 
-/* --- PROJECTS SECTION STYLING --- */
 .projects-section {
   padding: 4rem 0;
   position: relative;
@@ -325,24 +315,14 @@ nav {
 .project-grid {
   display: grid;
   gap: 2rem;
-  
-  /* FINAL FIX: Increased max-width and used margin: 0 auto for perfect centering */
-  max-width: 1050px; 
-  margin: 0 auto 2rem auto; 
-  position: relative;
-  z-index: 1;
-  
-  /* Forces 3 equally sized columns */
-  grid-template-columns: repeat(3, 1fr);
-  
-  /* THE KEY FIX: Ensures the columns are grouped and centered horizontally */
-  justify-content: center; 
-  
-  /* Fix for whitespace between HTML elements causing staggering */
-  font-size: 0; 
+  max-width: 1050px; /* Controls the overall width of the grid */
+  margin: 0 auto 2rem auto; /* Centers the whole grid block */
+  grid-template-columns: repeat(3, 1fr); /* **FORCES 3 EQUAL COLUMNS** */
+  justify-content: center; /* Ensures the columns are centered horizontally */
+  font-size: 0; /* Fixes whitespace/staggering issue */
 }
 
-/* 🔥 UPDATED: Vertical Card Layout with reduced padding/margins for a compact look */
+
 .project-card {
   display: flex;
   flex-direction: column; /* Ensure vertical stacking */
@@ -374,7 +354,6 @@ nav {
   border-color: var(--color-soft-pink); 
 }
 
-/* Styling for the actual images/placeholders within the project cards */
 .project-card img.project-image,
 .project-image-placeholder {
   /* 🔥 UPDATED: Reduced size for a compact card look */
@@ -666,7 +645,6 @@ footer {
 }
 
 
-/* Responsive Adjustments */
 @media (max-width: 950px) { /* NEW: A wider breakpoint for the 3 -> 2 column switch */
     .project-grid {
         /* 950px to 601px: Switch to 2 columns */
@@ -787,13 +765,11 @@ footer {
 }
 
 @media (max-width: 600px) {
-    /* Projects Grid: Switch to 1 column */
     .project-grid {
         grid-template-columns: 1fr; 
         max-width: 350px; /* Constrain single column width */
     }
 
-    /* Further small screen adjustments */
     .hero h1 {
         font-size: 2rem;
     }
