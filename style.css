@@ -331,7 +331,7 @@ nav {
   margin: 0 auto 2rem auto; 
   position: relative;
   z-index: 1;
-  
+  font-size: 0;
   /* Use repeat(3, 1fr) for a strict 3-column layout when space allows */
   grid-template-columns: repeat(3, 1fr);
   justify-content: center; /* Ensures the grid container content is centered */
@@ -349,7 +349,7 @@ nav {
   
   /* UPDATED: Reduced vertical padding for a shorter card */
   padding: 1.5rem 1rem; 
-  
+  font-size: 1rem;
   /* Keep existing styles */
   background: var(--color-light);
   border: 1px solid rgba(87, 2, 40, 0.05); /* Softer border */
