@@ -126,6 +126,10 @@ nav {
   color: var(--color-soft-pink);
 }
 
+.header-social-links a:hover i {
+  color: var(--color-soft-pink);
+}
+
 .header-social-links a i {
   color: var(--color-dark-berry); 
 }
@@ -176,27 +180,21 @@ nav {
 }
 
 .resume-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.8rem 2rem;
-  background-color: var(--color-dark-berry); 
-  color: var(--color-light);
-  border-radius: 6px;
+  background: none;
+  border: 2px solid var(--color-dark-berry);
+  color: var(--color-dark-berry);
+  padding: 0.8rem 1.6rem;
   font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.25s ease;
   text-transform: uppercase;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 1rem;
+  letter-spacing: 0.5px;
 }
 
 .resume-button:hover {
-  background-color: var(--color-soft-pink); 
+  background-color: var(--color-dark-berry);
+  color: var(--color-light);
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  color: var(--color-dark-berry); 
 }
 
 .about-section {
@@ -299,22 +297,22 @@ nav {
 .project-grid {
   display: grid;
   gap: 2rem;
-  max-width: 1050px; /* Controls the overall width of the grid */
-  margin: 0 auto 2rem auto; /* Centers the whole grid block */
-  grid-template-columns: repeat(3, 1fr); /* **FORCES 3 EQUAL COLUMNS** */
-  justify-content: center; /* Ensures the columns are centered horizontally */
-  font-size: 0; /* Fixes whitespace/staggering issue */
+  max-width: 1050px;
+  margin: 0 auto 2rem auto;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  font-size: 0;
 }
 
 .project-card {
   display: flex;
-  flex-direction: column; /* Ensure vertical stacking */
-  align-items: center; /* Center content horizontally */
-  text-align: center; /* Center text */
+  flex-direction: column;
+  align-items: center;
+  text-align: center; 
   min-height: 280px; 
   padding: 1.5rem 1rem; 
   background: var(--color-light);
-  border: 1px solid rgba(87, 2, 40, 0.05); /* Softer border */
+  border: 1px solid rgba(87, 2, 40, 0.05);
   border-radius: 8px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); 
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -326,14 +324,14 @@ nav {
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18); 
-  border-color: var(--color-soft-pink); 
+  border-color: var(--color-dark-berry); 
 }
 
 .project-card img.project-image,
 .project-image-placeholder {
   width: 100px;
   height: 100px;
-  flex-shrink: 0; /* Keep this to prevent squishing */
+  flex-shrink: 0;
   aspect-ratio: 1 / 1; 
   object-fit: cover;
   border-radius: 6px;
@@ -386,30 +384,24 @@ nav {
 }
 
 .experience-section {
-  padding: 4rem 1.5rem;
-  background: var(--color-light);
+  margin-top: 4rem;
 }
 
 .experience-category {
   margin-bottom: 3rem;
-  border-left: 3px solid var(--color-soft-pink);
-  padding-left: 1.5rem;
 }
 
 .experience-category h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.4rem;
   color: var(--color-dark-berry);
   margin-bottom: 1.5rem;
-  padding-left: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--color-soft-pink);
+  display: inline-block;
+  padding-bottom: 0.3rem;
 }
 
 .experience-item {
   margin-bottom: 2rem;
-  padding: 0.5rem;
-  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
 }
 
 .experience-item:last-child {
@@ -420,41 +412,39 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .experience-item h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--color-dark-berry);
-  margin: 0;
-}
-
-.experience-item .date {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--color-dark-berry);
-  flex-shrink: 0;
-  text-align: right;
-}
-
-.experience-item ul {
-  list-style: disc;
-  padding-left: 25px;
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-}
-
-.experience-item li {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--color-dark-berry);
   margin-bottom: 0.4rem;
 }
 
+.experience-item .date {
+  font-size: 1rem;
+  color: var(--color-soft-pink);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.experience-item ul {
+  margin-top: 0.8rem;
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+
+.experience-item li {
+  color: var(--color-dark-berry);
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
 .role-detail {
   font-style: italic;
-  color: var(--color-dark-berry);
-  margin: 0;
+  color: #444;
+  margin-top: 0.2rem;
 }
 
 .contact-section {
