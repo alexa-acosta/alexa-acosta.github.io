@@ -126,6 +126,9 @@ nav {
   color: var(--color-soft-pink);
 }
 
+.header-social-links a i {
+  color: var(--color-dark-berry); 
+}
 
 .hero {
   padding: 8rem 1.5rem 6rem;
