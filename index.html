@@ -217,22 +217,22 @@
 
 <div id="snapMetricsModal" class="modal">
     <div class="modal-content">
-      <span class="close-btn-snap">&times;</span>
+        <span class="close-btn-snap">&times;</span>
 
-      <div class="modal-flex">
-        <div class="image-gallery">
-          <button class="gallery-btn prev-btn">&#10094;</button>
-          <img id="galleryImage" src="assets/snapmetrics-1.png" alt="Snap Metrics UI" />
-          <button class="gallery-btn next-btn">&#10095;</button>
-        </div>
+        <div class="modal-flex">
+            <div class="image-gallery">
+                <button class="gallery-btn prev-btn">&#10094;</button>
+                <img id="galleryImage" src="assets/snapmetrics-1.png" alt="Snap Metrics UI" class="gallery-img-display" />
+                <button class="gallery-btn next-btn">&#10095;</button>
+            </div>
 
-        <div class="modal-description">
-          <h3>Snap Metrics</h3>
-          <p>Snap Metrics is a UI/UX project showcasing analytics insights with a sleek dashboard design. Swipe through the preview screens or click the images to view them larger.</p>
+            <div class="modal-description">
+                <h3>Snap Metrics</h3>
+                <p>Snap Metrics is a UI/UX project showcasing analytics insights with a sleek dashboard design. Swipe through the preview screens or click the images to view them larger.</p>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
   <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox">
@@ -240,15 +240,13 @@
   </div>
 
   <script>
-    /* Existing JS logic for project modal omitted for brevity */
-
-    // --- SNAP METRICS IMAGE GALLERY ---
     const images = ['assets/snapmetrics-1.png', 'assets/snapmetrics-2.png'];
     let currentIndex = 0;
 
     const galleryImage = document.getElementById('galleryImage');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
+    galleryImage.src = images[currentIndex];
 
     prevBtn.addEventListener('click', () => {
       currentIndex = (currentIndex - 1 + images.length) % images.length;
@@ -267,18 +265,17 @@
     galleryImage.addEventListener('click', () => {
       lightboxImg.src = galleryImage.src;
       lightbox.style.display = 'flex';
+      document.body.classList.add('modal-open'); // To prevent scrolling
     });
 
-    lightbox.addEventListener('click', () => {
-      lightbox.style.display = 'none';
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) { // Only close if clicking the backdrop, not the image itself
+            lightbox.style.display = 'none';
+            document.body.classList.remove('modal-open');
+        }
     });
 
-    const closeBtnSnap = document.querySelector('.close-btn-snap');
-    closeBtnSnap.addEventListener('click', () => {
-      document.getElementById('snapMetricsModal').style.display = 'none';
-    });
-
-    const modal = document.getElementById('project-modal');
+        const modal = document.getElementById('project-modal');
     const closeBtn = document.querySelector('.close-btn');
     const projectCards = document.querySelectorAll('.project-card');
     const modalTitle = document.getElementById('modal-title');
