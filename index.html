@@ -219,7 +219,6 @@
   </div>
 
   <script>
-    // Simple JavaScript to handle the modal open/close functionality
     const modal = document.getElementById('project-modal');
     const closeBtn = document.querySelector('.close-btn');
     const projectCards = document.querySelectorAll('.project-card');
@@ -228,16 +227,13 @@
     const techTagsContainers = document.querySelectorAll('.tech-tags');
     const modalTechTagsContainer = document.getElementById('modal-tech-tags'); 
     
-    // Function to generate the HTML tags
     function createTechTags(container, tagsString) {
         if (tagsString) {
             const tagsArray = tagsString.split(',');
-            // Map the array of tags to correctly styled span elements
             container.innerHTML = tagsArray.map(tag => `<span class="tech-tag">${tag.trim()}</span>`).join('');
         }
     }
 
-    // Initialize tags on load for project grid
     techTagsContainers.forEach(container => createTechTags(container, container.getAttribute('data-tags')));
 
     const projectData = {
@@ -293,7 +289,6 @@
       });
     });
 
-    // Close the modal when the user clicks on (x)
     closeBtn.addEventListener('click', function() {
       modal.style.display = 'none';
       document.body.classList.remove('modal-open'); 
