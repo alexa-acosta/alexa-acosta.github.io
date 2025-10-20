@@ -402,7 +402,9 @@ nav {
 }
 
 .experience-item {
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
+    padding: 0 0 0.5rem 0; /* Change 'padding: 0.5rem' to remove left/right padding */
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
 }
 
 .experience-item:last-child {
@@ -413,6 +415,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  width: 100%; 
   margin-bottom: 0.5rem;
 }
 
@@ -428,6 +431,7 @@ nav {
   color: var(--color-dark-berry);
   font-weight: 500;
   white-space: nowrap;
+  margin: 0; 
 }
 
 .experience-item ul {
