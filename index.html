@@ -219,13 +219,7 @@
     <div class="modal-content">
       <span class="close-btn-snap">&times;</span>
 
-      <div class="modal-flex">
-        <div class="image-gallery">
-          <button class="gallery-btn prev-btn">&#10094;</button>
-                    <img id="galleryImage" src="assets/snapmetrics-1.png" alt="Snap Metrics UI" class="gallery-img-display" />
-          <button class="gallery-btn next-btn">&#10095;</button>
-        </div>
-
+      <div class="modal-flex-snap">
         <div class="modal-description">
           <h3>Snap Metrics (Blue Ridge Predictor Module)</h3>
           <p>Developed and optimized the frontend user interface for the Blue Ridge project using React, JavaScript, and CSS, creating a responsive interface with dynamic visual charts that effectively communicated complex data and improved user engagement. Created and maintained APIs to efficiently fetch and manage data, enabling real-time updates and seamless backend-frontend communication.</p>
@@ -236,6 +230,10 @@
             <span class="tech-tag">CSS</span>
           </div>
         </div>
+                <div class="image-stack-snap">
+          <img src="assets/snapmetrics-1.png" alt="Snap Metrics UI 1" class="gallery-img-display" />
+          <img src="assets/snapmetrics-2.png" alt="Snap Metrics UI 2" class="gallery-img-display" />
+        </div>
       </div>
     </div>
   </div>
@@ -245,44 +243,18 @@
   </div>
 
   <script>
-    // --- SNAP METRICS GALLERY DATA AND NAVIGATION ---
-    const images = ['assets/snapmetrics-1.png', 'assets/snapmetrics-2.png'];
-    let currentIndex = 0;
-
-    const galleryImage = document.getElementById('galleryImage');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    
-    // Set initial image
-    if (galleryImage) {
-      galleryImage.src = images[currentIndex];
-    }
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        galleryImage.src = images[currentIndex];
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % images.length;
-        galleryImage.src = images[currentIndex];
-      });
-    }
-
     // --- LIGHTBOX POPUP ---
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
+    const galleryImages = document.querySelectorAll('.gallery-img-display'); // Select all images for lightbox
 
-    if (galleryImage) {
-      galleryImage.addEventListener('click', () => {
-        lightboxImg.src = galleryImage.src;
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src; // Use the clicked image's source
         lightbox.style.display = 'flex';
         document.body.classList.add('modal-open'); 
       });
-    }
+    });
 
     if (lightbox) {
       lightbox.addEventListener('click', (e) => {
