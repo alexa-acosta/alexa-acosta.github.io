@@ -413,7 +413,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
 }
 
 .experience-item h4 {
@@ -434,7 +434,7 @@ nav {
   list-style: disc; 
   margin-top: 0.5rem;
   margin-bottom: 0;
-  padding-left: 20px;
+  padding-left: 0;
   list-style-position: outside;
 }
 
@@ -442,7 +442,7 @@ nav {
   color: var(--color-dark-berry);
   font-size: 1rem;
   margin-bottom: 0.4rem;
-  margin-left: 0; 
+  margin-left: 1.5rem;
 }
 
 .role-detail {
