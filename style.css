@@ -1,4 +1,3 @@
-/* Base Styles & Typography */
 :root {
   --color-dark: #1f1f1f;
   --color-light: #ffffff;
@@ -18,12 +17,10 @@
   --color-email: #d93025;
 }
 
-/* FIX: Smooth Scroll */
 html {
   scroll-behavior: smooth;
 }
 
-/* FIX: Prevents scrollbar from appearing when modal is active, ensuring the page content doesn't shift */
 body.modal-open {
   overflow: hidden;
   padding-right: 15px;
@@ -32,14 +29,12 @@ body.modal-open {
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0;
-  /* Body background is a fallback/default */
   background: var(--color-light);
   color: var(--color-text-heading);
   line-height: 1.6;
 }
 
 main {
-  /* Using white mixed with the pale colors to create the very soft, airy, and blurry effect */
   background: linear-gradient(
     180deg, 
     var(--color-light) 0%, 
@@ -70,7 +65,6 @@ a:hover {
   color: var(--color-dark-berry); /* Hover uses darkest color */
 }
 
-/* Utility Class for Layout */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -78,7 +72,6 @@ a:hover {
   position: relative; /* Needed for absolute positioning of background shapes */
 }
 
-/* --- Header/Navigation (Kept White) --- */
 header {
   background: var(--color-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Softer border */
@@ -96,7 +89,6 @@ nav {
   position: relative;
 }
 
-/* Nav Links - Centered */
 .nav-links {
   list-style: none;
   display: flex;
@@ -115,25 +107,26 @@ nav {
   color: var(--color-soft-pink); /* Nav links hover uses soft pink */
 }
 
-/* Header Social Links */
 .header-social-links {
   position: absolute;
   right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   gap: 1rem;
 }
 
 .header-social-links a {
-  font-size: 1.25rem;
-  color: var(--color-dark-berry); /* Icons use darkest color */
+  font-size: 1.3rem;
+  color: var(--color-dark-berry);
   transition: color 0.2s ease;
 }
 
 .header-social-links a:hover {
-  color: var(--color-soft-pink); /* Icons hover uses soft pink */
+  color: var(--color-soft-pink);
 }
 
-/* --- Hero Section --- */
+
 .hero {
   padding: 8rem 1.5rem 6rem;
   text-align: center;
@@ -168,7 +161,6 @@ nav {
   margin-bottom: 1.5rem;
 }
 
-/* Hero Description Styling */
 .hero-description {
   max-width: 600px;
   margin: 0 auto 2rem auto;
@@ -180,7 +172,6 @@ nav {
   line-height: 1.5;
 }
 
-/* Resume Button Styling */
 .resume-button {
   display: inline-flex;
   align-items: center;
@@ -205,8 +196,6 @@ nav {
   color: var(--color-dark-berry); 
 }
 
-
-/* --- ABOUT ME SECTION STYLES --- */
 .about-section {
   padding: 6rem 0;
   background: none;
@@ -214,7 +203,6 @@ nav {
   position: relative;
 }
 
-/* FIX: Remove pseudo-element for About section */
 .about-section::before {
   content: none; 
 }
@@ -247,18 +235,14 @@ nav {
   position: relative;
 }
 
-/* Profile picture styling */
 .profile-pic {
   width: 250px;
   height: 250px;
   object-fit: cover;
   border-radius: 50%;
-  /* FIX: Border is now ONLY white (formerly pale cream) */
   border: 10px solid var(--color-light);
-  /* The box-shadow acts as the second, outer white ring */
   box-shadow: 0 0 0 10px var(--color-light);
 }
-
 
 .about-text p {
   font-size: 1.1rem;
@@ -277,12 +261,10 @@ nav {
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
-  /* FIX: Remove all background/opacity to use the MAIN tag's background */
   background: none;
   opacity: 1;
 }
 
-/* FIX: Remove pseudo-element for Projects section */
 .projects-section::before {
   content: none;
 }
@@ -290,7 +272,6 @@ nav {
 .projects-section .container {
     padding: 0 1.5rem; /* Ensure inner content has padding */
 }
-
 
 .projects-section h2 {
   font-size: 1.5rem;
@@ -322,20 +303,13 @@ nav {
   font-size: 0; /* Fixes whitespace/staggering issue */
 }
 
-
 .project-card {
   display: flex;
   flex-direction: column; /* Ensure vertical stacking */
   align-items: center; /* Center content horizontally */
   text-align: center; /* Center text */
-  
-  /* NEW FIX: Enforce uniform card height regardless of tag wrapping */
   min-height: 280px; 
-  
-  /* UPDATED: Reduced vertical padding for a shorter card */
   padding: 1.5rem 1rem; 
-  
-  /* Keep existing styles */
   background: var(--color-light);
   border: 1px solid rgba(87, 2, 40, 0.05); /* Softer border */
   border-radius: 8px;
@@ -343,8 +317,6 @@ nav {
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   color: var(--color-dark-berry);
   text-decoration: none;
-  
-  /* Reset font size for text inside the card */
   font-size: 1rem;
 }
 
@@ -356,20 +328,16 @@ nav {
 
 .project-card img.project-image,
 .project-image-placeholder {
-  /* 🔥 UPDATED: Reduced size for a compact card look */
   width: 100px;
   height: 100px;
   flex-shrink: 0; /* Keep this to prevent squishing */
   aspect-ratio: 1 / 1; 
   object-fit: cover;
   border-radius: 6px;
-  /* UPDATED: Smaller margin for a compact look */
   margin-bottom: 0.75rem; 
 }
 
-/* Placeholder element for projects without images */
 .project-image-placeholder {
-  /* FIX: Placeholder background is now light peach (same as tags) */
   background-color: var(--color-light-peach);
   display: flex;
   justify-content: center;
@@ -381,20 +349,17 @@ nav {
 .project-card h4 {
   font-size: 1.2rem;
   font-weight: 600;
-  /* UPDATED: Removed margin-top and reduced bottom margin */
   margin-top: 0;
   margin-bottom: 0.5rem;
   color: var(--color-dark-berry);
 }
 
-/* --- TECH TAG STYLING --- */
 .tech-tags {
   margin-bottom: 0; /* Cleared bottom margin */
   margin-top: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  /* Center tags inside the card, which is centered */
   justify-content: center;
 }
 
@@ -410,7 +375,6 @@ nav {
   border: 1px solid var(--color-light-peach);
 }
 
-/* Modal specific tech tags container (Adjusted for better spacing) */
 .tech-tags-modal {
   margin-top: 1.5rem;
   display: flex;
@@ -418,11 +382,8 @@ nav {
   gap: 0.5rem;
 }
 
-
-/* --- EXPERIENCE SECTION STYLING (KEPT WHITE) --- */
 .experience-section {
   padding: 4rem 1.5rem;
-  /* FIX: Experience section background is now white (formerly pale cream) - Kept white to break up the pink gradient */
   background: var(--color-light);
 }
 
@@ -493,12 +454,9 @@ nav {
   margin: 0;
 }
 
-
-/* --- CONTACT SECTION STYLING --- */
 .contact-section {
   padding: 4rem 0;
   text-align: center;
-  /* FIX: Remove all background/opacity to use the MAIN tag's background */
   background: none;
   opacity: 1;
   position: relative;
@@ -506,13 +464,12 @@ nav {
   margin-bottom: 0;
 }
 
-/* FIX: Remove pseudo-element for Contact section */
 .contact-section::before {
   content: none;
 }
 
 .contact-section .container {
-    padding: 0 1.5rem; /* Ensure inner content has padding */
+    padding: 0 1.5rem;
 }
 
 .contact-links {
@@ -530,39 +487,35 @@ nav {
   gap: 2.5rem;
 }
 
-
 .contact-button {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-
-  background-color: var(--color-soft-pink);
+  background: none;
+  box-shadow: none;
+  border: 2px solid var(--color-dark-berry);
   color: var(--color-dark-berry);
-
+  padding: 0.6rem 1.2rem;
   font-weight: 600;
-  font-size: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  transition: all 0.25s ease;
 }
 
 .contact-button i {
-    color: var(--color-dark-berry); 
+  font-size: 1.2rem;
 }
 
 .contact-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
   background-color: var(--color-dark-berry);
   color: var(--color-light);
+  transform: translateY(-2px);
 }
 
-.contact-button:hover i {
-    color: var(--color-light);
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
 }
 
-/* --- SIMPLE FOOTER STYLES (Kept White) --- */
 footer {
   text-align: center;
   padding: 2rem 2rem 2rem 2rem;
@@ -577,8 +530,6 @@ footer {
   margin: 0;
 }
 
-
-/* --- MODAL (POP-UP) STYLES --- */
 .modal {
   display: none;
   position: fixed;
@@ -592,7 +543,6 @@ footer {
 }
 
 .modal-content {
-  /* FIX: Modal background is now white (formerly pale cream) */
   background-color: var(--color-light);
   position: absolute;
   top: 50%;
@@ -621,7 +571,6 @@ footer {
 
 .modal-image-placeholder {
   flex: 1;
-  /* FINAL FIX: Using 1 / 1 aspect ratio for modal to match project cards */
   aspect-ratio: 1 / 1; 
   background-color: var(--color-light-peach);
   border-radius: 8px;
@@ -631,7 +580,6 @@ footer {
   font-size: 1rem;
   color: var(--color-dark-berry);
 }
-
 
 .close-btn {
   color: #aaa;
@@ -652,15 +600,13 @@ footer {
 }
 
 
-@media (max-width: 950px) { /* NEW: A wider breakpoint for the 3 -> 2 column switch */
+@media (max-width: 950px) {
     .project-grid {
-        /* 950px to 601px: Switch to 2 columns */
         grid-template-columns: repeat(2, 1fr); 
-        max-width: 600px; /* Adjust max-width to center 2 columns better */
-        gap: 1.5rem; /* Slightly reduced gap */
+        max-width: 600px; 
+        gap: 1.5rem;
     }
 
-    /* Additional layout adjustments for the 950px breakpoint */
     .about-flex {
         flex-direction: column;
         align-items: center;
@@ -669,8 +615,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-
-    /* Navigation Mobile */
     nav {
         flex-direction: column;
         padding: 1rem 0;
@@ -687,11 +631,9 @@ footer {
         position: static;
         order: 1; /* Puts social links above nav links if you want them at the top of the header */
         margin-bottom: 1rem; /* Add spacing below social links */
-        /* Center icons when static */
         justify-content: center; 
     }
 
-    /* Hero Section */
     .hero {
         padding-top: 5rem;
         padding-bottom: 4rem;
@@ -701,9 +643,7 @@ footer {
         font-size: 2.5rem;
     }
 
-    /* About Me Section Mobile */
     .about-flex {
-        /* Already defined at 950px, but including here for context */
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -711,7 +651,7 @@ footer {
     }
 
     .about-text p {
-        text-align: left; /* Keep the paragraph text left-aligned for readability */
+        text-align: left;
         font-size: 1rem;
     }
 
@@ -719,7 +659,6 @@ footer {
         margin-bottom: 2rem;
     }
     
-    /* Experience items can be better spaced */
     .experience-item {
         margin-bottom: 1.5rem;
     }
@@ -734,7 +673,6 @@ footer {
         text-align: left;
     }
 
-    /* Contact Section Mobile */
     .center-contact-links {
         flex-direction: column;
         gap: 1rem;
@@ -742,13 +680,11 @@ footer {
     }
     
     .contact-button {
-        /* Make contact buttons nearly full width on smaller screens */
         width: 90%; 
         max-width: 300px; /* Cap width for better visual appeal */
         justify-content: center;
     }
 
-    /* Modal Mobile Adjustments */
     .modal-content {
         width: 95%; /* Make it wider on small screens */
         padding: 20px;
@@ -760,7 +696,6 @@ footer {
     }
 
     .modal-image-placeholder {
-        /* Make image/placeholder take up a reasonable space at the top */
         width: 100%;
         min-height: 200px;
     }
@@ -774,7 +709,7 @@ footer {
 @media (max-width: 600px) {
     .project-grid {
         grid-template-columns: 1fr; 
-        max-width: 350px; /* Constrain single column width */
+        max-width: 350px;
     }
 
     .hero h1 {

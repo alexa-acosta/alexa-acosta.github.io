@@ -179,19 +179,20 @@
     </section>
     
         <section id="contact" class="contact-section container">
-        <h2 class="section-heading">CONTACT</h2>
-                <div class="contact-links center-contact-links">
-            <a href="https://www.linkedin.com/in/alexa-camila-acosta" target="_blank" rel="noopener noreferrer" class="contact-button linkedin-btn">
-                <i class="fab fa-linkedin-in"></i> LinkedIn
-            </a>
-            <a href="https://github.com/alexa-acosta" target="_blank" rel="noopener noreferrer" class="contact-button github-btn">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="mailto:alexaacosta@ufl.edu" class="contact-button email-btn">
-                <i class="fa-solid fa-envelope"></i> alexaacosta@ufl.edu
-            </a>
-        </div>
-    </section>
+  <h2 class="section-heading">CONTACT</h2>
+  <div class="contact-links center-contact-links">
+    <a href="https://www.linkedin.com/in/alexa-camila-acosta" target="_blank" rel="noopener noreferrer" class="contact-button linkedin-btn">
+      <i class="fab fa-linkedin-in"></i> LinkedIn
+    </a>
+    <a href="https://github.com/alexa-acosta" target="_blank" rel="noopener noreferrer" class="contact-button github-btn">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+    <a href="mailto:alexaacosta@ufl.edu" class="contact-button email-btn">
+      <i class="fa-solid fa-envelope"></i> Gmail
+    </a>
+  </div>
+</section>
+
 
   </main>
 
@@ -239,42 +240,34 @@
     // Initialize tags on load for project grid
     techTagsContainers.forEach(container => createTechTags(container, container.getAttribute('data-tags')));
 
-
-    // Project data map (Used to populate the modal with full descriptions)
     const projectData = {
-      // SmartFit (UPDATED NAME)
       'smartfit': { 
         title: 'SmartFit', 
         description: 'Developed a gamified wardrobe management platform with outfit logging, history tracking, and streak-based rewards, increasing user engagement with personal style data. Built the outfit builder, CRUD wardrobe items, and category filters in React/Tailwind, collaborating in an Agile team using Jira, GitHub, and Docker for consistent development workflows.', 
         link: 'smartfit-case-study.html' 
       },
-      // ForkCast (UPDATED NAME and KEY from EasyMeal)
       'forkcast-new': { 
         title: 'ForkCast', 
         description: 'Engineered a recipe app generating personalized meals from user-provided ingredients, reducing food waste and saving time for students. Integrated Firebase authentication/database and Spoonacular API with a responsive React/Tailwind interface, consolidating meal planning into a single, accessible platform.', 
         link: 'forkcast-new-case-study.html' 
       },
-      // Blue Ridge Predictor Module — Snap Metrics
       'blue-ridge': { 
         title: 'Blue Ridge Predictor Module', 
         description: 'Developed and optimized the frontend user interface for the Blue Ridge project using React, JavaScript, and CSS, creating a responsive interface with dynamic visual charts that effectively communicated complex data and improved user engagement. Created and maintained APIs to efficiently fetch and manage data, enabling real-time updates and seamless backend-frontend communication.', 
         link: 'blue-ridge-case-study.html' 
       },
-      // Gator Girls Guide – WingHacks Hackathon Project
       'gator-girls': { 
         title: 'Gator Girls Guide', 
         description: 'Engineered a responsive website providing UF women with health, wellness, and news resources by structuring with HTML, styling with CSS, and adding interactivity with JavaScript. Consolidated multiple UF resources into a single platform, streamlining access and increasing ease of use by an estimated 30%, as reflected in positive hackathon feedback.', 
         link: 'gator-girls-case-study.html' 
       },
-      // MatchBook
       'matchbook': { 
         title: 'MatchBook', 
         description: 'Developed a dating-style mobile app to connect college students with compatible study partners using React Native and Expo-Go for cross-platform deployment. Designed a user-friendly interface using Figma for profile creation, study preferences, and matching students based on similarities.', 
         link: 'matchbook-case-study.html' 
       },
-      // Bloomville Game (UPDATED NAME, TAG, and KEY from ForkCast)
       'bloomville-game': { 
-        title: 'Bloomville Game', 
+        title: 'Bloomville', 
         description: 'Developed a simple 3D game using the Unity engine, focusing on game logic, physics, and asset integration. This project demonstrates foundational skills in game development and C# scripting within a real-time environment.', 
         link: 'bloomville-game-case-study.html' 
       },
@@ -286,18 +279,15 @@
         
         const projectKey = this.getAttribute('data-project');
         const data = projectData[projectKey];
-        // Retrieve the tags string from the clicked project card
         const tagsString = this.querySelector('.tech-tags').getAttribute('data-tags'); 
 
         if (data) {
           modalTitle.textContent = data.title;
           modalText.textContent = data.description;
 
-          // Populate the modal with the tech tags
           createTechTags(modalTechTagsContainer, tagsString); 
           
           modal.style.display = 'block';
-          // Fix: Prevent main page scroll when modal is open
           document.body.classList.add('modal-open'); 
         }
       });
@@ -308,8 +298,6 @@
       modal.style.display = 'none';
       document.body.classList.remove('modal-open'); 
     });
-
-    // Close the modal when the user clicks anywhere outside of the modal
     window.addEventListener('click', function(event) {
       if (event.target == modal) {
         modal.style.display = 'none';
