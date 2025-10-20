@@ -388,21 +388,22 @@ nav {
 }
 
 .experience-category {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   padding-left: 1.5rem;
 }
 
 .experience-category h3 {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--color-dark-berry);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   border-bottom: 2px solid var(--color-soft-pink);
   display: inline-block;
   padding-bottom: 0.3rem;
 }
 
 .experience-item {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
     padding: 0 0 0.5rem 0;
     border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
 }
@@ -464,7 +465,14 @@ nav {
 ul {
   margin-top: 0.5rem;
   margin-bottom: 0;
+  padding-left: 1.25rem;
 }
+
+ul li {
+  line-height: 1.5;
+  color: var(--color-dark-berry);
+}
+
 
 .experience-item li {
   color: var(--color-dark-berry);
