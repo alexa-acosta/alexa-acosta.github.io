@@ -417,10 +417,10 @@ nav {
 }
 
 .experience-item h4 {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 600;
   color: var(--color-dark-berry);
-  margin-bottom: 0.4rem;
+  margin: 0; 
 }
 
 .experience-item .date {
@@ -434,20 +434,21 @@ nav {
   list-style: disc; 
   margin-top: 0.5rem;
   margin-bottom: 0;
-  padding-left: 0;
-  list-style-position: inside;
+  padding-left: 20px;
+  list-style-position: outside;
 }
 
 .experience-item li {
   color: var(--color-dark-berry);
   font-size: 1rem;
   margin-bottom: 0.4rem;
+  margin-left: 0; 
 }
 
 .role-detail {
   font-style: italic;
   color: var(--color-dark-berry);
-  margin-top: 0.2rem;
+  margin: 0; 
 }
 
 .contact-section {
