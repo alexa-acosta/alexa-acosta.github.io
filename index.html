@@ -195,7 +195,7 @@
 
     <footer>
     <div class="container simple-footer">
-        <p>Alexa Acosta | Last Updated: October 16th, 2025</p>
+        <p>Alexa Acosta | Last Updated: October 20th, 2025</p>
     </div>
   </footer>
 
@@ -215,7 +215,69 @@
     </div>
   </div>
 
-  <script>
+<div id="snapMetricsModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn-snap">&times;</span>
+
+      <div class="modal-flex">
+        <div class="image-gallery">
+          <button class="gallery-btn prev-btn">&#10094;</button>
+          <img id="galleryImage" src="assets/snapmetrics-1.png" alt="Snap Metrics UI" />
+          <button class="gallery-btn next-btn">&#10095;</button>
+        </div>
+
+        <div class="modal-description">
+          <h3>Snap Metrics</h3>
+          <p>Snap Metrics is a UI/UX project showcasing analytics insights with a sleek dashboard design. Swipe through the preview screens or click the images to view them larger.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox">
+    <img id="lightboxImg" src="" alt="Enlarged image" />
+  </div>
+
+  <script>
+    /* Existing JS logic for project modal omitted for brevity */
+
+    // --- SNAP METRICS IMAGE GALLERY ---
+    const images = ['assets/snapmetrics-1.png', 'assets/snapmetrics-2.png'];
+    let currentIndex = 0;
+
+    const galleryImage = document.getElementById('galleryImage');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      galleryImage.src = images[currentIndex];
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      galleryImage.src = images[currentIndex];
+    });
+
+    // --- LIGHTBOX POPUP ---
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    galleryImage.addEventListener('click', () => {
+      lightboxImg.src = galleryImage.src;
+      lightbox.style.display = 'flex';
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    const closeBtnSnap = document.querySelector('.close-btn-snap');
+    closeBtnSnap.addEventListener('click', () => {
+      document.getElementById('snapMetricsModal').style.display = 'none';
+    });
+
     const modal = document.getElementById('project-modal');
     const closeBtn = document.querySelector('.close-btn');
     const projectCards = document.querySelectorAll('.project-card');
