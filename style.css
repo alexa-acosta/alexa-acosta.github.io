@@ -388,7 +388,7 @@ nav {
 }
 
 .experience-category {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   padding-left: 1.5rem;
 }
 
@@ -402,7 +402,7 @@ nav {
 }
 
 .experience-item {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     padding: 0 0 0.5rem 0;
     border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
 }
@@ -413,10 +413,27 @@ nav {
 
 .title-flex {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  width: 100%; 
-  margin-bottom: 0.5rem;
+  justify-content: space-between; /* Title on left, date on right */
+  align-items: center;            /* Aligns vertically */
+  gap: 0;                         /* Removes extra spacing */
+  margin: 0;                      /* Clears browser default spacing */
+  padding: 0;
+}
+
+.title-flex h4,
+.title-flex .date {
+  margin: 0;
+  padding: 0;
+}
+
+.title-flex h4 {
+  font-weight: 600;
+  color: var(--color-dark-berry);
+}
+
+.title-flex .date {
+  font-weight: 500;
+  color: var(--color-dark-berry);
 }
 
 .experience-item h4 {
@@ -424,6 +441,7 @@ nav {
   font-weight: 600;
   color: var(--color-dark-berry);
   margin: 0; 
+  padding: 0; 
 }
 
 .experience-item .date {
@@ -432,6 +450,7 @@ nav {
   font-weight: 500;
   white-space: nowrap;
   margin: 0; 
+  padding: 0; 
 }
 
 .experience-item ul {
@@ -442,12 +461,17 @@ nav {
   list-style-position: inside;
 }
 
+ul {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
 .experience-item li {
   color: var(--color-dark-berry);
   font-size: 1rem;
   margin-bottom: 0.4rem;
-  padding-left: 0.75rem; 
-  text-indent: -0.75rem; 
+  padding-left: 1.5rem; 
+  text-indent: -1.5rem; 
 }
 
 .role-detail {
