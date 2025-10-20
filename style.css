@@ -235,7 +235,8 @@ nav {
 }
 
 .about-section .container {
-  padding: 0 1.5rem; /* Ensure inner content has padding */
+  max-width: 1200px;
+  padding: 0;
 }
 
 .about-flex {
@@ -244,13 +245,15 @@ nav {
   position: relative;
   z-index: 1;
   justify-content: center;
-  gap: 3.5rem;  
+  gap: 3rem;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .image-wrapper {
   flex-shrink: 0;
   position: relative;
-  transform: translateX(-20px);
+  transform: translateX(-15px);
 }
 
 .profile-pic {
@@ -263,8 +266,9 @@ nav {
 }
 
 .about-text {
-  max-width: 700px;       
-  flex: 1;                   
+  max-width: 750px;       
+  flex: 1;        
+  line-height: 1.65;      
 }
 
 .about-text p {
