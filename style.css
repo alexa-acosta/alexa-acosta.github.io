@@ -403,7 +403,7 @@ nav {
 
 .experience-item {
     margin-bottom: 2rem;
-    padding: 0 0 0.5rem 0; /* Change 'padding: 0.5rem' to remove left/right padding */
+    padding: 0 0 0.5rem 0;
     border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
 }
 
@@ -438,7 +438,7 @@ nav {
   list-style: disc; 
   margin-top: 0.5rem;
   margin-bottom: 0;
-  padding-left: 0;
+  padding-left: 2rem;
   list-style-position: outside;
 }
 
@@ -446,7 +446,6 @@ nav {
   color: var(--color-dark-berry);
   font-size: 1rem;
   margin-bottom: 0.4rem;
-  margin-left: 1.5rem;
 }
 
 .role-detail {
